@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+    <meta name="description" content="脚手架的升级与配置" />
+    <meta name="hexo-theme-A4" content="v1.8.9" />
+    <link rel="alternate icon" type="image/webp" href="/img/avatar.webp">
+    <title>Levent</title>
+
+    
+        
+<link rel="stylesheet" href="/css/highlight/style1.css">
+
+        
+<link rel="stylesheet" href="/css/reset.css">
+
+        
+<link rel="stylesheet" href="/css/markdown.css">
+
+        
+<link rel="stylesheet" href="/css/fonts.css">
+ 
+         <!--注意：首页既不是post也不是page-->
+        
+        
+        
+<link rel="stylesheet" href="/css/ui.css">
+ 
+        
+<link rel="stylesheet" href="/css/style.css">
+
+
+        
+            <!--返回顶部css-->
+            
+<link rel="stylesheet" href="/css/returnToTop.css">
+
+            
+<link rel="stylesheet" href="/css/unicons.css">
+
+        
+        
+            <!--目录-->
+            
+<link rel="stylesheet" href="/css/toc.css">
+
+        
+    
+
+    
+        
+<link rel="stylesheet" href="/css/returnToLastPage.css">
+
+    
+    
+   
+<link rel="stylesheet" href="/css/lightgallery.min.css">
+
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+    
+    
+    <body>
+        
+            <div class="left-toc-container">
+                <nav id="toc" class="bs-docs-sidebar"></nav>
+            </div>
+        
+        <div class="paper">
+            
+            
+            
+            
+                <div class="shadow-drop-2-bottom paper-main">
+                    
+
+
+<div class="header">
+    <div class="header-container">
+        <img style="
+        width: 56px;
+        height: auto;" alt="^-^" cache-control="max-age=86400" class="header-img" src="/img/avatar.webp" width="10%"></img>
+        <div class="header-content">
+            <a class="logo" href="/">Levent</a> 
+            <span class="description">GIS</span> 
+        </div>
+        
+    </div>
+    
+   
+    <ul class="nav">
+        
+            
+                <li><a href="/">首页</a></li>
+            
+        
+            
+                <li><a href="/list/">文章</a></li>
+            
+        
+            
+                <li><a href="/tags/">标签</a></li>
+            
+        
+            
+                <li><a href="/categories/">分类</a></li>
+            
+        
+            
+                <li><a href="/about/">关于</a></li>
+            
+        
+    </ul>
+</div> 
+        
+                    
+                    
+
+                    
+                    
+                    
+                    <!--说明是文章post页面-->
+                    
+                        <div class="post-main">
+
+    
+        <div class="post-main-title">
+            脚手架的升级与配置
+        </div>
+      
+    
+
+    <div class="post-md">
+        
+            
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%84%9A%E6%89%8B%E6%9E%B6%E7%9A%84%E5%8D%87%E7%BA%A7%E4%B8%8E%E9%85%8D%E7%BD%AE%E2%9C%88%EF%B8%8F"><span class="post-toc-text">脚手架的升级与配置✈️</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8-Vue-3"><span class="post-toc-text">使用 Vue 3</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8-Vue-2"><span class="post-toc-text">使用 Vue 2</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Hello-Vue3"><span class="post-toc-text">Hello Vue3</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8-Vite-%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="post-toc-text">使用 Vite 创建项目</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Create-Vite"><span class="post-toc-text">Create Vite</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Create-Vue"><span class="post-toc-text">Create Vue</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Create-Preset"><span class="post-toc-text">Create Preset</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8"><span class="post-toc-text">简单使用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%85%A8%E5%B1%80%E5%AE%89%E8%A3%85"><span class="post-toc-text">全局安装</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AE%A1%E7%90%86%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE"><span class="post-toc-text">管理项目配置</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8-vue-cli-%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="post-toc-text">使用 @vue&#x2F;cli 创建项目</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%92%8C-Vite-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="post-toc-text">和 Vite 的区别</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9B%B4%E6%96%B0-CLI-%E8%84%9A%E6%89%8B%E6%9E%B6"><span class="post-toc-text">更新 CLI 脚手架</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8-CLI-%E5%88%9B%E5%BB%BA-3-x-%E9%A1%B9%E7%9B%AE"><span class="post-toc-text">使用 CLI 创建 3.x 项目</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AE%A1%E7%90%86%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE-1"><span class="post-toc-text">管理项目配置</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%B0%83%E6%95%B4-TS-Config"><span class="post-toc-text">调整 TS Config</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%8D%8F%E4%BD%9C%E8%A7%84%E8%8C%83"><span class="post-toc-text">添加协作规范</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Editor-Config"><span class="post-toc-text">Editor Config</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Prettier"><span class="post-toc-text">Prettier</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ESLint"><span class="post-toc-text">ESLint</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B7%BB%E5%8A%A0-VSCode-%E6%8F%92%E4%BB%B6"><span class="post-toc-text">添加 VSCode 插件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Chinese-Simplified"><span class="post-toc-text">Chinese (Simplified)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Volar"><span class="post-toc-text">Volar</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Vue-VSCode-Snippets"><span class="post-toc-text">Vue VSCode Snippets</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Auto-Close-Tag"><span class="post-toc-text">Auto Close Tag</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Auto-Rename-Tag"><span class="post-toc-text">Auto Rename Tag</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#EditorConfig"><span class="post-toc-text">EditorConfig</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Prettier-1"><span class="post-toc-text">Prettier</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ESLint-1"><span class="post-toc-text">ESLint</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%A1%B9%E7%9B%AE%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="post-toc-text">项目初始化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%85%A5%E5%8F%A3%E6%96%87%E4%BB%B6"><span class="post-toc-text">入口文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9B%9E%E9%A1%BE-Vue-2"><span class="post-toc-text">回顾 Vue 2</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BA%86%E8%A7%A3-Vue-3"><span class="post-toc-text">了解 Vue 3</span></a></li></ol></li></ol></li></ol>
+            
+        
+        <link rel="stylesheet" type="text/css" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/lightgallery.min.css" /><div class=".article-gallery"><h1 id="脚手架的升级与配置✈️"><a href="#脚手架的升级与配置✈️" class="headerlink" title="脚手架的升级与配置✈️"></a>脚手架的升级与配置✈️</h1><h3 id="使用-Vue-3"><a href="#使用-Vue-3" class="headerlink" title="使用 Vue 3"></a>使用 Vue 3</h3><p> <code>npm i vue</code></p>
+<h3 id="使用-Vue-2"><a href="#使用-Vue-2" class="headerlink" title="使用 Vue 2"></a>使用 Vue 2</h3><p>如果还需要使用 Vue 2 ，则在安装的时候需要手动指定 Tag 为 <code>legacy</code> 或者 <code>v2-latest</code> 才能安装到 Vue 2</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 安装 2.6.x 的最新版本</span><br><span class="line">npm i vue@legacy</span><br><span class="line"></span><br><span class="line"># 安装 2.7.x 的最新版本</span><br><span class="line">npm i vue@v2-latest</span><br></pre></td></tr></table></figure>
+
+<p>注意到 Vue 2 配对了两个不同的 Tag ，分别对应 2.7 系列和 2.6 系列。</p>
+<blockquote>
+<p>Vue 2.7 系列是在 Vue 2 的基础上，对标 Vue 3 的功能支持所作的升级，主要是面向想使用 Vue 3 的新特性、但顾虑于产品对旧浏览器的支持而无法贸然升级的开发者。</p>
+<p>Vue 2.7 与 Vue 2.6 之前的旧版本在使用上略有不同，具体可以查看 Vue 2 的 <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue/blob/main/CHANGELOG.md">更新记录</a> 了解具体的差异化。</p>
+</blockquote>
+<h2 id="Hello-Vue3"><a href="#Hello-Vue3" class="headerlink" title="Hello Vue3"></a>Hello Vue3</h2><p>创建一个启动项目,这是一个基于 Vite + TypeScript + Vue 3 + Pinia 的项目启动模板</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 全局安装脚手架</span></span><br><span class="line">npm install -g create-preset</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 `vue3-ts-vite` 模板创建一个名为 `hello-vue3` 的项目</span></span><br><span class="line">preset init hello-vue3 --template vue3-ts-vite</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-Vite-创建项目"><a href="#使用-Vite-创建项目" class="headerlink" title="使用 Vite 创建项目"></a>使用 Vite 创建项目</h2><h3 id="Create-Vite"><a href="#Create-Vite" class="headerlink" title="Create Vite"></a>Create Vite</h3><p>运行以下命令创建模板项目，再按照命令行的提示操作（选择 <code>vue</code> 技术栈进入），即可创建一个基于 Vite 的基础空项目。</p>
+<p><code>npm create vite</code></p>
+<p>创建的项目非常基础，如果需要用到 Router 、 Vuex 、 ESLint 等程序，都需要再单独安装和配置</p>
+<h3 id="Create-Vue"><a href="#Create-Vue" class="headerlink" title="Create Vue"></a>Create Vue</h3><p>代替基于 Webpack 的 Vue CLI的新脚手架可以创建基于 Vite 的 Vue 基础模板</p>
+<p><code>npm init vue@3</code></p>
+<h3 id="Create-Preset"><a href="#Create-Preset" class="headerlink" title="Create Preset"></a>Create Preset</h3><p>提供快速创建预设项目的能力，可以创建一些有趣实用的项目启动模板，也可以用来管理的常用项目配置</p>
+<h4 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h4><p><code>npm create preset</code></p>
+<p>选择 <code>vue</code> 技术栈进入，选择 <a target="_blank" rel="noopener" href="https://github.com/awesome-starter/vue3-ts-vite-starter">vue3-ts-vite</a> 创建一个基于 Vite + Vue 3 + TypeScript 的项目启动模板。</p>
+<blockquote>
+<p>如果下载失败，可以通过 <code>npm create preset proxy on</code> 开启加速镜像代理下载。</p>
+<p>点击查看：<a target="_blank" rel="noopener" href="https://preset.js.org/zh/docs.html#%E5%BC%80%E5%90%AF%E4%BB%A3%E7%90%86">代理选项 - Create Preset</a></p>
+</blockquote>
+<h4 id="全局安装"><a href="#全局安装" class="headerlink" title="全局安装"></a>全局安装</h4><p><code>npm install -g create-preset</code></p>
+<p>检查安装是否成功</p>
+<p><code>preset -v</code></p>
+<p>可以通过 <code>--template</code> 选项直接指定一个模板创建项目，在这里使用 <code>vue3-ts-vite</code> 模板创建一个名为 <code>hello-vue3</code> 的项目：</p>
+<p><code>preset init hello-vue3 --template vue3-ts-vite</code></p>
+<p>常用的项目模板也可以绑定为本地配置，点击 <a target="_blank" rel="noopener" href="https://preset.js.org/zh/">Create Preset 官方文档</a> 查看完整使用教程。</p>
+<h3 id="管理项目配置"><a href="#管理项目配置" class="headerlink" title="管理项目配置"></a>管理项目配置</h3><p> <code>vite.config.js</code> 或 <code>vite.config.ts</code> 的项目配置文件</p>
+<h2 id="使用-vue-cli-创建项目"><a href="#使用-vue-cli-创建项目" class="headerlink" title="使用 @vue&#x2F;cli 创建项目"></a>使用 @vue&#x2F;cli 创建项目</h2><h3 id="和-Vite-的区别"><a href="#和-Vite-的区别" class="headerlink" title="和 Vite 的区别"></a>和 Vite 的区别</h3><p>基于 Webpack</p>
+<h3 id="更新-CLI-脚手架"><a href="#更新-CLI-脚手架" class="headerlink" title="更新 CLI 脚手架"></a>更新 CLI 脚手架</h3><p>全局安装，把脚手架更新到最新版本</p>
+<p><code>npm install -g @vue/cli</code></p>
+<h3 id="使用-CLI-创建-3-x-项目"><a href="#使用-CLI-创建-3-x-项目" class="headerlink" title="使用 CLI 创建 3.x 项目"></a>使用 CLI 创建 3.x 项目</h3><p>创建项目使用的是 <code>create</code> 命令：</p>
+<p><code>vue create hello-vue3</code></p>
+<p>由于要使用 TypeScript ，所以需要选择最后一个选项来进行自定义搭配，通过键盘的上下箭头进行切换选择：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Vue</span> <span class="variable constant_">CLI</span> v5<span class="number">.0</span><span class="number">.4</span></span><br><span class="line">? <span class="title class_">Please</span> pick a <span class="attr">preset</span>:</span><br><span class="line">  <span class="title class_">Default</span> ([<span class="title class_">Vue</span> <span class="number">3</span>] babel, eslint)</span><br><span class="line">  <span class="title class_">Default</span> ([<span class="title class_">Vue</span> <span class="number">2</span>] babel, eslint)</span><br><span class="line">&gt; <span class="title class_">Manually</span> select features</span><br></pre></td></tr></table></figure>
+
+<p>多选菜单可以按空格选中需要的依赖，总共选择了下面这些选项：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Vue</span> <span class="variable constant_">CLI</span> v5<span class="number">.0</span><span class="number">.4</span></span><br><span class="line">? <span class="title class_">Please</span> pick a <span class="attr">preset</span>: <span class="title class_">Manually</span> select features</span><br><span class="line">? <span class="title class_">Check</span> the features needed <span class="keyword">for</span> your <span class="attr">project</span>: (<span class="title class_">Press</span> &lt;space&gt; to select,</span><br><span class="line">&lt;a&gt; to toggle all, &lt;i&gt; to invert selection, and &lt;enter&gt; to proceed)</span><br><span class="line"> (*) <span class="title class_">Babel</span></span><br><span class="line"> (*) <span class="title class_">TypeScript</span></span><br><span class="line"> ( ) <span class="title class_">Progressive</span> <span class="title class_">Web</span> <span class="title class_">App</span> (<span class="variable constant_">PWA</span>) <span class="title class_">Support</span></span><br><span class="line"> (*) <span class="title class_">Router</span></span><br><span class="line"> (*) <span class="title class_">Vuex</span></span><br><span class="line"> (*) <span class="variable constant_">CSS</span> <span class="title class_">Pre</span>-processors</span><br><span class="line">&gt;(*) <span class="title class_">Linter</span> / <span class="title class_">Formatter</span></span><br><span class="line"> ( ) <span class="title class_">Unit</span> <span class="title class_">Testing</span></span><br><span class="line"> ( ) <span class="variable constant_">E2E</span> <span class="title class_">Testing</span></span><br></pre></td></tr></table></figure>
+
+<p>选择 Vue 版本，要用 Vue 3 所以需要选择 3.x ：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">? <span class="title class_">Choose</span> a version <span class="keyword">of</span> <span class="title class_">Vue</span>.<span class="property">js</span> that you want to start the project <span class="keyword">with</span></span><br><span class="line">  (<span class="title class_">Use</span> arrow keys)</span><br><span class="line">&gt; <span class="number">3.</span>x</span><br><span class="line">  <span class="number">2.</span>x</span><br></pre></td></tr></table></figure>
+
+<p>是否选择 Class 语法的模板，在 Vue 2 版本为了更好的支持 TypeScript ，通常需要使用 Class 语法，由于 Vue 3 有了对 TypeScript 支持度更高的 Composition API ，因此选择 <code>n</code> ，也就是 “否” ：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">? <span class="title class_">Use</span> <span class="keyword">class</span>-style component syntax? (y/N) n</span><br></pre></td></tr></table></figure>
+
+<p>Babel 可以把新版本的 JavaScript 语句转换为兼容性更好的低版本 Polyfill 写法，所以选 <code>y</code> 确认使用：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">? <span class="title class_">Use</span> <span class="title class_">Babel</span> alongside <span class="title class_">TypeScript</span></span><br><span class="line">  (required <span class="keyword">for</span> modern mode, auto-detected polyfills, transpiling <span class="variable constant_">JSX</span>)?</span><br><span class="line">  (Y/n) y</span><br></pre></td></tr></table></figure>
+
+<p>接下来是选择路由模式，选 <code>y</code> 启用 History 模式，选 <code>n</code> 使用 Hash 模式，可根据项目情况选择。</p>
+<p>建议先选 <code>y</code> 确认，如果遇到部署的问题可以在 “路由” 一章的 <a target="_blank" rel="noopener" href="https://vue3.chengpeiquan.com/router.html#%E9%83%A8%E7%BD%B2%E9%97%AE%E9%A2%98%E4%B8%8E%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%85%8D%E7%BD%AE">部署问题与服务端配置</a> 小节查看如何处理。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">? Use history mode for router?</span><br><span class="line">  (Requires proper server setup for index fallback in production)</span><br><span class="line">  (Y/n) y</span><br></pre></td></tr></table></figure>
+
+<p>选择一个 CSS 预处理器，可以根据自己的喜好选择，不过鉴于目前开源社区组件常用的都是 <a target="_blank" rel="noopener" href="https://github.com/less/less.js">Less</a> ，所以也建议选择 Less 作为入门的预处理器工具。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">? Pick a CSS pre-processor (PostCSS, Autoprefixer and CSS Modules are supported</span><br><span class="line"> by default):</span><br><span class="line">  Sass/SCSS (with dart-sass)</span><br><span class="line">&gt; Less</span><br><span class="line">  Stylus</span><br></pre></td></tr></table></figure>
+
+<p>Lint 规则，用来代码检查，写 TypeScript 离不开 Lint ，可以根据自己喜好选择，也可以先选择默认，后面在 <a target="_blank" rel="noopener" href="https://vue3.chengpeiquan.com/upgrade.html#%E6%B7%BB%E5%8A%A0%E5%8D%8F%E4%BD%9C%E8%A7%84%E8%8C%83">添加协作规范</a> 一节也有说明如何配置规则，这里先默认第一个：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">? Pick a linter / formatter config: (Use arrow keys)</span><br><span class="line">&gt; ESLint with error prevention only</span><br><span class="line">  ESLint + Airbnb config</span><br><span class="line">  ESLint + Standard config</span><br><span class="line">  ESLint + Prettier</span><br></pre></td></tr></table></figure>
+
+<p>Lint 的校验时机，一个是在保存时校验，一个是在提交 commit 的时候才校验，这里也选默认：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">? Pick additional lint features: (Press &lt;space&gt; to select,</span><br><span class="line"> &lt;a&gt; to toggle all, &lt;i&gt; to invert selection, and &lt;enter&gt; to proceed)</span><br><span class="line">&gt;(*) Lint on save</span><br><span class="line"> ( ) Lint and fix on commit</span><br></pre></td></tr></table></figure>
+
+<p>项目配置文件，笔者更习惯保存为独立文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">? Where do you prefer placing config for Babel, ESLint, etc.?</span><br><span class="line">  (Use arrow keys)</span><br><span class="line">&gt; In dedicated config files</span><br><span class="line">  In package.json</span><br></pre></td></tr></table></figure>
+
+<p>是否保存为未来的项目配置，存起来方便以后快速创建：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">? Save this as a preset for future projects? Yes</span><br><span class="line">? Save preset as: vue-3-ts-config</span><br></pre></td></tr></table></figure>
+
+<p>至此，项目创建完成！可以通过 <code>npm run serve</code> 开启热更进行开发调试，通过 <code>npm run build</code> 构建打包上线。</p>
+<h3 id="管理项目配置-1"><a href="#管理项目配置-1" class="headerlink" title="管理项目配置"></a>管理项目配置</h3><p>Vue CLI 的配置文件是 <code>vue.config.js</code></p>
+<h2 id="调整-TS-Config"><a href="#调整-TS-Config" class="headerlink" title="调整 TS Config"></a>调整 TS Config</h2><p>如果在 Vite 的配置文件 vite.config.ts ，或者是在 Vue CLI 的配置文件 vue.config.js 里设置了 alias 的话，因为 TypeScript 不认识里面配置的 alias 别名，所以需要再对 tsconfig.json 做一点调整，增加对应的 paths ，否则在 VSCode 里可能会路径报红，提示找不到模块或其相应的类型声明。</p>
+<p>假设在 vite.config.ts 里配置了这些 alias ：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="attr">resolve</span>: &#123;</span><br><span class="line">    <span class="attr">alias</span>: &#123;</span><br><span class="line">      <span class="string">&#x27;@&#x27;</span>: <span class="title function_">resolve</span>(<span class="string">&#x27;src&#x27;</span>), <span class="comment">// 源码根目录</span></span><br><span class="line">      <span class="string">&#x27;@img&#x27;</span>: <span class="title function_">resolve</span>(<span class="string">&#x27;src/assets/img&#x27;</span>), <span class="comment">// 图片</span></span><br><span class="line">      <span class="string">&#x27;@less&#x27;</span>: <span class="title function_">resolve</span>(<span class="string">&#x27;src/assets/less&#x27;</span>), <span class="comment">// 预处理器</span></span><br><span class="line">      <span class="string">&#x27;@libs&#x27;</span>: <span class="title function_">resolve</span>(<span class="string">&#x27;src/libs&#x27;</span>), <span class="comment">// 本地库</span></span><br><span class="line">      <span class="string">&#x27;@plugins&#x27;</span>: <span class="title function_">resolve</span>(<span class="string">&#x27;src/plugins&#x27;</span>), <span class="comment">// 本地插件</span></span><br><span class="line">      <span class="string">&#x27;@cp&#x27;</span>: <span class="title function_">resolve</span>(<span class="string">&#x27;src/components&#x27;</span>), <span class="comment">// 公共组件</span></span><br><span class="line">      <span class="string">&#x27;@views&#x27;</span>: <span class="title function_">resolve</span>(<span class="string">&#x27;src/views&#x27;</span>), <span class="comment">// 路由组件</span></span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>那么在该项目的 tsconfig.json 文件里就需要相应的加上这些 paths ：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;compilerOptions&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="attr">&quot;paths&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;@/*&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;src/*&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;@img/*&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;src/assets/img/*&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;@less/*&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;src/assets/less/*&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;@libs/*&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;src/libs/*&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;@plugins/*&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;src/plugins/*&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;@cp/*&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;src/components/*&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;@views/*&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;src/views/*&quot;</span><span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>paths 的配置全部要以 <code>/*</code> 结尾，代表该目录下的文件都可以被匹配，而不是指向某一个文件</p>
+</blockquote>
+<h2 id="添加协作规范"><a href="#添加协作规范" class="headerlink" title="添加协作规范"></a>添加协作规范</h2><h3 id="Editor-Config"><a href="#Editor-Config" class="headerlink" title="Editor Config"></a>Editor Config</h3><p>在项目根目录下再增加一个名为 <code>.editorconfig</code> 的文件。</p>
+<p>这个文件的作用是强制编辑器以该配置来进行编码，比如缩进统一为空格而不是 Tab ，每次缩进都是 2 个空格而不是 4 个等等。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># <span class="attr">http</span>:<span class="comment">//editorconfig.org</span></span><br><span class="line">root = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">[*]</span><br><span class="line">charset = utf-<span class="number">8</span></span><br><span class="line">end_of_line = lf</span><br><span class="line">indent_size = <span class="number">2</span></span><br><span class="line">indent_style = space</span><br><span class="line">insert_final_newline = <span class="literal">true</span></span><br><span class="line">max_line_length = <span class="number">80</span></span><br><span class="line">trim_trailing_whitespace = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">[*.<span class="property">md</span>]</span><br><span class="line">max_line_length = <span class="number">0</span></span><br><span class="line">trim_trailing_whitespace = <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>VSCode 需要安装 <a target="_blank" rel="noopener" href="https://vue3.chengpeiquan.com/upgrade.html#editorconfig-for-vs-code">EditorConfig for VSCode 扩展</a></p>
+</blockquote>
+<h3 id="Prettier"><a href="#Prettier" class="headerlink" title="Prettier"></a>Prettier</h3><p>如果需要手动增加功能支持，请在项目根目录下创建一个名为 <code>.prettierrc</code> 的文件，写入以下内容：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;semi&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;singleQuote&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>这代表 JavaScript &#x2F; TypeScript 代码一般情况下不需要加 <code>;</code> 分号结尾，然后使用 <code>&#39;&#39;</code> 单引号来定义字符串等变量。</p>
+<p>完整的配置选项以及默认值可以在 Prettier 官网的 <a target="_blank" rel="noopener" href="https://prettier.io/docs/en/options.html">Options Docs</a> 查看</p>
+<h3 id="ESLint"><a href="#ESLint" class="headerlink" title="ESLint"></a>ESLint</h3><p>查找 JavaScript &#x2F; TypeScript 代码问题并提供修复建议的工具</p>
+<p>以一个 Vite + TypeScript + <a target="_blank" rel="noopener" href="https://vue3.chengpeiquan.com/upgrade.html#prettier">Prettier</a> 的 Vue 3 项目为例，在项目根目录下创建一个名为 <code>.eslintrc.js</code> 文件，写入以下内容：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">root</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">env</span>: &#123;</span><br><span class="line">    <span class="attr">node</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">browser</span>: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">extends</span>: [<span class="string">&#x27;plugin:vue/vue3-essential&#x27;</span>, <span class="string">&#x27;eslint:recommended&#x27;</span>, <span class="string">&#x27;prettier&#x27;</span>],</span><br><span class="line">  <span class="attr">parser</span>: <span class="string">&#x27;vue-eslint-parser&#x27;</span>,</span><br><span class="line">  <span class="attr">parserOptions</span>: &#123;</span><br><span class="line">    <span class="attr">parser</span>: <span class="string">&#x27;@typescript-eslint/parser&#x27;</span>,</span><br><span class="line">    <span class="attr">ecmaVersion</span>: <span class="number">2020</span>,</span><br><span class="line">    <span class="attr">sourceType</span>: <span class="string">&#x27;module&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [<span class="string">&#x27;@typescript-eslint&#x27;</span>, <span class="string">&#x27;prettier&#x27;</span>],</span><br><span class="line">  <span class="attr">rules</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;no-console&#x27;</span>: process.<span class="property">env</span>.<span class="property">NODE_ENV</span> === <span class="string">&#x27;production&#x27;</span> ? <span class="string">&#x27;warn&#x27;</span> : <span class="string">&#x27;off&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;no-debugger&#x27;</span>: process.<span class="property">env</span>.<span class="property">NODE_ENV</span> === <span class="string">&#x27;production&#x27;</span> ? <span class="string">&#x27;warn&#x27;</span> : <span class="string">&#x27;off&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;prettier/prettier&#x27;</span>: <span class="string">&#x27;warn&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;vue/multi-word-component-names&#x27;</span>: <span class="string">&#x27;off&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">globals</span>: &#123;</span><br><span class="line">    <span class="attr">defineProps</span>: <span class="string">&#x27;readonly&#x27;</span>,</span><br><span class="line">    <span class="attr">defineEmits</span>: <span class="string">&#x27;readonly&#x27;</span>,</span><br><span class="line">    <span class="attr">defineExpose</span>: <span class="string">&#x27;readonly&#x27;</span>,</span><br><span class="line">    <span class="attr">withDefaults</span>: <span class="string">&#x27;readonly&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后安装对应的依赖（记得添加 <code>-D</code> 参数添加到 <code>devDependencies</code> ，因为都是开发环境下使用的）：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/eslint">eslint</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/eslint-config-prettier">eslint-config-prettier</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/eslint-plugin-prettier">eslint-plugin-prettier</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/eslint-plugin-vue">eslint-plugin-vue</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/@typescript-eslint/eslint-plugin">@typescript-eslint&#x2F;eslint-plugin</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/@typescript-eslint/parser">@typescript-eslint&#x2F;parser</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/prettier">prettier</a></li>
+</ul>
+<p>这样就可以在项目中生效了（如果 VSCode 未能立即生效，重启编辑器即可），一旦代码有问题， ESLint 就会帮检查出来并反馈具体的报错原因，久而久之的代码就会越写越规范。</p>
+<p>有一些文件需要排除检查，可以再创建一个 <code>.eslintignore</code> 文件在项目根目录下，里面添加要排除的文件或者文件夹名称：</p>
+<p><code>dist/*</code></p>
+<h2 id="添加-VSCode-插件"><a href="#添加-VSCode-插件" class="headerlink" title="添加 VSCode 插件"></a>添加 VSCode 插件</h2><ul>
+<li><h3 id="Chinese-Simplified"><a href="#Chinese-Simplified" class="headerlink" title="Chinese (Simplified)"></a>Chinese (Simplified)</h3></li>
+<li><h3 id="Volar"><a href="#Volar" class="headerlink" title="Volar"></a>Volar</h3></li>
+<li><h3 id="Vue-VSCode-Snippets"><a href="#Vue-VSCode-Snippets" class="headerlink" title="Vue VSCode Snippets"></a>Vue VSCode Snippets</h3></li>
+</ul>
+<p>实际使用 Vue 的角度提供 Vue 代码片段的生成，可以通过简单的命令，在 .vue 文件里实现大篇幅的代码片段生成，例如：</p>
+<ol>
+<li>输入 <code>ts</code> 可以快速创建一个包含了 <code>template</code> + <code>script</code> + <code>style</code> 的 Vue 组件模板（可选 2.x 、3.x 以及 class 风格的模板）</li>
+<li>也可以通过输入带有 <code>v3</code> 开头的指令来快速生成 Vue 3 的 API 。</li>
+</ol>
+<ul>
+<li><h3 id="Auto-Close-Tag"><a href="#Auto-Close-Tag" class="headerlink" title="Auto Close Tag"></a>Auto Close Tag</h3></li>
+</ul>
+<p>快速完成 HTML 标签的闭合</p>
+<ul>
+<li><h3 id="Auto-Rename-Tag"><a href="#Auto-Rename-Tag" class="headerlink" title="Auto Rename Tag"></a>Auto Rename Tag</h3></li>
+<li><h3 id="EditorConfig"><a href="#EditorConfig" class="headerlink" title="EditorConfig"></a>EditorConfig</h3></li>
+<li><h3 id="Prettier-1"><a href="#Prettier-1" class="headerlink" title="Prettier"></a>Prettier</h3></li>
+<li><h3 id="ESLint-1"><a href="#ESLint-1" class="headerlink" title="ESLint"></a>ESLint</h3></li>
+</ul>
+<h2 id="项目初始化"><a href="#项目初始化" class="headerlink" title="项目初始化"></a>项目初始化</h2><h3 id="入口文件"><a href="#入口文件" class="headerlink" title="入口文件"></a>入口文件</h3><p>项目的初始化都是在main.ts 这个入口文件集中处理</p>
+<h3 id="回顾-Vue-2"><a href="#回顾-Vue-2" class="headerlink" title="回顾 Vue 2"></a>回顾 Vue 2</h3><p>Vue 2 在导入各种依赖之后，相关的 Vue 生态和插件，有的是使用 <code>Vue.use()</code> 来进行初始化，有的是作为 <code>new Vue()</code> 的入参</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">Vue</span> <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&#x27;./router&#x27;</span></span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">&#x27;./store&#x27;</span></span><br><span class="line"><span class="keyword">import</span> pluginA <span class="keyword">from</span> <span class="string">&#x27;pluginA&#x27;</span></span><br><span class="line"><span class="keyword">import</span> pluginB <span class="keyword">from</span> <span class="string">&#x27;pluginB&#x27;</span></span><br><span class="line"><span class="keyword">import</span> pluginC <span class="keyword">from</span> <span class="string">&#x27;pluginC&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用了 `use` 方法激活</span></span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">use</span>(pluginA)</span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">use</span>(pluginB)</span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">use</span>(pluginC)</span><br><span class="line"></span><br><span class="line"><span class="title class_">Vue</span>.<span class="property">config</span>.<span class="property">productionTip</span> = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 作为 `new Vue()` 的入参激活</span></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span><br><span class="line">  router,</span><br><span class="line">  store,</span><br><span class="line">  <span class="attr">render</span>: <span class="function">(<span class="params">h</span>) =&gt;</span> <span class="title function_">h</span>(<span class="title class_">App</span>),</span><br><span class="line">&#125;).$mount(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="了解-Vue-3"><a href="#了解-Vue-3" class="headerlink" title="了解 Vue 3"></a>了解 Vue 3</h3><p>在 Vue 3 ，使用 <code>createApp</code> 执行 Vue 的初始化，统一都是由 <code>use()</code> 进行激活</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&#x27;./router&#x27;</span></span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">&#x27;./store&#x27;</span></span><br><span class="line"><span class="keyword">import</span> pluginA <span class="keyword">from</span> <span class="string">&#x27;pluginA&#x27;</span></span><br><span class="line"><span class="keyword">import</span> pluginB <span class="keyword">from</span> <span class="string">&#x27;pluginB&#x27;</span></span><br><span class="line"><span class="keyword">import</span> pluginC <span class="keyword">from</span> <span class="string">&#x27;pluginC&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">createApp</span>(<span class="title class_">App</span>)</span><br><span class="line">  .<span class="title function_">use</span>(store)</span><br><span class="line">  .<span class="title function_">use</span>(router)</span><br><span class="line">  .<span class="title function_">use</span>(pluginA)</span><br><span class="line">  .<span class="title function_">use</span>(pluginB)</span><br><span class="line">  .<span class="title function_">use</span>(pluginC)</span><br><span class="line">  .<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</div><script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
+    </div>
+
+    <div class="post-meta">
+        <i>
+        
+            <span>2023-04-23</span>
+            
+                <span>该篇文章被 John Doe</span>
+            
+            
+                <span>打上标签:
+                    
+                    
+                        <a href='/tags/Vue/'>
+                            Vue
+                        </a>
+                    
+                        <a href='/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/'>
+                            前端工程化
+                        </a>
+                    
+                </span>
+             
+             
+                <span>归为分类:
+                    
+                    
+                        <a href='/categories/Vue3/'>
+                            Vue3
+                        </a>
+                    
+                </span>
+            
+        
+        </i>
+    </div>
+    <br>
+    
+    <!-- <div class="post-footer-pre-next">
+        <span>上一篇：<a href=""></a></span>
+        <span class="post-footer-pre-next-last-span-right">上一篇：<a href=""></a></span>
+    </div> -->
+
+     
+</div>
+
+
+
+                                      
+                    
+                    
+                    <div class="footer">
+    
+        <span> 
+            © 2003-2024 Levent 
+
+            
+                
+
+            
+        </span>
+    
+</div>
+<!--这是指一条线往下的内容-->
+<div class="footer-last">
+    
+            <span>🌊看过大海的人不会忘记海的广阔🌊</span>
+            
+                <span class="footer-last-span-right"><i>本站由<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">Hexo</a>驱动｜使用<a target="_blank" rel="noopener" href="https://github.com/HiNinoJay/hexo-theme-A4">Hexo-theme-A4</a>主题</i></span>
+            
+    
+</div>
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <!--目录-->
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tocify/1.9.0/javascripts/jquery.tocify.min.js" type="text/javascript" ></script>
+        
+<script src="/js/toc.js"></script>
+
+    
+
+    
+<script src="/js/randomHeaderContent.js"></script>
+
+    <!--回到顶部按钮-->
+    
+        
+<script src="/js/returnToTop.js"></script>
+
+    
+
+    
+        
+<script src="/js/returnToLastPage.js"></script>
+
+    
+
+
+
+
+
+<script src="/js/lightgallery.min.js"></script>
+
+
+
+                </div>
+            
+            
+                <!-- 回到顶部的按钮-->  
+                <div class="progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+            
+                <!-- 返回的按钮-->  
+                <div class="return-to-last-progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+    </body>
+
+
+    <!--暗黑模式-->
+    <script src="/js/darkmode-js.min.js"></script>
+    <script>
+        function addDarkmodeWidget() {
+        const options = {
+            bottom: '53px', // default: '32px'
+            right: 'unset', // default: '32px'
+            left: '42px', // default: 'unset'
+            time: '0.3s', // default: '0.3s'
+            mixColor: '#fff', // default: '#fff'
+            backgroundColor: ' #e4e4e4 ',  // default: '#fff'
+            buttonColorDark: '#100f2c',  // default: '#100f2c'
+            buttonColorLight: '#fff', // default: '#fff'
+            saveInCookies: true, // default: true,
+            label: '🌓', // default: ''
+            autoMatchOsTheme: true // default: true
+        }
+    
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+        
+        }
+        window.addEventListener('load', addDarkmodeWidget);
+    </script>
+  
+</html>

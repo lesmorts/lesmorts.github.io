@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+    <meta name="description" content="POI检索与路径规划" />
+    <meta name="hexo-theme-A4" content="v1.8.9" />
+    <link rel="alternate icon" type="image/webp" href="/img/avatar.webp">
+    <title>Levent</title>
+
+    
+        
+<link rel="stylesheet" href="/css/highlight/style1.css">
+
+        
+<link rel="stylesheet" href="/css/reset.css">
+
+        
+<link rel="stylesheet" href="/css/markdown.css">
+
+        
+<link rel="stylesheet" href="/css/fonts.css">
+ 
+         <!--注意：首页既不是post也不是page-->
+        
+        
+        
+<link rel="stylesheet" href="/css/ui.css">
+ 
+        
+<link rel="stylesheet" href="/css/style.css">
+
+
+        
+            <!--返回顶部css-->
+            
+<link rel="stylesheet" href="/css/returnToTop.css">
+
+            
+<link rel="stylesheet" href="/css/unicons.css">
+
+        
+        
+            <!--目录-->
+            
+<link rel="stylesheet" href="/css/toc.css">
+
+        
+    
+
+    
+        
+<link rel="stylesheet" href="/css/returnToLastPage.css">
+
+    
+    
+   
+<link rel="stylesheet" href="/css/lightgallery.min.css">
+
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+    
+    
+    <body>
+        
+            <div class="left-toc-container">
+                <nav id="toc" class="bs-docs-sidebar"></nav>
+            </div>
+        
+        <div class="paper">
+            
+            
+            
+            
+                <div class="shadow-drop-2-bottom paper-main">
+                    
+
+
+<div class="header">
+    <div class="header-container">
+        <img style="
+        width: 56px;
+        height: auto;" alt="^-^" cache-control="max-age=86400" class="header-img" src="/img/avatar.webp" width="10%"></img>
+        <div class="header-content">
+            <a class="logo" href="/">Levent</a> 
+            <span class="description">GIS</span> 
+        </div>
+        
+    </div>
+    
+   
+    <ul class="nav">
+        
+            
+                <li><a href="/">首页</a></li>
+            
+        
+            
+                <li><a href="/list/">文章</a></li>
+            
+        
+            
+                <li><a href="/tags/">标签</a></li>
+            
+        
+            
+                <li><a href="/categories/">分类</a></li>
+            
+        
+            
+                <li><a href="/about/">关于</a></li>
+            
+        
+    </ul>
+</div> 
+        
+                    
+                    
+
+                    
+                    
+                    
+                    <!--说明是文章post页面-->
+                    
+                        <div class="post-main">
+
+    
+        <div class="post-main-title">
+            POI检索与路径规划
+        </div>
+      
+    
+
+    <div class="post-md">
+        
+            
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#POI%E6%A3%80%E7%B4%A2%E7%AE%80%E4%BB%8B"><span class="post-toc-text">POI检索简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B8%83%E5%B1%80%E6%96%87%E4%BB%B6%E4%B8%AD%E5%8A%A0%E5%85%A5%E8%BE%93%E5%85%A5%E6%A1%86%E5%92%8C%E6%90%9C%E7%B4%A2%E6%8C%89%E9%92%AE"><span class="post-toc-text">布局文件中加入输入框和搜索按钮</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%88%9B%E5%BB%BAPOI"><span class="post-toc-text">创建POI</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#layout%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E7%BB%93%E6%9E%9C%E5%B8%83%E5%B1%80%E6%96%87%E4%BB%B6poi-item-xml"><span class="post-toc-text">layout中添加搜索结果布局文件poi_item.xml</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9C%A8activity-main-xml%E4%B8%AD%E6%B7%BB%E5%8A%A0listView%E6%8E%A7%E4%BB%B6-activity-main-xml%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81%E8%A7%81"><span class="post-toc-text">在activity_main.xml中添加listView控件(activity_main.xml完整代码见 )</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9C%A8MainActivity%E5%90%8C%E7%BA%A7%E8%B7%AF%E5%BE%84%E6%96%B0%E5%BB%BAPoiAdapter%E9%80%82%E9%85%8D%E5%99%A8%E7%B1%BB"><span class="post-toc-text">在MainActivity同级路径新建PoiAdapter适配器类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%80%9A%E8%BF%87POI%E6%A3%80%E7%B4%A2%E7%9B%91%E5%90%AC%E5%99%A8%E5%9C%A8listView%E4%B8%AD%E5%A1%AB%E5%85%85%E5%86%85%E5%AE%B9"><span class="post-toc-text">通过POI检索监听器在listView中填充内容</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%82%B9%E5%87%BB%E6%90%9C%E7%B4%A2%E7%BB%93%E6%9E%9C%E5%88%97%E8%A1%A8%E5%A4%96%E5%8C%BA%E5%9F%9F%E6%97%B6%E9%9A%90%E8%97%8F%E7%BB%93%E6%9E%9C%E5%88%97%E8%A1%A8"><span class="post-toc-text">点击搜索结果列表外区域时隐藏结果列表</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%98%E6%96%B9Demo%E4%B8%AD%E7%9A%84Overlay"><span class="post-toc-text">下载官方Demo中的Overlay</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%9E%E7%8E%B0%E9%A9%BE%E8%BD%A6%E8%B7%AF%E7%BA%BF%E8%A7%84%E5%88%92"><span class="post-toc-text">实现驾车路线规划</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9C%A8MainActivity%E4%B8%AD%E6%B7%BB%E5%8A%A0RoutePlanSearch%E5%8F%98%E9%87%8F"><span class="post-toc-text">在MainActivity中添加RoutePlanSearch变量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9C%A8addPOI%E5%87%BD%E6%95%B0%E4%B8%AD%E5%AE%9E%E4%BE%8B%E5%8C%96%E5%B9%B6%E5%88%9B%E5%BB%BA%E7%9B%91%E5%90%AC"><span class="post-toc-text">在addPOI函数中实例化并创建监听</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B7%BB%E5%8A%A0%E8%B7%AF%E7%BA%BF%E8%A7%84%E5%88%92%E6%8C%89%E9%92%AE"><span class="post-toc-text">添加路线规划按钮</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%91%E8%B5%B7%E8%B7%AF%E7%BA%BF%E8%A7%84%E5%88%92"><span class="post-toc-text">发起路线规划</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9C%80%E7%BB%88%E7%BB%93%E6%9E%9C"><span class="post-toc-text">最终结果</span></a></li></ol>
+            
+        
+        <link rel="stylesheet" type="text/css" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/lightgallery.min.css" /><div class=".article-gallery"><p>POI搜索和路径规划总体实现了搜索+路径规划的功能，所以就一起写了</p>
+<h2 id="POI检索简介"><a href="#POI检索简介" class="headerlink" title="POI检索简介"></a>POI检索简介</h2><p>POI（Point of Interest），即“兴趣点”。在地理信息系统中，一个POI可以是一栋房子、一个景点、一个邮筒或者一个公交站等。<br>百度地图SDK提供三种类型的POI检索：城市内检索、周边检索和区域检索（即矩形区域检索）。下面步骤以城市内检索为例</p>
+<h2 id="布局文件中加入输入框和搜索按钮"><a href="#布局文件中加入输入框和搜索按钮" class="headerlink" title="布局文件中加入输入框和搜索按钮"></a>布局文件中加入输入框和搜索按钮</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/Text_1&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;30dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;43dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">&quot;16dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintTop_toBottomOf</span>=<span class="string">&quot;@id/bmapView&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintStart_toStartOf</span>=<span class="string">&quot;parent&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintEnd_toStartOf</span>=<span class="string">&quot;@id/editText_search&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:gravity</span>=<span class="string">&quot;center&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">&quot;@string/zai&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- EditText 1 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">EditText</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/editText_search&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;0dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">&quot;16dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:inputType</span>=<span class="string">&quot;text&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:hint</span>=<span class="string">&#x27;绵阳&#x27;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintTop_toBottomOf</span>=<span class="string">&quot;@id/bmapView&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintStart_toEndOf</span>=<span class="string">&quot;@id/Text_1&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintEnd_toStartOf</span>=<span class="string">&quot;@id/guideline&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- TextView 2 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/Text_2&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;50dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;43dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">&quot;16dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintTop_toBottomOf</span>=<span class="string">&quot;@id/bmapView&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintStart_toEndOf</span>=<span class="string">&quot;@id/guideline&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintEnd_toStartOf</span>=<span class="string">&quot;@id/editText_search_1&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:gravity</span>=<span class="string">&quot;center&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">&quot;@string/Text_2&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- EditText 2 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">EditText</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/editText_search_1&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;0dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:inputType</span>=<span class="string">&quot;text&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_marginEnd</span>=<span class="string">&quot;16dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">&quot;16dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:hint</span>=<span class="string">&quot;西南科技大学&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintTop_toBottomOf</span>=<span class="string">&quot;@id/bmapView&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintStart_toEndOf</span>=<span class="string">&quot;@id/Text_2&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintEnd_toStartOf</span>=<span class="string">&quot;@id/button_search&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintBottom_toTopOf</span>=<span class="string">&quot;@id/mapTypeRadioGroup&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:imeOptions</span>=<span class="string">&quot;actionSearch&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:autofillHints</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- Guideline --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">androidx.constraintlayout.widget.Guideline</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/guideline&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:orientation</span>=<span class="string">&quot;vertical&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintGuide_percent</span>=<span class="string">&quot;0.2&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- Search Button --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/button_search&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:gravity</span>=<span class="string">&quot;center&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:drawableLeft</span>=<span class="string">&quot;@drawable/search&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">&quot;@string/Search&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintEnd_toEndOf</span>=<span class="string">&quot;parent&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintTop_toTopOf</span>=<span class="string">&quot;@id/Text_2&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintBottom_toBottomOf</span>=<span class="string">&quot;@id/Text_2&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注：使用了相对位置，具体完整布局代码见 ，其中 <code>android:drawableLeft=&quot;@drawable/search&quot;</code>为搜索图标</p>
+<p>添加后样式：</p>
+<p><a target="_blank" rel="noopener" href="https://lesmorts.github.io/picx-images-hosting/1.1aorh9fdf5.webp" class="gallery-item" style="box-shadow: none;"> <img src="https://lesmorts.github.io/picx-images-hosting/1.1aorh9fdf5.webp"></a></p>
+<h2 id="创建POI"><a href="#创建POI" class="headerlink" title="创建POI"></a>创建POI</h2><p>1.在MainActivity中添加PoiSearch变量</p>
+<p><code>private PoiSearch mPoiSearch;</code></p>
+<p>2.创建searchPOI函数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">searchPOI</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="comment">//获取两个EditText中的文本，即搜索城市和搜索地址</span></span><br><span class="line">        <span class="type">EditText</span> <span class="variable">editTextCity</span> <span class="operator">=</span> findViewById(R.id.editText_search);</span><br><span class="line">        <span class="type">String</span> <span class="variable">searchCity</span> <span class="operator">=</span> editTextCity.getText().toString();</span><br><span class="line">        <span class="type">EditText</span> <span class="variable">editTextKeyword</span> <span class="operator">=</span> findViewById(R.id.editText_search_1);</span><br><span class="line">        <span class="type">String</span> <span class="variable">searchKeyword</span> <span class="operator">=</span> editTextKeyword.getText().toString();</span><br><span class="line">    <span class="comment">//实例化mPoiSearch</span></span><br><span class="line">        mPoiSearch = PoiSearch.newInstance();</span><br><span class="line">    <span class="comment">//创建POI检索监听器接收检索结果</span></span><br><span class="line">        <span class="type">OnGetPoiSearchResultListener</span> <span class="variable">listener</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">OnGetPoiSearchResultListener</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onGetPoiResult</span><span class="params">(PoiResult poiResult)</span> &#123;</span><br><span class="line">         </span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onGetPoiDetailResult</span><span class="params">(PoiDetailSearchResult poiDetailSearchResult)</span> &#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onGetPoiIndoorResult</span><span class="params">(PoiIndoorResult poiIndoorResult)</span> &#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//废弃</span></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onGetPoiDetailResult</span><span class="params">(PoiDetailResult poiDetailResult)</span> &#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;;</span><br><span class="line">    <span class="comment">//设置检索监听器</span></span><br><span class="line">        mPoiSearch.setOnGetPoiSearchResultListener(listener);</span><br><span class="line"><span class="comment">//发起检索</span></span><br><span class="line">        editTextKeyword.setOnEditorActionListener(<span class="keyword">new</span> <span class="title class_">EditText</span>.OnEditorActionListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">onEditorAction</span><span class="params">(TextView v, <span class="type">int</span> actionId, KeyEvent event)</span> &#123;</span><br><span class="line">                <span class="type">boolean</span> ret=<span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">if</span>(actionId== EditorInfo.IME_ACTION_SEARCH)</span><br><span class="line">                &#123;</span><br><span class="line">                    ret=mPoiSearch.searchInCity(<span class="keyword">new</span> <span class="title class_">PoiCitySearchOption</span>()</span><br><span class="line">                            .city(searchCity)</span><br><span class="line">                            .keyword(searchKeyword)</span><br><span class="line">                            .pageNum(<span class="number">1</span>));</span><br><span class="line">                    <span class="comment">//搜索后隐藏键盘</span></span><br><span class="line">                    InputMethodManager imum=(InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);</span><br><span class="line">                    View view=getWindow().peekDecorView();</span><br><span class="line">                    <span class="keyword">if</span>(view!=<span class="literal">null</span>)</span><br><span class="line">                    &#123;</span><br><span class="line">                        imum.hideSoftInputFromWindow(view.getWindowToken(),<span class="number">0</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> ret;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="layout中添加搜索结果布局文件poi-item-xml"><a href="#layout中添加搜索结果布局文件poi-item-xml" class="headerlink" title="layout中添加搜索结果布局文件poi_item.xml"></a>layout中添加搜索结果布局文件poi_item.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:app</span>=<span class="string">&quot;http://schemas.android.com/apk/res-auto&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">&quot;http://schemas.android.com/tools&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:orientation</span>=<span class="string">&quot;horizontal&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_weight</span>=<span class="string">&quot;8&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:orientation</span>=<span class="string">&quot;vertical&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">&quot;@+id/poiname&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_weight</span>=<span class="string">&quot;1&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:textColor</span>=<span class="string">&quot;@color/white&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:textSize</span>=<span class="string">&quot;24sp&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">tools:ignore</span>=<span class="string">&quot;NestedWeights&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">&quot;@+id/poiaddress&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_weight</span>=<span class="string">&quot;1&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:textColor</span>=<span class="string">&quot;@color/white&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:textSize</span>=<span class="string">&quot;14sp&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="在activity-main-xml中添加listView控件-activity-main-xml完整代码见"><a href="#在activity-main-xml中添加listView控件-activity-main-xml完整代码见" class="headerlink" title="在activity_main.xml中添加listView控件(activity_main.xml完整代码见 )"></a>在activity_main.xml中添加listView控件(activity_main.xml完整代码见 )</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ListView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/searchResult&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;550dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_marginTop</span>=<span class="string">&quot;120dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:background</span>=<span class="string">&quot;@color/material_on_background_emphasis_high_type&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:visibility</span>=<span class="string">&quot;gone&quot;</span></span></span><br><span class="line"><span class="tag">         /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="在MainActivity同级路径新建PoiAdapter适配器类"><a href="#在MainActivity同级路径新建PoiAdapter适配器类" class="headerlink" title="在MainActivity同级路径新建PoiAdapter适配器类"></a>在MainActivity同级路径新建PoiAdapter适配器类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.lmap;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> android.content.Context;</span><br><span class="line"><span class="keyword">import</span> android.view.LayoutInflater;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"><span class="keyword">import</span> android.view.ViewGroup;</span><br><span class="line"><span class="keyword">import</span> android.widget.ArrayAdapter;</span><br><span class="line"><span class="keyword">import</span> android.widget.TextView;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> androidx.annotation.NonNull;</span><br><span class="line"><span class="keyword">import</span> androidx.annotation.Nullable;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> com.baidu.mapapi.search.core.PoiInfo;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PoiAdapter</span> <span class="keyword">extends</span> <span class="title class_">ArrayAdapter</span>&lt;PoiInfo&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> resourceId;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">PoiAdapter</span><span class="params">(<span class="meta">@NonNull</span> Context context, <span class="type">int</span> resource, <span class="meta">@NonNull</span> List&lt;PoiInfo&gt; objects)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>(context, resource, objects);</span><br><span class="line">        resourceId=resource;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@NonNull</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> View <span class="title function_">getView</span><span class="params">(<span class="type">int</span> position, <span class="meta">@Nullable</span> View convertView, <span class="meta">@NonNull</span> ViewGroup parent)</span> &#123;</span><br><span class="line">        PoiInfo poi=getItem(position);</span><br><span class="line">        View view= LayoutInflater.from(getContext()).inflate(resourceId,<span class="literal">null</span>);</span><br><span class="line">        TextView name=view.findViewById(R.id.poiname);</span><br><span class="line">        TextView address=view.findViewById(R.id.poiaddress);</span><br><span class="line">        name.setText(poi.name);</span><br><span class="line">        address.setText(poi.address);</span><br><span class="line">        <span class="keyword">return</span> view;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="通过POI检索监听器在listView中填充内容"><a href="#通过POI检索监听器在listView中填充内容" class="headerlink" title="通过POI检索监听器在listView中填充内容"></a>通过POI检索监听器在listView中填充内容</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onGetPoiResult</span><span class="params">(PoiResult poiResult)</span> &#123;</span><br><span class="line">                List&lt;PoiInfo&gt; poiList=poiResult.getAllPoi();</span><br><span class="line">                PoiAdapter adapter=<span class="keyword">new</span> <span class="title class_">PoiAdapter</span>(MainActivity.<span class="built_in">this</span>,R.layout.poi_item,poiList);</span><br><span class="line">                ListView listView=findViewById(R.id.searchResult);</span><br><span class="line">                listView.setAdapter(adapter);</span><br><span class="line">                listView.setVisibility(View.VISIBLE);</span><br><span class="line">                <span class="comment">//当滑动到底部时加载更多搜索结果</span></span><br><span class="line">                listView.setOnScrollListener(<span class="keyword">new</span> <span class="title class_">ListView</span>.OnScrollListener() &#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onScrollStateChanged</span><span class="params">(AbsListView view, <span class="type">int</span> scrollState)</span> &#123;</span><br><span class="line">                        <span class="keyword">if</span> (scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE) &#123;</span><br><span class="line">                            <span class="comment">// 判断是否滚动到底部</span></span><br><span class="line">                            <span class="keyword">if</span> (view.getLastVisiblePosition() == view.getCount() - <span class="number">1</span>) &#123;</span><br><span class="line">                                <span class="comment">//加载更多</span></span><br><span class="line">                                <span class="type">int</span> <span class="variable">curPage</span> <span class="operator">=</span> poiResult.getCurrentPageNum();</span><br><span class="line">                                <span class="type">int</span> <span class="variable">totalPage</span> <span class="operator">=</span> poiResult.getTotalPageNum();</span><br><span class="line">                                <span class="keyword">if</span> (curPage &lt; totalPage) &#123;</span><br><span class="line">                                    poiResult.setCurrentPageNum(curPage + <span class="number">1</span>);</span><br><span class="line">                                    mPoiSearch.searchInCity(<span class="keyword">new</span> <span class="title class_">PoiCitySearchOption</span>()</span><br><span class="line">                                            .city(searchCity)</span><br><span class="line">                                            .keyword(searchKeyword)</span><br><span class="line">                                            .pageNum(curPage + <span class="number">1</span>));</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onScroll</span><span class="params">(AbsListView view, <span class="type">int</span> firstVisibleItem, <span class="type">int</span> visibleItemCount, <span class="type">int</span> totalItemCount)</span> &#123;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="点击搜索结果列表外区域时隐藏结果列表"><a href="#点击搜索结果列表外区域时隐藏结果列表" class="headerlink" title="点击搜索结果列表外区域时隐藏结果列表"></a>点击搜索结果列表外区域时隐藏结果列表</h2><p>重写dispatchTouchEvent函数，实现点击其他区域时隐藏结果列表</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Override</span></span><br><span class="line">   <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">dispatchTouchEvent</span><span class="params">(MotionEvent ev)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (ev.getAction() == MotionEvent.ACTION_DOWN) &#123;</span><br><span class="line">        <span class="type">ListView</span> <span class="variable">listView</span> <span class="operator">=</span> findViewById(R.id.searchResult);</span><br><span class="line">        <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> listView.getLeft(), top = listView.getTop(), right = left + listView.getWidth(), bottom = top + listView.getHeight();</span><br><span class="line">        <span class="keyword">if</span> (ev.getX() &lt; left || ev.getX() &gt; right || ev.getY() &lt; top || ev.getY() &gt; bottom)</span><br><span class="line">            <span class="comment">//点击搜索结果列表之外区域，隐藏搜索结果列表</span></span><br><span class="line">            listView.setVisibility(View.GONE);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">super</span>.dispatchTouchEvent(ev);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="下载官方Demo中的Overlay"><a href="#下载官方Demo中的Overlay" class="headerlink" title="下载官方Demo中的Overlay"></a>下载官方Demo中的Overlay</h2><p><a target="_blank" rel="noopener" href="https://lbsyun.baidu.com/faq/api?title=androidsdk/sdkandev-download">下载链接</a></p>
+<blockquote>
+<p>路径：BaiduMap_AndroidSDK_v7_6_1_Sample\BaiduMap_AndroidSDK_v7_6_1_Sample\BaiduMapsApiASDemo\app\src\main\java\com\baidu\mapapi\overlayutil</p>
+<p>用到的文件：</p>
+<p><a target="_blank" rel="noopener" href="https://lesmorts.github.io/picx-images-hosting/2.1lblag6v5g.webp" class="gallery-item" style="box-shadow: none;"> <img src="https://lesmorts.github.io/picx-images-hosting/2.1lblag6v5g.webp"></a></p>
+</blockquote>
+<p>注：作者对上述文件进行了部分重写，改变了图片源和部分函数，详见<a href="">github</a></p>
+<h2 id="实现驾车路线规划"><a href="#实现驾车路线规划" class="headerlink" title="实现驾车路线规划"></a>实现驾车路线规划</h2><h3 id="在MainActivity中添加RoutePlanSearch变量"><a href="#在MainActivity中添加RoutePlanSearch变量" class="headerlink" title="在MainActivity中添加RoutePlanSearch变量"></a>在MainActivity中添加RoutePlanSearch变量</h3><p><code>private RoutePlanSearch mRoutePlanSrch;</code></p>
+<h3 id="在addPOI函数中实例化并创建监听"><a href="#在addPOI函数中实例化并创建监听" class="headerlink" title="在addPOI函数中实例化并创建监听"></a>在addPOI函数中实例化并创建监听</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">mRoutePlanSrch = RoutePlanSearch.newInstance();</span><br><span class="line"><span class="comment">//创建路线规划检索结果监听器</span></span><br><span class="line"><span class="type">OnGetRoutePlanResultListener</span> <span class="variable">routePlanSrchlistener</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">OnGetRoutePlanResultListener</span>() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onGetWalkingRouteResult</span><span class="params">(WalkingRouteResult walkingRouteResult)</span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onGetTransitRouteResult</span><span class="params">(TransitRouteResult transitRouteResult)</span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onGetMassTransitRouteResult</span><span class="params">(MassTransitRouteResult massTransitRouteResult)</span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onGetIndoorRouteResult</span><span class="params">(IndoorRouteResult indoorRouteResult)</span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onGetBikingRouteResult</span><span class="params">(BikingRouteResult bikingRouteResult)</span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onGetDrivingRouteResult</span><span class="params">(DrivingRouteResult drivingRouteResult)</span> &#123;</span><br><span class="line">        overlay = <span class="keyword">new</span> <span class="title class_">DrivingRouteOverlay</span>(mMapView.getMap());</span><br><span class="line">        List&lt;DrivingRouteLine&gt; routelines=drivingRouteResult.getRouteLines();</span><br><span class="line">        <span class="keyword">if</span>(routelines!=<span class="literal">null</span>&amp;&amp;routelines.size()&gt;<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(DrivingRouteLine routeLine:routelines</span><br><span class="line">            ) &#123;</span><br><span class="line">                mBaiduMap.clear();</span><br><span class="line">                <span class="comment">//为DrivingRouteOverlay实例设置数据</span></span><br><span class="line">                overlay.setData(routeLine);</span><br><span class="line">                <span class="comment">//在地图上绘制DrivingRouteOverlay</span></span><br><span class="line">                overlay.addToMap();</span><br><span class="line">                <span class="type">MapStatusUpdate</span> <span class="variable">u</span> <span class="operator">=</span> MapStatusUpdateFactory.newLatLng(overlay.getCenter());  <span class="comment">//更新坐标位置</span></span><br><span class="line">                mBaiduMap.animateMapStatus(u);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//a关闭搜索结果</span></span><br><span class="line">            <span class="type">ListView</span> <span class="variable">listView</span> <span class="operator">=</span> findViewById(R.id.searchResult);</span><br><span class="line">            listView.setVisibility(View.GONE);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">mRoutePlanSrch.setOnGetRoutePlanResultListener(routePlanSrchlistener);</span><br></pre></td></tr></table></figure>
+
+<h2 id="添加路线规划按钮"><a href="#添加路线规划按钮" class="headerlink" title="添加路线规划按钮"></a>添加路线规划按钮</h2><p>在poi_item.xml布局中添加按钮</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:id</span>=<span class="string">&quot;@+id/goBtn&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:layout_width</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:layout_height</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:layout_weight</span>=<span class="string">&quot;2&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:background</span>=<span class="string">&quot;@color/tinyBlue&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:text</span>=<span class="string">&quot;@string/goToThr&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">app:backgroundTint</span>=<span class="string">&quot;@color/littleBlue&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>实现效果如下</p>
+<p><a target="_blank" rel="noopener" href="https://lesmorts.github.io/picx-images-hosting/Screenshot_20240328_163955.6wqhv61u6c.webp" class="gallery-item" style="box-shadow: none;"> <img src="https://lesmorts.github.io/picx-images-hosting/Screenshot_20240328_163955.6wqhv61u6c.webp"></a>{height&#x3D;”550px” width&#x3D;”250px”}</p>
+<h2 id="发起路线规划"><a href="#发起路线规划" class="headerlink" title="发起路线规划"></a>发起路线规划</h2><p>在addPOI最后添加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//进行搜索</span><br><span class="line">mPoiSearch.searchInCity(new PoiCitySearchOption()</span><br><span class="line">                .city(searchCity)</span><br><span class="line">                .keyword(searchKeyword)</span><br><span class="line">                .pageNum(1));</span><br><span class="line">//设置键盘隐藏</span><br><span class="line">        InputMethodManager imum=(InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);</span><br><span class="line">        View view=getWindow().peekDecorView();</span><br><span class="line">        if(view!=null)</span><br><span class="line">        &#123;</span><br><span class="line">            imum.hideSoftInputFromWindow(view.getWindowToken(),0);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p>在MainActivity的onCreate函数中对“去这里”按钮进行监听</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//通过id获取button</span></span><br><span class="line"><span class="type">Button</span> <span class="variable">buttonSearch</span> <span class="operator">=</span> findViewById(R.id.button_search);</span><br><span class="line"><span class="comment">//设置监听函数</span></span><br><span class="line">        buttonSearch.setOnClickListener(<span class="keyword">new</span> <span class="title class_">View</span>.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onClick</span><span class="params">(View v)</span> &#123;</span><br><span class="line">                searchPOI();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="最终结果"><a href="#最终结果" class="headerlink" title="最终结果"></a>最终结果</h2><p><a target="_blank" rel="noopener" href="https://lesmorts.github.io/picx-images-hosting/Screenshot_20240328_164803.8s32nsp6rl.webp" class="gallery-item" style="box-shadow: none;"> <img src="https://lesmorts.github.io/picx-images-hosting/Screenshot_20240328_164803.8s32nsp6rl.webp"></a>{height&#x3D;”550px” width&#x3D;”250px”}</p>
+</div><script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
+    </div>
+
+    <div class="post-meta">
+        <i>
+        
+            <span>2024-03-29</span>
+            
+                <span>该篇文章被 John Doe</span>
+            
+            
+                <span>打上标签:
+                    
+                    
+                        <a href='/tags/java/'>
+                            java
+                        </a>
+                    
+                        <a href='/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE-Android%E5%9C%B0%E5%9B%BESDK/'>
+                            百度地图 Android地图SDK
+                        </a>
+                    
+                        <a href='/tags/Android/'>
+                            Android
+                        </a>
+                    
+                </span>
+             
+             
+                <span>归为分类:
+                    
+                    
+                        <a href='/categories/WebGIS/'>
+                            WebGIS
+                        </a>
+                    
+                </span>
+            
+        
+        </i>
+    </div>
+    <br>
+    
+    <!-- <div class="post-footer-pre-next">
+        <span>上一篇：<a href=""></a></span>
+        <span class="post-footer-pre-next-last-span-right">上一篇：<a href=""></a></span>
+    </div> -->
+
+     
+</div>
+
+
+
+                                      
+                    
+                    
+                    <div class="footer">
+    
+        <span> 
+            © 2003-2024 Levent 
+
+            
+                
+
+            
+        </span>
+    
+</div>
+<!--这是指一条线往下的内容-->
+<div class="footer-last">
+    
+            <span>🌊看过大海的人不会忘记海的广阔🌊</span>
+            
+                <span class="footer-last-span-right"><i>本站由<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">Hexo</a>驱动｜使用<a target="_blank" rel="noopener" href="https://github.com/HiNinoJay/hexo-theme-A4">Hexo-theme-A4</a>主题</i></span>
+            
+    
+</div>
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <!--目录-->
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tocify/1.9.0/javascripts/jquery.tocify.min.js" type="text/javascript" ></script>
+        
+<script src="/js/toc.js"></script>
+
+    
+
+    
+<script src="/js/randomHeaderContent.js"></script>
+
+    <!--回到顶部按钮-->
+    
+        
+<script src="/js/returnToTop.js"></script>
+
+    
+
+    
+        
+<script src="/js/returnToLastPage.js"></script>
+
+    
+
+
+
+
+
+<script src="/js/lightgallery.min.js"></script>
+
+
+
+                </div>
+            
+            
+                <!-- 回到顶部的按钮-->  
+                <div class="progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+            
+                <!-- 返回的按钮-->  
+                <div class="return-to-last-progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+    </body>
+
+
+    <!--暗黑模式-->
+    <script src="/js/darkmode-js.min.js"></script>
+    <script>
+        function addDarkmodeWidget() {
+        const options = {
+            bottom: '53px', // default: '32px'
+            right: 'unset', // default: '32px'
+            left: '42px', // default: 'unset'
+            time: '0.3s', // default: '0.3s'
+            mixColor: '#fff', // default: '#fff'
+            backgroundColor: ' #e4e4e4 ',  // default: '#fff'
+            buttonColorDark: '#100f2c',  // default: '#100f2c'
+            buttonColorLight: '#fff', // default: '#fff'
+            saveInCookies: true, // default: true,
+            label: '🌓', // default: ''
+            autoMatchOsTheme: true // default: true
+        }
+    
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+        
+        }
+        window.addEventListener('load', addDarkmodeWidget);
+    </script>
+  
+</html>

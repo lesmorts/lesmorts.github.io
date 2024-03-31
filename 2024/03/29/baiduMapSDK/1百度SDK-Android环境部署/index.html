@@ -4,7 +4,7 @@
     <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-    <meta name="description" content="绘制Overlay" />
+    <meta name="description" content="Android Studio环境部署" />
     <meta name="hexo-theme-A4" content="v1.8.9" />
     <link rel="alternate icon" type="image/webp" href="/img/avatar.webp">
     <title>Levent</title>
@@ -127,7 +127,7 @@
 
     
         <div class="post-main-title">
-            绘制Overlay
+            Android Studio环境部署
         </div>
       
     
@@ -135,18 +135,46 @@
     <div class="post-md">
         
             
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%A5%E6%89%B9%E9%87%8F%E6%B7%BB%E5%8A%A0%E5%92%8C%E5%88%A0%E9%99%A4Overlay%E4%B8%BA%E4%BE%8B"><span class="post-toc-text">以批量添加和删除Overlay为例</span></a></li></ol>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%88%9B%E5%BB%BAAndroid-Studio%E9%A1%B9%E7%9B%AE"><span class="post-toc-text">创建Android Studio项目</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%9C%A8%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0%E7%94%B3%E8%AF%B7%E5%BA%94%E7%94%A8"><span class="post-toc-text">在百度地图开放平台申请应用</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E9%9B%86%E6%88%90BaiduMapSDK"><span class="post-toc-text">在项目中集成BaiduMapSDK</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%BC%80%E5%8F%91%E5%8C%85"><span class="post-toc-text">下载开发包</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B7%BB%E5%8A%A0arr%E6%96%87%E4%BB%B6"><span class="post-toc-text">添加arr文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B7%BB%E5%8A%A0so%E6%96%87%E4%BB%B6"><span class="post-toc-text">添加so文件</span></a></li></ol></li></ol>
             
         
-        <link rel="stylesheet" type="text/css" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/lightgallery.min.css" /><div class=".article-gallery"><h2 id="以批量添加和删除Overlay为例"><a href="#以批量添加和删除Overlay为例" class="headerlink" title="以批量添加和删除Overlay为例"></a>以批量添加和删除Overlay为例</h2><p>1.构建addOverlay函数</p>
-<p>百度地图SDK为开发者提供一次性向地图上添加大批量Overlay的接口。<br>示例代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">addOverlay</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="comment">//创建OverlayOptions的集合</span></span><br><span class="line">List&lt;OverlayOptions&gt; options = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;OverlayOptions&gt;();</span><br><span class="line"><span class="comment">//构造坐标数据</span></span><br><span class="line">        <span class="type">LatLng</span> <span class="variable">point1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">LatLng</span>(<span class="number">31.541778</span>,<span class="number">104.69308</span>);</span><br><span class="line">        <span class="type">LatLng</span> <span class="variable">point2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">LatLng</span>(<span class="number">31.545255</span>,<span class="number">104.694374</span>);</span><br><span class="line">        <span class="type">LatLng</span> <span class="variable">point3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">LatLng</span>(<span class="number">31.544086</span>,<span class="number">104.696422</span>);</span><br><span class="line"><span class="comment">//设置图片源</span></span><br><span class="line">        <span class="type">BitmapDescriptor</span> <span class="variable">bdGround1</span> <span class="operator">=</span> BitmapDescriptorFactory.fromResource(R.drawable.overlay_1);</span><br><span class="line">        <span class="type">BitmapDescriptor</span> <span class="variable">bdGround2</span> <span class="operator">=</span> BitmapDescriptorFactory.fromResource(R.drawable.overlay_2);</span><br><span class="line">        <span class="type">BitmapDescriptor</span> <span class="variable">bdGround3</span> <span class="operator">=</span> BitmapDescriptorFactory.fromResource(R.drawable.overlay_3);</span><br><span class="line"><span class="comment">//创建OverlayOptions属性</span></span><br><span class="line">        <span class="type">OverlayOptions</span> <span class="variable">option1</span> <span class="operator">=</span>  <span class="keyword">new</span> <span class="title class_">MarkerOptions</span>()</span><br><span class="line">                .position(point1)</span><br><span class="line">                .icon(bdGround1);</span><br><span class="line">        <span class="type">OverlayOptions</span> <span class="variable">option2</span> <span class="operator">=</span>  <span class="keyword">new</span> <span class="title class_">MarkerOptions</span>()</span><br><span class="line">                .position(point2)</span><br><span class="line">                .icon(bdGround2);</span><br><span class="line">        <span class="type">OverlayOptions</span> <span class="variable">option3</span> <span class="operator">=</span>  <span class="keyword">new</span> <span class="title class_">MarkerOptions</span>()</span><br><span class="line">                .position(point3)</span><br><span class="line">                .icon(bdGround3);</span><br><span class="line"><span class="comment">//将OverlayOptions添加到list</span></span><br><span class="line">        options.add(option1);</span><br><span class="line">        options.add(option2);</span><br><span class="line">        options.add(option3);</span><br><span class="line"><span class="comment">//在地图上批量添加</span></span><br><span class="line">        mBaiduMap.addOverlays(options);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+        <link rel="stylesheet" type="text/css" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/lightgallery.min.css" /><div class=".article-gallery"><blockquote>
+<p>注：本文的前置条件为已安装Android Studio、版本适配的java和完成百度地图开放平台的开发者认证</p>
+</blockquote>
+<h1 id="创建Android-Studio项目"><a href="#创建Android-Studio项目" class="headerlink" title="创建Android Studio项目"></a>创建Android Studio项目</h1><ol>
+<li><p>项目选择Empty Views Activity</p>
+</li>
+<li><p>编辑项目名称、包名、存储位置和语言(默认Java)</p>
+<p><a target="_blank" rel="noopener" href="https://lesmorts.github.io/picx-images-hosting/1.7smzblu6zo.webp" class="gallery-item" style="box-shadow: none;"> <img src="https://lesmorts.github.io/picx-images-hosting/1.7smzblu6zo.webp"></a></p>
+</li>
+<li><p>其余项默认</p>
+</li>
+</ol>
+<h1 id="在百度地图开放平台申请应用"><a href="#在百度地图开放平台申请应用" class="headerlink" title="在百度地图开放平台申请应用"></a><a target="_blank" rel="noopener" href="https://lbsyun.baidu.com/apiconsole/key/create#/home">在百度地图开放平台申请应用</a></h1><p>1.应用类型选择Android SDK</p>
+<p>2.<a target="_blank" rel="noopener" href="https://lbsyun.baidu.com/faq/api?title=androidsdk/guide/create-project/ak#%E8%8E%B7%E5%8F%96SHA1">获取SHA1码</a></p>
+<p>3.填写创建的Android Studio项目的包名</p>
+<h1 id="在项目中集成BaiduMapSDK"><a href="#在项目中集成BaiduMapSDK" class="headerlink" title="在项目中集成BaiduMapSDK"></a>在项目中集成BaiduMapSDK</h1><blockquote>
+<p>本文采用本地集成的方式</p>
+</blockquote>
+<h2 id="下载开发包"><a href="#下载开发包" class="headerlink" title="下载开发包"></a>下载开发包</h2><p>功能选择：</p>
+<ul>
+<li>定位SDK：全量定位</li>
+<li>地图SDK：基础地图，检索POI</li>
+<li>导航SDK：驾车导航</li>
+</ul>
+<p><strong>选择AAR包格式</strong></p>
+<h2 id="添加arr文件"><a href="#添加arr文件" class="headerlink" title="添加arr文件"></a>添加arr文件</h2><p>打开解压后的文件夹将 <code>NaviTts.aar</code>,<code>onsdk_all.aar</code>和libs文件夹中的 <code>BaiduLBS_Android.aar</code>复制到项目中</p>
+<p><a target="_blank" rel="noopener" href="https://lesmorts.github.io/picx-images-hosting/2.3ye7snc92d.webp" class="gallery-item" style="box-shadow: none;"> <img src="https://lesmorts.github.io/picx-images-hosting/2.3ye7snc92d.webp"></a></p>
+<p>在app&#x2F;中的 <code>build.gradle.kts</code>文件中的Dependencies添加引入aar包</p>
+<figure class="highlight kts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation(fileTree(<span class="string">&quot;libs&quot;</span>))</span><br></pre></td></tr></table></figure>
 
-<p>2.在spiner选择器构造函数中添加选项</p>
-<p>实现效果如图：</p>
-<p><a target="_blank" rel="noopener" href="https://lesmorts.github.io/picx-images-hosting/Screenshot_20240328_153851.45hfn19mpv.webp" class="gallery-item" style="box-shadow: none;"> <img src="https://lesmorts.github.io/picx-images-hosting/Screenshot_20240328_153851.45hfn19mpv.webp"></a>{height&#x3D;”550px” width&#x3D;”250px”}</p>
-<p>3.批量清除：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//清除地图上的所有覆盖物</span></span><br><span class="line">mBaiduMap.clear();</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://lesmorts.github.io/picx-images-hosting/3.6f0g7kj4yu.webp" class="gallery-item" style="box-shadow: none;"> <img src="https://lesmorts.github.io/picx-images-hosting/3.6f0g7kj4yu.webp"></a></p>
+<h2 id="添加so文件"><a href="#添加so文件" class="headerlink" title="添加so文件"></a>添加so文件</h2><p>复制解压后的文件夹中libs文件夹中的这些文件夹</p>
+<p><a target="_blank" rel="noopener" href="https://lesmorts.github.io/picx-images-hosting/4.b8o54ggkj.webp" class="gallery-item" style="box-shadow: none;"> <img src="https://lesmorts.github.io/picx-images-hosting/4.b8o54ggkj.webp"></a></p>
+<p>在app&#x2F;src&#x2F;main中添加名为<strong>jniLibs</strong>的文件夹，将复制的文件夹粘贴于此</p>
+<p>4.在jniLibs文件夹中添加assets文件夹</p>
+<p>将 <code>BaiduLBS_Android.aar</code>作为压缩包打开（可改名.zip）复制其中assets内容到新添加的assets文件夹中</p>
+<p>完成配置！</p>
 </div><script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
         var options = {
             selector: '.gallery-item'
@@ -166,16 +194,16 @@
                 <span>打上标签:
                     
                     
+                        <a href='/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAndroidSDK/'>
+                            百度地图AndroidSDK
+                        </a>
+                    
+                        <a href='/tags/Android-Studio/'>
+                            Android Studio
+                        </a>
+                    
                         <a href='/tags/java/'>
                             java
-                        </a>
-                    
-                        <a href='/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE-Android%E5%9C%B0%E5%9B%BESDK/'>
-                            百度地图 Android地图SDK
-                        </a>
-                    
-                        <a href='/tags/Android/'>
-                            Android
                         </a>
                     
                 </span>
@@ -184,7 +212,7 @@
                 <span>归为分类:
                     
                     
-                        <a href='/categories/baiduMapSDK/'>
+                        <a href='/categories/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BESDK/'>
                             百度地图SDK
                         </a>
                     

@@ -4,7 +4,7 @@
     <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-    <meta name="description" content="index" />
+    <meta name="description" content="Android Studio环境部署" />
     <meta name="hexo-theme-A4" content="v1.8.9" />
     <link rel="alternate icon" type="image/webp" href="/img/avatar.webp">
     <title>Levent</title>
@@ -126,12 +126,55 @@
                         <div class="post-main">
 
     
+        <div class="post-main-title">
+            Android Studio环境部署
+        </div>
+      
+    
 
     <div class="post-md">
         
             
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%88%9B%E5%BB%BAAndroid-Studio%E9%A1%B9%E7%9B%AE"><span class="post-toc-text">创建Android Studio项目</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%9C%A8%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0%E7%94%B3%E8%AF%B7%E5%BA%94%E7%94%A8"><span class="post-toc-text">在百度地图开放平台申请应用</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E9%9B%86%E6%88%90BaiduMapSDK"><span class="post-toc-text">在项目中集成BaiduMapSDK</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%BC%80%E5%8F%91%E5%8C%85"><span class="post-toc-text">下载开发包</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B7%BB%E5%8A%A0arr%E6%96%87%E4%BB%B6"><span class="post-toc-text">添加arr文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B7%BB%E5%8A%A0so%E6%96%87%E4%BB%B6"><span class="post-toc-text">添加so文件</span></a></li></ol></li></ol>
+            
         
-        <link rel="stylesheet" type="text/css" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/lightgallery.min.css" /><div class=".article-gallery"><p>There’s something I need to remenber</p>
+        <link rel="stylesheet" type="text/css" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/lightgallery.min.css" /><div class=".article-gallery"><blockquote>
+<p>注：本文的前置条件为已安装Android Studio、版本适配的java和完成百度地图开放平台的开发者认证</p>
+</blockquote>
+<h1 id="创建Android-Studio项目"><a href="#创建Android-Studio项目" class="headerlink" title="创建Android Studio项目"></a>创建Android Studio项目</h1><ol>
+<li><p>项目选择Empty Views Activity</p>
+</li>
+<li><p>编辑项目名称、包名、存储位置和语言(默认Java)</p>
+<p><a target="_blank" rel="noopener" href="https://lesmorts.github.io/picx-images-hosting/1.7smzblu6zo.webp" class="gallery-item" style="box-shadow: none;"> <img src="https://lesmorts.github.io/picx-images-hosting/1.7smzblu6zo.webp"></a></p>
+</li>
+<li><p>其余项默认</p>
+</li>
+</ol>
+<h1 id="在百度地图开放平台申请应用"><a href="#在百度地图开放平台申请应用" class="headerlink" title="在百度地图开放平台申请应用"></a><a target="_blank" rel="noopener" href="https://lbsyun.baidu.com/apiconsole/key/create#/home">在百度地图开放平台申请应用</a></h1><p>1.应用类型选择Android SDK</p>
+<p>2.<a target="_blank" rel="noopener" href="https://lbsyun.baidu.com/faq/api?title=androidsdk/guide/create-project/ak#%E8%8E%B7%E5%8F%96SHA1">获取SHA1码</a></p>
+<p>3.填写创建的Android Studio项目的包名</p>
+<h1 id="在项目中集成BaiduMapSDK"><a href="#在项目中集成BaiduMapSDK" class="headerlink" title="在项目中集成BaiduMapSDK"></a>在项目中集成BaiduMapSDK</h1><blockquote>
+<p>本文采用本地集成的方式</p>
+</blockquote>
+<h2 id="下载开发包"><a href="#下载开发包" class="headerlink" title="下载开发包"></a>下载开发包</h2><p>功能选择：</p>
+<ul>
+<li>定位SDK：全量定位</li>
+<li>地图SDK：基础地图，检索POI</li>
+<li>导航SDK：驾车导航</li>
+</ul>
+<p><strong>选择AAR包格式</strong></p>
+<h2 id="添加arr文件"><a href="#添加arr文件" class="headerlink" title="添加arr文件"></a>添加arr文件</h2><p>打开解压后的文件夹将 <code>NaviTts.aar</code>,<code>onsdk_all.aar</code>和libs文件夹中的 <code>BaiduLBS_Android.aar</code>复制到项目中</p>
+<p><a target="_blank" rel="noopener" href="https://lesmorts.github.io/picx-images-hosting/2.3ye7snc92d.webp" class="gallery-item" style="box-shadow: none;"> <img src="https://lesmorts.github.io/picx-images-hosting/2.3ye7snc92d.webp"></a></p>
+<p>在app&#x2F;中的 <code>build.gradle.kts</code>文件中的Dependencies添加引入aar包</p>
+<figure class="highlight kts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation(fileTree(<span class="string">&quot;libs&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://lesmorts.github.io/picx-images-hosting/3.6f0g7kj4yu.webp" class="gallery-item" style="box-shadow: none;"> <img src="https://lesmorts.github.io/picx-images-hosting/3.6f0g7kj4yu.webp"></a></p>
+<h2 id="添加so文件"><a href="#添加so文件" class="headerlink" title="添加so文件"></a>添加so文件</h2><p>复制解压后的文件夹中libs文件夹中的这些文件夹</p>
+<p><a target="_blank" rel="noopener" href="https://lesmorts.github.io/picx-images-hosting/4.b8o54ggkj.webp" class="gallery-item" style="box-shadow: none;"> <img src="https://lesmorts.github.io/picx-images-hosting/4.b8o54ggkj.webp"></a></p>
+<p>在app&#x2F;src&#x2F;main中添加名为<strong>jniLibs</strong>的文件夹，将复制的文件夹粘贴于此</p>
+<p>4.在jniLibs文件夹中添加assets文件夹</p>
+<p>将 <code>BaiduLBS_Android.aar</code>作为压缩包打开（可改名.zip）复制其中assets内容到新添加的assets文件夹中</p>
+<p>完成配置！</p>
 </div><script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
         var options = {
             selector: '.gallery-item'
@@ -142,6 +185,39 @@
 
     <div class="post-meta">
         <i>
+        
+            <span>2024-03-29</span>
+            
+                <span>该篇文章被 John Doe</span>
+            
+            
+                <span>打上标签:
+                    
+                    
+                        <a href='/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAndroidSDK/'>
+                            百度地图AndroidSDK
+                        </a>
+                    
+                        <a href='/tags/Android-Studio/'>
+                            Android Studio
+                        </a>
+                    
+                        <a href='/tags/java/'>
+                            java
+                        </a>
+                    
+                </span>
+             
+             
+                <span>归为分类:
+                    
+                    
+                        <a href='/categories/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BESDK/'>
+                            百度地图SDK
+                        </a>
+                    
+                </span>
+            
         
         </i>
     </div>

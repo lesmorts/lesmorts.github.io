@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    
+    <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+    <meta name="description" content="显示地图与定位" />
+    <meta name="hexo-theme-A4" content="v1.8.9" />
+    <link rel="alternate icon" type="image/webp" href="/img/avatar.webp">
+    <title>Levent</title>
+
+    
+        
+<link rel="stylesheet" href="/css/highlight/style1.css">
+
+        
+<link rel="stylesheet" href="/css/reset.css">
+
+        
+<link rel="stylesheet" href="/css/markdown.css">
+
+        
+<link rel="stylesheet" href="/css/fonts.css">
+ 
+         <!--注意：首页既不是post也不是page-->
+        
+        
+        
+<link rel="stylesheet" href="/css/ui.css">
+ 
+        
+<link rel="stylesheet" href="/css/style.css">
+
+
+        
+            <!--返回顶部css-->
+            
+<link rel="stylesheet" href="/css/returnToTop.css">
+
+            
+<link rel="stylesheet" href="/css/unicons.css">
+
+        
+        
+            <!--目录-->
+            
+<link rel="stylesheet" href="/css/toc.css">
+
+        
+    
+
+    
+        
+<link rel="stylesheet" href="/css/returnToLastPage.css">
+
+    
+    
+   
+<link rel="stylesheet" href="/css/lightgallery.min.css">
+
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+    
+    
+    <body>
+        
+            <div class="left-toc-container">
+                <nav id="toc" class="bs-docs-sidebar"></nav>
+            </div>
+        
+        <div class="paper">
+            
+            
+            
+            
+                <div class="shadow-drop-2-bottom paper-main">
+                    
+
+
+<div class="header">
+    <div class="header-container">
+        <img style="
+        width: 56px;
+        height: auto;" alt="^-^" cache-control="max-age=86400" class="header-img" src="/img/avatar.webp" width="10%"></img>
+        <div class="header-content">
+            <a class="logo" href="/">Levent</a> 
+            <span class="description">GIS</span> 
+        </div>
+        
+    </div>
+    
+   
+    <ul class="nav">
+        
+            
+                <li><a href="/">首页</a></li>
+            
+        
+            
+                <li><a href="/list/">文章</a></li>
+            
+        
+            
+                <li><a href="/about/">关于</a></li>
+            
+        
+            
+                <li><a href="/tags/">标签</a></li>
+            
+        
+            
+                <li><a href="/categories/">分类</a></li>
+            
+        
+    </ul>
+</div> 
+        
+                    
+                    
+
+                    
+                    
+                    
+                    <!--说明是文章post页面-->
+                    
+                        <div class="post-main">
+
+    
+        <div class="post-main-title">
+            显示地图与定位
+        </div>
+      
+    
+
+    <div class="post-md">
+        
+            
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%98%BE%E7%A4%BA%E5%9C%B0%E5%9B%BE%E5%8F%8A%E5%9C%B0%E5%9B%BE%E6%8E%A7%E4%BB%B6"><span class="post-toc-text">显示地图及地图控件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%85%8D%E7%BD%AEAndroidManifest-xml"><span class="post-toc-text">配置AndroidManifest.xml</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9C%A8%E5%B8%83%E5%B1%80%E6%96%87%E4%BB%B6%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9C%B0%E5%9B%BE%E5%AE%B9%E5%99%A8"><span class="post-toc-text">在布局文件中添加地图容器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9C%B0%E5%9B%BE%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="post-toc-text">地图初始化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9C%B0%E5%9B%BE%E6%8E%A7%E4%BB%B6%E5%8F%8A%E7%9B%B8%E5%85%B3%E8%AE%BE%E7%BD%AE"><span class="post-toc-text">地图控件及相关设置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%9C%B0%E5%9B%BE%E7%B1%BB%E5%9E%8B%E5%88%87%E6%8D%A2"><span class="post-toc-text">实现地图类型切换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%99%AE%E9%80%9A%E5%9C%B0%E5%9B%BE%E4%B8%8E%E5%8D%AB%E6%98%9F%E5%9B%BE"><span class="post-toc-text">普通地图与卫星图</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%83%AD%E5%8A%9B%E5%9B%BE%E4%B8%8E%E4%BA%A4%E9%80%9A"><span class="post-toc-text">热力图与交通</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%AE%9A%E4%BD%8D"><span class="post-toc-text">定位</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%85%8D%E7%BD%AEAndroidManifest-xml-1"><span class="post-toc-text">配置AndroidManifest.xml</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%AF%B7%E6%B1%82%E6%9D%83%E9%99%90"><span class="post-toc-text">请求权限</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9E%84%E9%80%A0%E5%9C%B0%E5%9B%BE%E6%95%B0%E6%8D%AE"><span class="post-toc-text">构造地图数据</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%91%E8%B5%B7%E5%AE%9A%E4%BD%8D"><span class="post-toc-text">发起定位</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%AE%A1%E7%90%86%E5%90%84%E9%83%A8%E5%88%86%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="post-toc-text">管理各部分生命周期</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%95%88%E6%9E%9C"><span class="post-toc-text">实现效果</span></a></li></ol>
+            
+        
+        <link rel="stylesheet" type="text/css" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/lightgallery.min.css" /><div class=".article-gallery"><h1 id="显示地图及地图控件"><a href="#显示地图及地图控件" class="headerlink" title="显示地图及地图控件"></a>显示地图及地图控件</h1><h2 id="配置AndroidManifest-xml"><a href="#配置AndroidManifest-xml" class="headerlink" title="配置AndroidManifest.xml"></a>配置AndroidManifest.xml</h2><p>在 <code>&lt;application/&gt;</code>中加入如下代码配置开发密钥(AK)</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">application</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">meta-data</span>  </span></span><br><span class="line"><span class="tag">        <span class="attr">android:name</span>=<span class="string">&quot;com.baidu.lbsapi.API_KEY&quot;</span>  </span></span><br><span class="line"><span class="tag">        <span class="attr">android:value</span>=<span class="string">&quot;开发者 key&quot;</span> /&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">application</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在 <code>&lt;application/&gt;</code>外部添加如下声明</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 访问网络，进行地图相关业务数据请求，包括地图数据，路线规划，POI检索等 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.INTERNET&quot;</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 获取网络状态，根据网络状态切换进行数据请求网络转换 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.ACCESS_NETWORK_STATE&quot;</span> /&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="comment">&lt;!-- 读取外置存储。如果开发者使用了so动态加载功能并且把so文件放在了外置存储区域，则需要申请该权限，否则不需要 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.READ_EXTERNAL_STORAGE&quot;</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 写外置存储。如果开发者使用了离线地图，并且数据写在外置存储区域，则需要申请该权限 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;</span> /&gt;</span> </span><br></pre></td></tr></table></figure>
+
+<h2 id="在布局文件中添加地图容器"><a href="#在布局文件中添加地图容器" class="headerlink" title="在布局文件中添加地图容器"></a>在布局文件中添加地图容器</h2><p>在 <code>res/layout/activity_main.xml</code>文件中添加地图容器</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">com.baidu.mapapi.map.MapView</span>  </span></span><br><span class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">&quot;@+id/bmapView&quot;</span>  </span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span>  </span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">&quot;match_parent&quot;</span>  </span></span><br><span class="line"><span class="tag">    <span class="attr">android:clickable</span>=<span class="string">&quot;true&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="地图初始化"><a href="#地图初始化" class="headerlink" title="地图初始化"></a>地图初始化</h2><p>在 <code>MainActivity</code>同级文件夹中添加 <code>MyApplication</code>类，代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.mobile_gis;<span class="comment">//替换为自己的包名</span></span><br><span class="line"><span class="keyword">import</span> android.app.Application;</span><br><span class="line"><span class="keyword">import</span> com.baidu.mapapi.CoordType;</span><br><span class="line"><span class="keyword">import</span> com.baidu.mapapi.SDKInitializer;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyApplication</span> <span class="keyword">extends</span> <span class="title class_">Application</span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate();</span><br><span class="line">        SDKInitializer.setAgreePrivacy(getApplicationContext(),<span class="literal">true</span>);</span><br><span class="line">        SDKInitializer.initialize(<span class="built_in">this</span>);</span><br><span class="line">        SDKInitializer.setCoordType(CoordType.BD09LL);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在AndroidManifest.xml的 <code>&lt;application/&gt;</code>中加入如下代码</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android:name=&quot;.MyApplication&quot;</span><br></pre></td></tr></table></figure>
+
+<p>创建地图Activity并管理MapView声明周期(<a target="_blank" rel="noopener" href="https://lbsyun.baidu.com/faq/api?title=androidsdk/guide/create-map/showmap">参照官方文档</a>)</p>
+<p>在 <code>onCreate</code>函数中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">super.onCreate(savedInstanceState);  </span><br><span class="line">setContentView(R.layout.activity_main);  </span><br><span class="line">//获取地图控件引用  </span><br><span class="line">mMapView = (MapView) findViewById(R.id.bmapView);  </span><br></pre></td></tr></table></figure>
+
+<p>在 <code>onCreate</code>函数外管理生命周期</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span>  </span><br><span class="line">   <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onResume</span><span class="params">()</span> &#123;  </span><br><span class="line">      <span class="built_in">super</span>.onResume();  </span><br><span class="line">      <span class="comment">//在activity执行onResume时执行mMapView. onResume ()，实现地图生命周期管理  </span></span><br><span class="line">      mMapView.onResume();  </span><br><span class="line">   &#125;  </span><br><span class="line">   <span class="meta">@Override</span>  </span><br><span class="line">   <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onPause</span><span class="params">()</span> &#123;  </span><br><span class="line">     <span class="built_in">super</span>.onPause();  </span><br><span class="line">     <span class="comment">//在activity执行onPause时执行mMapView. onPause ()，实现地图生命周期管理  </span></span><br><span class="line">     mMapView.onPause();  </span><br><span class="line">   &#125; </span><br><span class="line">   <span class="meta">@Override</span>  </span><br><span class="line">   <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onDestroy</span><span class="params">()</span> &#123;  </span><br><span class="line">     <span class="built_in">super</span>.onDestroy();  </span><br><span class="line">     <span class="comment">//在activity执行onDestroy时执行mMapView.onDestroy()，实现地图生命周期管理  </span></span><br><span class="line">     mMapView.onDestroy();  </span><br><span class="line">   &#125;  </span><br></pre></td></tr></table></figure>
+
+<h2 id="地图控件及相关设置"><a href="#地图控件及相关设置" class="headerlink" title="地图控件及相关设置"></a>地图控件及相关设置</h2><p>在onCreate函数中添加地图控件及地图显示设置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取MapView实例</span></span><br><span class="line">mMapView = findViewById(R.id.bmapView);</span><br><span class="line">        <span class="comment">//比例尺</span></span><br><span class="line">        mMapView.showScaleControl(<span class="literal">true</span>);</span><br><span class="line">        <span class="comment">//设置缩放按钮</span></span><br><span class="line">        mMapView.showZoomControls(<span class="literal">true</span>);</span><br><span class="line">        <span class="comment">//获取地图实例</span></span><br><span class="line">        mBaiduMap= mMapView.getMap();</span><br><span class="line">        <span class="comment">//指南针</span></span><br><span class="line">        <span class="type">UiSettings</span> <span class="variable">mUiSettings</span> <span class="operator">=</span> mBaiduMap.getUiSettings();</span><br><span class="line">        mUiSettings.setCompassEnabled(<span class="literal">true</span>);</span><br><span class="line">        <span class="comment">//设置地图俯视（3D）</span></span><br><span class="line">        mUiSettings.setOverlookingGesturesEnabled(<span class="literal">true</span>);</span><br><span class="line">        zoomBuilder = <span class="keyword">new</span> <span class="title class_">MapStatus</span>.Builder();</span><br><span class="line">        zoomBuilder.zoom(<span class="number">18.0f</span>);</span><br><span class="line">        <span class="comment">//设置缩放比例限制</span></span><br><span class="line">        mBaiduMap.setMaxAndMinZoomLevel(<span class="number">25.0f</span>, <span class="number">12.0f</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="实现地图类型切换"><a href="#实现地图类型切换" class="headerlink" title="实现地图类型切换"></a>实现地图类型切换</h2><p>在布局文件activity_main.xml中添加一系列选项</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">RadioGroup</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:id</span>=<span class="string">&quot;@+id/mapTypeRadioGroup&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:layout_alignParentBottom</span>=<span class="string">&quot;true&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:layout_marginBottom</span>=<span class="string">&quot;16dp&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:orientation</span>=<span class="string">&quot;horizontal&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">app:layout_constraintBottom_toBottomOf</span>=<span class="string">&quot;parent&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">       <span class="tag">&lt;<span class="name">RadioButton</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:id</span>=<span class="string">&quot;@+id/normal&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:layout_width</span>=<span class="string">&quot;0dp&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:layout_weight</span>=<span class="string">&quot;1&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:checked</span>=<span class="string">&quot;true&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:text</span>=<span class="string">&quot;@string/普通图&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">       <span class="tag">&lt;<span class="name">RadioButton</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:id</span>=<span class="string">&quot;@+id/satellite&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:layout_width</span>=<span class="string">&quot;0dp&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:layout_weight</span>=<span class="string">&quot;1&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:text</span>=<span class="string">&quot;@string/卫星图&quot;</span>/&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">CheckBox</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:id</span>=<span class="string">&quot;@+id/traffic&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:layout_width</span>=<span class="string">&quot;0dp&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:layout_weight</span>=<span class="string">&quot;1&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:text</span>=<span class="string">&quot;@string/城市路况图&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">       <span class="tag">&lt;<span class="name">CheckBox</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:id</span>=<span class="string">&quot;@+id/heatMap&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:layout_width</span>=<span class="string">&quot;0dp&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:layout_weight</span>=<span class="string">&quot;1&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:text</span>=<span class="string">&quot;@string/人口热力图&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">       <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:layout_width</span>=<span class="string">&quot;0dp&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:layout_gravity</span>=<span class="string">&quot;center&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:layout_weight</span>=<span class="string">&quot;1&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:onClick</span>=<span class="string">&quot;cleanMapCache&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:text</span>=<span class="string">&quot;@string/X&quot;</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">RadioGroup</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>百度地图SDK提供的3中类型的地图资源</p>
+<table>
+<thead>
+<tr>
+<th>类型名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MAP_TYPE_NORMAL</td>
+<td>普通地图（包含3D地图）</td>
+</tr>
+<tr>
+<td>MAP_TYPE_SATELLITE</td>
+<td>卫星图</td>
+</tr>
+<tr>
+<td>MAP_TYPE_NONE</td>
+<td>空白地图</td>
+</tr>
+</tbody></table>
+<p>下面以普通地图和卫星图为例</p>
+<h3 id="普通地图与卫星图"><a href="#普通地图与卫星图" class="headerlink" title="普通地图与卫星图"></a>普通地图与卫星图</h3><p>首先通过id获取选项组</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">RadioGroup</span> <span class="variable">mMapTypeRadioGroup</span> <span class="operator">=</span> findViewById(R.id.mapTypeRadioGroup);</span><br></pre></td></tr></table></figure>
+
+<p>对该选项组重写选项变化的监听函数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> mMapTypeRadioGroup.setOnCheckedChangeListener(<span class="keyword">new</span> <span class="title class_">RadioGroup</span>.OnCheckedChangeListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onCheckedChanged</span><span class="params">(RadioGroup group, <span class="type">int</span> checkedId)</span> &#123;</span><br><span class="line">                mapId=checkedId;</span><br><span class="line">                changeMarkerStyle(checkedId);</span><br><span class="line">                <span class="keyword">if</span> (checkedId == R.id.normal) &#123;</span><br><span class="line">mBaiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);<span class="comment">//设置地图类型：普通图</span></span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (checkedId == R.id.satellite) &#123;</span><br><span class="line"> mBaiduMap.setMapType(BaiduMap.MAP_TYPE_SATELLITE);<span class="comment">//设置地图类型：卫星图</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="热力图与交通"><a href="#热力图与交通" class="headerlink" title="热力图与交通"></a>热力图与交通</h3><p>通过对两个复选选项设置监听函数，实现热力图与交通图的添加</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addCheckListener</span><span class="params">(String string)</span>&#123;</span><br><span class="line">    CheckBox checkBox;</span><br><span class="line">    <span class="keyword">if</span>(Objects.*equals*(string, <span class="string">&quot;traffic&quot;</span>))&#123;</span><br><span class="line">        checkBox = findViewById(R.id.*traffic*);</span><br><span class="line">        checkBox.setOnCheckedChangeListener(<span class="keyword">new</span> <span class="title class_">CompoundButton</span>.OnCheckedChangeListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onCheckedChanged</span><span class="params">(CompoundButton buttonView, <span class="type">boolean</span> isChecked)</span> &#123;</span><br><span class="line">                mBaiduMap.setTrafficEnabled(!mBaiduMap.isTrafficEnabled());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        checkBox=findViewById(R.id.*heatMap*);</span><br><span class="line">        checkBox.setOnCheckedChangeListener(<span class="keyword">new</span> <span class="title class_">CompoundButton</span>.OnCheckedChangeListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onCheckedChanged</span><span class="params">(CompoundButton buttonView, <span class="type">boolean</span> isChecked)</span> &#123;</span><br><span class="line">                mBaiduMap.setBaiduHeatMapEnabled(!mBaiduMap.isBaiduHeatMapEnabled());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在onCreate函数中添加两个监听函数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">addCheckListener(<span class="string">&quot;traffic&quot;</span>);</span><br><span class="line">addCheckListener(<span class="string">&quot;heatMap&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h1><h2 id="配置AndroidManifest-xml-1"><a href="#配置AndroidManifest-xml-1" class="headerlink" title="配置AndroidManifest.xml"></a>配置AndroidManifest.xml</h2><p>加入权限声明</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 这个权限用于进行网络定位 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.ACCESS_COARSE_LOCATION&quot;</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 这个权限用于访问GPS定位 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.ACCESS_FINE_LOCATION&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在Application标签中声明定位的service组件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">service</span> <span class="attr">android:name</span>=<span class="string">&quot;com.baidu.location.f&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:enabled</span>=<span class="string">&quot;true&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:process</span>=<span class="string">&quot;:remote&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>开启地图的定位图层</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mBaiduMap.setMyLocationEnabled(<span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="请求权限"><a href="#请求权限" class="headerlink" title="请求权限"></a>请求权限</h2><p>在 <code>android10</code>以上的版本中，需要对用户进行请求才能获取位置权限</p>
+<p>在 <code>onCreate</code>函数中添加请求</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (ContextCompat.checkSelfPermission(<span class="built_in">this</span>, android.Manifest.permission.ACCESS_FINE_LOCATION)</span><br><span class="line">                != PackageManager.PERMISSION_GRANTED) &#123;</span><br><span class="line">            <span class="comment">// 如果未授予权限，则请求权限</span></span><br><span class="line">            ActivityCompat.requestPermissions(<span class="built_in">this</span>,</span><br><span class="line">                    <span class="keyword">new</span> <span class="title class_">String</span>[]&#123;android.Manifest.permission.ACCESS_FINE_LOCATION&#125;,</span><br><span class="line">                    REQUEST_FINE_LOCATION_PERMISSION);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="构造地图数据"><a href="#构造地图数据" class="headerlink" title="构造地图数据"></a>构造地图数据</h2><p>通过继承抽象类BDAbstractListener并重写其onReceieveLocation方法来获取定位数据，并将其传给MapView。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyLocationListener</span> <span class="keyword">extends</span> <span class="title class_">BDAbstractLocationListener</span> &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onReceiveLocation</span><span class="params">(BDLocation location)</span> &#123;</span><br><span class="line">            curLocation=location;</span><br><span class="line">            <span class="comment">//mapView 销毁后不在处理新接收的位置</span></span><br><span class="line">            <span class="keyword">if</span> (location == <span class="literal">null</span> || mMapView == <span class="literal">null</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            locLat=location.getLatitude();</span><br><span class="line">            locLng=location.getLongitude();</span><br><span class="line">            <span class="type">MyLocationData</span> <span class="variable">locData</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyLocationData</span>.Builder()</span><br><span class="line">                    .accuracy(location.getRadius())</span><br><span class="line">                    <span class="comment">// 此处设置开发者获取到的方向信息，顺时针0-360</span></span><br><span class="line">                    .direction(location.getDirection()).latitude(locLat)</span><br><span class="line">                    .longitude(locLng).build();</span><br><span class="line">            mBaiduMap.setMyLocationData(locData);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (isFirstLoc) &#123;  <span class="comment">//如果是第一次定位,就定位到以自己为中心</span></span><br><span class="line">                <span class="type">LatLng</span> <span class="variable">ll</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">LatLng</span>(location.getLatitude(), location.getLongitude()); <span class="comment">//获取用户当前经纬度</span></span><br><span class="line">                <span class="type">MapStatusUpdate</span> <span class="variable">u</span> <span class="operator">=</span> MapStatusUpdateFactory.newLatLng(ll);  <span class="comment">//更新坐标位置</span></span><br><span class="line">                mBaiduMap.animateMapStatus(u);                            <span class="comment">//设置地图位置</span></span><br><span class="line">                isFirstLoc = <span class="literal">false</span>;                                      <span class="comment">//取消第一次定位</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="发起定位"><a href="#发起定位" class="headerlink" title="发起定位"></a>发起定位</h2><p>建立initLocationOption函数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">initLocationOption</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="comment">//开启地图定位图层</span></span><br><span class="line">       mBaiduMap.setMyLocationEnabled(<span class="literal">true</span>);</span><br><span class="line">    <span class="comment">//设置位置请求</span></span><br><span class="line">       LocationClient.setAgreePrivacy(<span class="literal">true</span>);</span><br><span class="line">    <span class="comment">//实例化MyLocationConfiguration</span></span><br><span class="line">       MyLocationConfiguration.<span class="type">LocationMode</span> <span class="variable">mCurrentMode</span> <span class="operator">=</span> MyLocationConfiguration.LocationMode.NORMAL;</span><br><span class="line">       MyLocationConfiguration myLocationConfiguration=<span class="keyword">new</span> <span class="title class_">MyLocationConfiguration</span>(mCurrentMode,<span class="literal">true</span>,<span class="literal">null</span>);</span><br><span class="line">       mBaiduMap.setMyLocationConfiguration(myLocationConfiguration);</span><br><span class="line">       <span class="comment">// 初始化定位</span></span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           mLocationClient = <span class="keyword">new</span> <span class="title class_">LocationClient</span>(getApplicationContext());</span><br><span class="line">       &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">           <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// 设置定位参数</span></span><br><span class="line">       <span class="type">LocationClientOption</span> <span class="variable">option</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">LocationClientOption</span>();</span><br><span class="line">       option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);</span><br><span class="line">       option.setCoorType(<span class="string">&quot;bd09ll&quot;</span>); <span class="comment">// 设置坐标类型</span></span><br><span class="line">       option.setScanSpan(<span class="number">1000</span>); <span class="comment">// 设置定位间隔，单位毫秒</span></span><br><span class="line">       mLocationClient.setLocOption(option);</span><br><span class="line">       <span class="comment">//注册LocationListener监听器</span></span><br><span class="line">       <span class="type">MyLocationListener</span> <span class="variable">myLocationListener</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyLocationListener</span>();</span><br><span class="line">       mLocationClient.registerLocationListener(myLocationListener);</span><br><span class="line">       <span class="comment">// 开始定位</span></span><br><span class="line">       mLocationClient.start();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="管理各部分生命周期"><a href="#管理各部分生命周期" class="headerlink" title="管理各部分生命周期"></a>管理各部分生命周期</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onResume</span><span class="params">()</span> &#123;</span><br><span class="line">    mMapView.onResume();</span><br><span class="line">    <span class="built_in">super</span>.onResume();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onPause</span><span class="params">()</span> &#123;</span><br><span class="line">    mMapView.onPause();</span><br><span class="line">    <span class="built_in">super</span>.onPause();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onDestroy</span><span class="params">()</span> &#123;</span><br><span class="line">    mLocationClient.stop();</span><br><span class="line">    mBaiduMap.setMyLocationEnabled(<span class="literal">false</span>);</span><br><span class="line">    mMapView.onDestroy();</span><br><span class="line">    mMapView = <span class="literal">null</span>;</span><br><span class="line">    <span class="built_in">super</span>.onDestroy();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h1><p><a target="_blank" rel="noopener" href="https://lesmorts.github.io/picx-images-hosting/Screenshot_20240330_143237.6ik272u42j.webp" class="gallery-item" style="box-shadow: none;"> <img src="https://lesmorts.github.io/picx-images-hosting/Screenshot_20240330_143237.6ik272u42j.webp"></a>{height&#x3D;”550px” width&#x3D;”250px”}</p>
+</div><script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
+    </div>
+
+    <div class="post-meta">
+        <i>
+        
+            <span>2024-03-29</span>
+            
+                <span>该篇文章被 John Doe</span>
+            
+            
+                <span>打上标签:
+                    
+                    
+                        <a href='/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAndroidSDK/'>
+                            百度地图AndroidSDK
+                        </a>
+                    
+                        <a href='/tags/Android-Studio/'>
+                            Android Studio
+                        </a>
+                    
+                        <a href='/tags/java/'>
+                            java
+                        </a>
+                    
+                </span>
+             
+             
+                <span>归为分类:
+                    
+                    
+                        <a href='/categories/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BESDK/'>
+                            百度地图SDK
+                        </a>
+                    
+                </span>
+            
+        
+        </i>
+    </div>
+    <br>
+    
+    <!-- <div class="post-footer-pre-next">
+        <span>上一篇：<a href=""></a></span>
+        <span class="post-footer-pre-next-last-span-right">上一篇：<a href=""></a></span>
+    </div> -->
+
+     
+</div>
+
+
+
+                                      
+                    
+                    
+                    <div class="footer">
+    
+        <span> 
+            © 2003-2024 Levent 
+
+            
+                
+
+            
+        </span>
+    
+</div>
+<!--这是指一条线往下的内容-->
+<div class="footer-last">
+    
+            <span>🌊看过大海的人不会忘记海的广阔🌊</span>
+            
+                <span class="footer-last-span-right"><i>本站由<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">Hexo</a>驱动｜使用<a target="_blank" rel="noopener" href="https://github.com/HiNinoJay/hexo-theme-A4">Hexo-theme-A4</a>主题</i></span>
+            
+    
+</div>
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <!--目录-->
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tocify/1.9.0/javascripts/jquery.tocify.min.js" type="text/javascript" ></script>
+        
+<script src="/js/toc.js"></script>
+
+    
+
+    
+<script src="/js/randomHeaderContent.js"></script>
+
+    <!--回到顶部按钮-->
+    
+        
+<script src="/js/returnToTop.js"></script>
+
+    
+
+    
+        
+<script src="/js/returnToLastPage.js"></script>
+
+    
+
+
+
+
+
+<script src="/js/lightgallery.min.js"></script>
+
+
+
+                </div>
+            
+            
+                <!-- 回到顶部的按钮-->  
+                <div class="progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+            
+                <!-- 返回的按钮-->  
+                <div class="return-to-last-progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+    </body>
+
+
+    <!--暗黑模式-->
+    <script src="/js/darkmode-js.min.js"></script>
+    <script>
+        function addDarkmodeWidget() {
+        const options = {
+            bottom: '53px', // default: '32px'
+            right: 'unset', // default: '32px'
+            left: '42px', // default: 'unset'
+            time: '0.3s', // default: '0.3s'
+            mixColor: '#fff', // default: '#fff'
+            backgroundColor: ' #e4e4e4 ',  // default: '#fff'
+            buttonColorDark: '#100f2c',  // default: '#100f2c'
+            buttonColorLight: '#fff', // default: '#fff'
+            saveInCookies: true, // default: true,
+            label: '🌓', // default: ''
+            autoMatchOsTheme: true // default: true
+        }
+    
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+        
+        }
+        window.addEventListener('load', addDarkmodeWidget);
+    </script>
+  
+</html>

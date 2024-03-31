@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    
+    <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+    <meta name="description" content="绘制点线面、文字和信息窗" />
+    <meta name="hexo-theme-A4" content="v1.8.9" />
+    <link rel="alternate icon" type="image/webp" href="/img/avatar.webp">
+    <title>Levent</title>
+
+    
+        
+<link rel="stylesheet" href="/css/highlight/style1.css">
+
+        
+<link rel="stylesheet" href="/css/reset.css">
+
+        
+<link rel="stylesheet" href="/css/markdown.css">
+
+        
+<link rel="stylesheet" href="/css/fonts.css">
+ 
+         <!--注意：首页既不是post也不是page-->
+        
+        
+        
+<link rel="stylesheet" href="/css/ui.css">
+ 
+        
+<link rel="stylesheet" href="/css/style.css">
+
+
+        
+            <!--返回顶部css-->
+            
+<link rel="stylesheet" href="/css/returnToTop.css">
+
+            
+<link rel="stylesheet" href="/css/unicons.css">
+
+        
+        
+            <!--目录-->
+            
+<link rel="stylesheet" href="/css/toc.css">
+
+        
+    
+
+    
+        
+<link rel="stylesheet" href="/css/returnToLastPage.css">
+
+    
+    
+   
+<link rel="stylesheet" href="/css/lightgallery.min.css">
+
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+    
+    
+    <body>
+        
+            <div class="left-toc-container">
+                <nav id="toc" class="bs-docs-sidebar"></nav>
+            </div>
+        
+        <div class="paper">
+            
+            
+            
+            
+                <div class="shadow-drop-2-bottom paper-main">
+                    
+
+
+<div class="header">
+    <div class="header-container">
+        <img style="
+        width: 56px;
+        height: auto;" alt="^-^" cache-control="max-age=86400" class="header-img" src="/img/avatar.webp" width="10%"></img>
+        <div class="header-content">
+            <a class="logo" href="/">Levent</a> 
+            <span class="description">GIS</span> 
+        </div>
+        
+    </div>
+    
+   
+    <ul class="nav">
+        
+            
+                <li><a href="/">首页</a></li>
+            
+        
+            
+                <li><a href="/list/">文章</a></li>
+            
+        
+            
+                <li><a href="/about/">关于</a></li>
+            
+        
+            
+                <li><a href="/tags/">标签</a></li>
+            
+        
+            
+                <li><a href="/categories/">分类</a></li>
+            
+        
+    </ul>
+</div> 
+        
+                    
+                    
+
+                    
+                    
+                    
+                    <!--说明是文章post页面-->
+                    
+                        <div class="post-main">
+
+    
+        <div class="post-main-title">
+            绘制点线面、文字和信息窗
+        </div>
+      
+    
+
+    <div class="post-md">
+        
+            
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%9C%A8%E5%9C%B0%E5%9B%BE%E4%B8%8A%E7%BB%98%E5%88%B6"><span class="post-toc-text">在地图上绘制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B7%BB%E5%8A%A0Spinner"><span class="post-toc-text">添加Spinner</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AE%9A%E4%B9%89%E7%BB%98%E5%88%B6%E5%BD%A2%E7%8A%B6%E6%95%B0%E7%BB%84"><span class="post-toc-text">定义绘制形状数组</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%9E%E7%8E%B0%E9%80%BB%E8%BE%91"><span class="post-toc-text">实现逻辑</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BB%98%E5%88%B6%E5%87%BD%E6%95%B0"><span class="post-toc-text">绘制函数</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%95%88%E6%9E%9C"><span class="post-toc-text">实现效果</span></a></li></ol>
+            
+        
+        <link rel="stylesheet" type="text/css" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/lightgallery.min.css" /><div class=".article-gallery"><h1 id="在地图上绘制"><a href="#在地图上绘制" class="headerlink" title="在地图上绘制"></a>在地图上绘制</h1><h2 id="添加Spinner"><a href="#添加Spinner" class="headerlink" title="添加Spinner"></a>添加Spinner</h2><p>在 <code>layout/activity_main.xml</code> 文件中添加一个 Spinner 控件用于选择要绘制的形状。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Spinner</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">&quot;@+id/shapes_spinner&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:background</span>=<span class="string">&quot;@color/white&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">app:layout_constraintTop_toTopOf</span>=<span class="string">&quot;parent&quot;</span></span></span><br><span class="line"><span class="tag">    /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="定义绘制形状数组"><a href="#定义绘制形状数组" class="headerlink" title="定义绘制形状数组"></a>定义绘制形状数组</h3><p>在 <code>res/values/array.xml</code> 文件中定义一个字符串数组，包含用户可以选择的不同形状类型。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;resources&gt;</span><br><span class="line">    &lt;string-array name=&quot;shapes_array&quot;&gt;</span><br><span class="line">        &lt;item&gt;绘制&lt;/item&gt;</span><br><span class="line">        &lt;item&gt;点&lt;/item&gt;</span><br><span class="line">        &lt;item&gt;线&lt;/item&gt;</span><br><span class="line">        &lt;item&gt;圆弧&lt;/item&gt;</span><br><span class="line">        &lt;item&gt;圆&lt;/item&gt;</span><br><span class="line">        &lt;item&gt;多边形&lt;/item&gt;</span><br><span class="line">        &lt;item&gt;文字&lt;/item&gt;</span><br><span class="line">    &lt;/string-array&gt;</span><br><span class="line">&lt;/resources&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="实现逻辑"><a href="#实现逻辑" class="headerlink" title="实现逻辑"></a>实现逻辑</h2><p>在 MainActivity 中，根据用户选择的不同形状类型，设置相应的地图点击监听器，在地图上添加相应的标记。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">    A[用户选择] --&gt; B(判断选择)</span><br><span class="line">    B --&gt; |绘制类型| C[设置地图点击监听器为对应函数]</span><br><span class="line">    subgraph 设置监听器</span><br><span class="line">        C --&gt; E[监听地图点击事件]</span><br><span class="line">    end</span><br><span class="line">    E --&gt; G[添加对应标记]</span><br><span class="line">    G --&gt; I[地图上显示标记]</span><br><span class="line">    style A fill:#f9f,stroke:#333,stroke-width:4px;</span><br><span class="line">    style B fill:#f9f,stroke:#333,stroke-width:4px;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取布局文件中的 Spinner 控件</span></span><br><span class="line"><span class="type">Spinner</span> <span class="variable">shapesSpinner</span> <span class="operator">=</span> findViewById(R.id.shapes_spinner);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建适配器，使用名为 &quot;shapes_array&quot; 的字符串数组作为数据源，并使用系统提供的简单 Spinner item 布局</span></span><br><span class="line">ArrayAdapter&lt;CharSequence&gt; adapter = ArrayAdapter.createFromResource(<span class="built_in">this</span>,</span><br><span class="line">        R.array.shapes_array, android.R.layout.simple_spinner_item);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置下拉列表的样式</span></span><br><span class="line">adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将适配器设置给 Spinner 控件，以显示可选项</span></span><br><span class="line">shapesSpinner.setAdapter(adapter);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置 Spinner 的选中事件监听器</span></span><br><span class="line">shapesSpinner.setOnItemSelectedListener(<span class="keyword">new</span> <span class="title class_">AdapterView</span>.OnItemSelectedListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onItemSelected</span><span class="params">(AdapterView&lt;?&gt; parent, View view, <span class="type">int</span> position, <span class="type">long</span> id)</span> &#123;</span><br><span class="line">        <span class="comment">// 当用户选择某个选项时执行的操作</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">selectedItem</span> <span class="operator">=</span> parent.getItemAtPosition(position).toString();</span><br><span class="line">    </span><br><span class="line">        <span class="comment">// 如果用户选择的不是 &quot;绘制&quot;，显示一个 Toast 提示</span></span><br><span class="line">        <span class="keyword">if</span> (!selectedItem.equals(<span class="string">&quot;绘制&quot;</span>)) &#123;</span><br><span class="line">            Toast.makeText(MainActivity.<span class="built_in">this</span>, <span class="string">&quot;选择了：&quot;</span> + selectedItem, Toast.LENGTH_SHORT).show();</span><br><span class="line">        &#125;</span><br><span class="line">   </span><br><span class="line">        <span class="comment">// 根据用户选择的不同设置相应的地图点击监听器</span></span><br><span class="line">        <span class="keyword">switch</span> (selectedItem) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&quot;点&quot;</span>: &#123;</span><br><span class="line">                <span class="comment">// 设置添加点的地图点击监听器</span></span><br><span class="line">                BaiduMap.<span class="type">OnMapClickListener</span> <span class="variable">addPnt</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BaiduMap</span>.OnMapClickListener() &#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onMapClick</span><span class="params">(LatLng latLng)</span> &#123;</span><br><span class="line">                        addMarker(latLng); <span class="comment">// 添加点标记</span></span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onMapPoiClick</span><span class="params">(MapPoi mapPoi)</span> &#123;</span><br><span class="line">                        addMarker(mapPoi.getPosition());</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;;</span><br><span class="line">                mBaiduMap.setOnMapClickListener(addPnt);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&quot;线&quot;</span>: &#123;</span><br><span class="line">                <span class="comment">// 设置添加线的地图点击监听器</span></span><br><span class="line">                BaiduMap.<span class="type">OnMapClickListener</span> <span class="variable">addLine</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BaiduMap</span>.OnMapClickListener() &#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onMapClick</span><span class="params">(LatLng latLng)</span> &#123;</span><br><span class="line">                        linePnts.add(latLng); <span class="comment">// 添加线的点集合</span></span><br><span class="line">                        <span class="keyword">if</span> (linePnts.size() &gt; <span class="number">1</span>) &#123;</span><br><span class="line">                            addLine(); <span class="comment">// 添加线</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onMapPoiClick</span><span class="params">(MapPoi mapPoi)</span> &#123;</span><br><span class="line">                        addLine();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;;</span><br><span class="line">                mBaiduMap.setOnMapClickListener(addLine);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 其他形状的处理类似，根据用户选择设置相应的地图点击监听器</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onNothingSelected</span><span class="params">(AdapterView&lt;?&gt; parent)</span> &#123;</span><br><span class="line">        <span class="comment">// 未选择任何选项时执行的操作</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="绘制函数"><a href="#绘制函数" class="headerlink" title="绘制函数"></a>绘制函数</h2><p>以其中一些特定类型为例，详见官方文档</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">addMarker</span><span class="params">(LatLng point)</span> &#123;</span><br><span class="line">        <span class="type">BitmapDescriptor</span> <span class="variable">bitmap</span> <span class="operator">=</span> BitmapDescriptorFactory</span><br><span class="line">                .fromResource(mapId==R.id.normal?R.drawable.location:R.drawable.location_statellite);</span><br><span class="line">        <span class="comment">//构建MarkerOption，用于在地图上添加Marker</span></span><br><span class="line">        <span class="type">OverlayOptions</span> <span class="variable">option</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MarkerOptions</span>()</span><br><span class="line">                .position(point)</span><br><span class="line">                .icon(bitmap);</span><br><span class="line">        <span class="comment">//在地图上添加Marker，并显示</span></span><br><span class="line">        Overlay markerOverlay= mBaiduMap.addOverlay(option);</span><br><span class="line">        markers.add(markerOverlay);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">addLine</span><span class="params">()</span>&#123;</span><br><span class="line">        List&lt;BitmapDescriptor&gt; textureList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        textureList.add(BitmapDescriptorFactory.fromResource(R.drawable.blue));</span><br><span class="line">        textureList.add(BitmapDescriptorFactory.fromResource(R.drawable.red));</span><br><span class="line">        textureList.add(BitmapDescriptorFactory.fromResource(R.drawable.green));</span><br><span class="line">        <span class="comment">//添加纹理索引</span></span><br><span class="line">        List&lt;Integer&gt; indexList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        indexList.add(<span class="number">0</span>);</span><br><span class="line">        indexList.add(<span class="number">1</span>);</span><br><span class="line">        indexList.add(<span class="number">2</span>);</span><br><span class="line">        indexList.add(<span class="number">0</span>);</span><br><span class="line">        indexList.add(<span class="number">1</span>);</span><br><span class="line">        indexList.add(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">        OverlayOptions options= <span class="keyword">new</span> <span class="title class_">PolylineOptions</span>()</span><br><span class="line">                .width(<span class="number">10</span>)</span><br><span class="line">                .points(linePnts)</span><br><span class="line">                .customTextureList(textureList)</span><br><span class="line">                .textureIndex(indexList);<span class="comment">//设置纹理列表</span></span><br><span class="line">        <span class="type">Overlay</span> <span class="variable">mPolyline</span> <span class="operator">=</span> mBaiduMap.addOverlay(options);</span><br><span class="line">        lines.add(mPolyline);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">addText</span><span class="params">(LatLng latLng)</span>&#123;</span><br><span class="line">        <span class="comment">//构建TextOptions对象</span></span><br><span class="line">        <span class="type">OverlayOptions</span> <span class="variable">mTextOptions</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TextOptions</span>()</span><br><span class="line">                .text(<span class="string">&quot;你点击了这里&quot;</span>) <span class="comment">//文字内容</span></span><br><span class="line">                .bgColor(<span class="number">0xAAFFFF00</span>) <span class="comment">//背景色</span></span><br><span class="line">                .fontSize(<span class="number">24</span>) <span class="comment">//字号</span></span><br><span class="line">                .fontColor(<span class="number">0xFFFF00FF</span>) <span class="comment">//文字颜色</span></span><br><span class="line">                .rotate(-<span class="number">30</span>) <span class="comment">//旋转角度</span></span><br><span class="line">                .position(latLng);</span><br><span class="line">        <span class="comment">//在地图上显示文字覆盖物</span></span><br><span class="line">        <span class="type">Overlay</span> <span class="variable">mText</span> <span class="operator">=</span> mBaiduMap.addOverlay(mTextOptions);</span><br><span class="line">        texts.add(mText);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span>  <span class="keyword">void</span> <span class="title function_">addInfoWindow</span><span class="params">(LatLng latLng)</span>&#123;</span><br><span class="line">        <span class="type">BitmapDescriptor</span> <span class="variable">mBitmap</span> <span class="operator">=</span> BitmapDescriptorFactory.fromResource(R.drawable.location);</span><br><span class="line">        <span class="keyword">final</span> String[] address = <span class="keyword">new</span> <span class="title class_">String</span>[<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">final</span> <span class="type">int</span>[] adCode = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">1</span>];</span><br><span class="line">        <span class="type">GeoCoder</span> <span class="variable">mCoder</span> <span class="operator">=</span> GeoCoder.newInstance();</span><br><span class="line">        <span class="type">OnGetGeoCoderResultListener</span> <span class="variable">codelistener</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">OnGetGeoCoderResultListener</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onGetGeoCodeResult</span><span class="params">(GeoCodeResult geoCodeResult)</span> &#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onGetReverseGeoCodeResult</span><span class="params">(ReverseGeoCodeResult reverseGeoCodeResult)</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (reverseGeoCodeResult == <span class="literal">null</span> || reverseGeoCodeResult.error != SearchResult.ERRORNO.NO_ERROR) &#123;</span><br><span class="line">                    <span class="comment">//没有找到检索结果</span></span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">//详细地址</span></span><br><span class="line">                    address[<span class="number">0</span>] = reverseGeoCodeResult.getAddress();</span><br><span class="line">                    <span class="comment">//行政区号</span></span><br><span class="line">                    adCode[<span class="number">0</span>] = reverseGeoCodeResult.getAdcode();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        mCoder.setOnGetGeoCodeResultListener(codelistener);</span><br><span class="line">        mCoder.reverseGeoCode(<span class="keyword">new</span> <span class="title class_">ReverseGeoCodeOption</span>()</span><br><span class="line">                .location(latLng)</span><br><span class="line">                <span class="comment">// 设置是否返回新数据 默认值0不返回，1返回</span></span><br><span class="line">                .newVersion(<span class="number">1</span>)</span><br><span class="line">                <span class="comment">// POI召回半径，允许设置区间为0-1000米，超过1000米按1000米召回。默认值为1000</span></span><br><span class="line">                .radius(<span class="number">500</span>));</span><br><span class="line"><span class="comment">//响应点击的OnInfoWindowClickListener</span></span><br><span class="line">        InfoWindow.<span class="type">OnInfoWindowClickListener</span> <span class="variable">listener</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">InfoWindow</span>.OnInfoWindowClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onInfoWindowClick</span><span class="params">()</span> &#123;</span><br><span class="line">                Toast.makeText(MainActivity.<span class="built_in">this</span>, address[<span class="number">0</span>]+<span class="string">&quot;,&quot;</span>+adCode[<span class="number">0</span>], Toast.LENGTH_LONG).show();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="type">InfoWindow</span> <span class="variable">mInfoWindow</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">InfoWindow</span>(mBitmap, latLng, -<span class="number">100</span>, listener);</span><br><span class="line">        mBaiduMap.showInfoWindow(mInfoWindow);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h1><p><a target="_blank" rel="noopener" href="https://lesmorts.github.io/picx-images-hosting/Screenshot_20240330_151926.6f0g9d11ck.webp" class="gallery-item" style="box-shadow: none;"> <img src="https://lesmorts.github.io/picx-images-hosting/Screenshot_20240330_151926.6f0g9d11ck.webp"></a>{height&#x3D;”550px” width&#x3D;”250px”}</p>
+</div><script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
+    </div>
+
+    <div class="post-meta">
+        <i>
+        
+            <span>2024-03-29</span>
+            
+                <span>该篇文章被 John Doe</span>
+            
+            
+                <span>打上标签:
+                    
+                    
+                        <a href='/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAndroidSDK/'>
+                            百度地图AndroidSDK
+                        </a>
+                    
+                        <a href='/tags/Android-Studio/'>
+                            Android Studio
+                        </a>
+                    
+                        <a href='/tags/java/'>
+                            java
+                        </a>
+                    
+                </span>
+             
+             
+                <span>归为分类:
+                    
+                    
+                        <a href='/categories/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BESDK/'>
+                            百度地图SDK
+                        </a>
+                    
+                </span>
+            
+        
+        </i>
+    </div>
+    <br>
+    
+    <!-- <div class="post-footer-pre-next">
+        <span>上一篇：<a href=""></a></span>
+        <span class="post-footer-pre-next-last-span-right">上一篇：<a href=""></a></span>
+    </div> -->
+
+     
+</div>
+
+
+
+                                      
+                    
+                    
+                    <div class="footer">
+    
+        <span> 
+            © 2003-2024 Levent 
+
+            
+                
+
+            
+        </span>
+    
+</div>
+<!--这是指一条线往下的内容-->
+<div class="footer-last">
+    
+            <span>🌊看过大海的人不会忘记海的广阔🌊</span>
+            
+                <span class="footer-last-span-right"><i>本站由<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">Hexo</a>驱动｜使用<a target="_blank" rel="noopener" href="https://github.com/HiNinoJay/hexo-theme-A4">Hexo-theme-A4</a>主题</i></span>
+            
+    
+</div>
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <!--目录-->
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tocify/1.9.0/javascripts/jquery.tocify.min.js" type="text/javascript" ></script>
+        
+<script src="/js/toc.js"></script>
+
+    
+
+    
+<script src="/js/randomHeaderContent.js"></script>
+
+    <!--回到顶部按钮-->
+    
+        
+<script src="/js/returnToTop.js"></script>
+
+    
+
+    
+        
+<script src="/js/returnToLastPage.js"></script>
+
+    
+
+
+
+
+
+<script src="/js/lightgallery.min.js"></script>
+
+
+
+                </div>
+            
+            
+                <!-- 回到顶部的按钮-->  
+                <div class="progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+            
+                <!-- 返回的按钮-->  
+                <div class="return-to-last-progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+    </body>
+
+
+    <!--暗黑模式-->
+    <script src="/js/darkmode-js.min.js"></script>
+    <script>
+        function addDarkmodeWidget() {
+        const options = {
+            bottom: '53px', // default: '32px'
+            right: 'unset', // default: '32px'
+            left: '42px', // default: 'unset'
+            time: '0.3s', // default: '0.3s'
+            mixColor: '#fff', // default: '#fff'
+            backgroundColor: ' #e4e4e4 ',  // default: '#fff'
+            buttonColorDark: '#100f2c',  // default: '#100f2c'
+            buttonColorLight: '#fff', // default: '#fff'
+            saveInCookies: true, // default: true,
+            label: '🌓', // default: ''
+            autoMatchOsTheme: true // default: true
+        }
+    
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+        
+        }
+        window.addEventListener('load', addDarkmodeWidget);
+    </script>
+  
+</html>

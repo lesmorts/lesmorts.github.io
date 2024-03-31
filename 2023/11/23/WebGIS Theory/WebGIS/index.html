@@ -61,171 +61,6 @@
 
 <meta name="generator" content="Hexo 7.1.1"></head>
     
-    <style>
-        :root {
-            --waline-theme-color: #323e74; 
-            --waline-color: #323e74; 
-            --waline-border-color: #323e74; 
-            --waline-white: #323e74; 
-            --waline-bgcolor-light: #f2fafc;  
-        }
-        body {
-            color: #323e74;
-            background: #eaeae8;
-        }
-        .post-md code {
-            background: #e7f7f3;
-            color: #7f688d; 
-        }
-        .post-md pre, .post-md .highlight {
-            background: #e7f7f3;
-            color: #7f688d; 
-        }
-        pre .string, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, pre .xml .cdata {
-            color: #323e74;
-        }
-        pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, pre .constant {
-            color: #323e74;
-        }
-        .year-font-color {
-            color: #323e74 !important;
-        }
-        .wl-card span.wl-nick {
-            color: #323e74; 
-        }
-        .wl-card .wl-badge {
-            border: 1px solid #323e74;
-            color: #323e74; 
-        }
-        .wl-btn {
-            border: 1px solid #323e74; 
-            color:  #323e74;  
-        }
-        .wl-btn.primary {
-            color: #f2fafc; 
-        }
-        .wl-header label {
-            color: #323e74;
-        }
-        a {
-            color: #7f688d;
-        }
-
-        .post-md a {
-            color: #7f688d;
-        }
-
-        .nav li a {
-            color: #7f688d;
-        }
-
-        .archive-main a:link {
-            color: #7f688d;
-        }
-        .archive-main a:visited {
-            color: #767c7c; 
-        }
-
-        .archive li span {
-            color: #323e74;
-        }
-
-        .post-main-title {
-            color: #323e74;
-        }
-
-        .post-md h1,
-        .post-md h2,
-        .post-md h3,
-        .post-md h4,
-        .post-md h5,
-        .post-md h6 {
-            color: #323e74;
-        }
-
-        [data-waline] p {
-            color: #323e74;
-        }
-        [data-waline] a {
-            color: #323e74;
-        } 
-        .wl-sort li.active {
-            color: #323e74;
-        }
-
-        .wl-card .wl-meta>span {
-            background: #f2fafc;
-        }
-
-        .paper {
-            background: #eaeae8;
-        }
-
-        .index-main {
-            background: #f2fafc;
-        }
-
-        .paper-main {
-            background: #f2fafc;
-        }
-
-        .wl-panel {
-            background: #f2fafc;
-        }
-
-        .archive li:nth-child(odd) {
-            background: #f2fafc;
-            ;
-        }
-
-        .archive li:nth-child(even) {
-            background: #f2fafc;
-        }
-
-        .post-md table tr:nth-child(odd) td {
-            background: #f2fafc;
-        }
-
-        .post-md table tr:nth-child(even) td {
-            background: #f2fafc;
-        }
-
-    
-        .progress-wrap::after {
-            color: #323e74; /* 箭头的颜色 */
-        }
-        .progress-wrap svg.progress-circle path {
-	        stroke: #323e74; /* 边框的颜色 */
-        }
-        .progress-wrap::before {
-	        background-image: linear-gradient(298deg, #7f688d, #7f688d); /* 鼠标滑过的箭头颜色 */
-         }
-
-        .return-to-last-progress-wrap::after {
-            color: #323e74; /* 箭头的颜色 */
-        }
-        .return-to-last-progress-wrap svg.progress-circle path {
-	        stroke: #323e74; /* 边框的颜色 */
-        }
-        .return-to-last-progress-wrap::before {
-	        background-image: linear-gradient(298deg, #7f688d, #7f688d); /* 鼠标滑过的箭头颜色 */
-         }
-
-         .left-toc-container::-webkit-scrollbar-thumb {
-            background-color: #323e74; /* 设置滚动条拖动块的颜色 */
-        }
-
-        .bs-docs-sidebar .nav>.active>a,
-        .bs-docs-sidebar .nav>li>a:hover,
-        .bs-docs-sidebar .nav>li>a:focus {
-            color: #7f688d;
-            border-left-color: #7f688d;
-        }
-        .bs-docs-sidebar .nav>li>a {
-            color:  #323e74;
-        }
-    </style>
-
     
     <body>
         
@@ -324,7 +159,7 @@
 <li>减轻服务器的负担</li>
 <li>无刷新更新页面</li>
 <li>可调用外部数据</li>
-<li>使Web中界面与应用分离</li>
+<li>Web界面与应用分离</li>
 </ul>
 <h2 id="ASP-NET"><a href="#ASP-NET" class="headerlink" title="ASP.NET"></a>ASP.NET</h2><h3 id="特点概述"><a href="#特点概述" class="headerlink" title="特点概述"></a>特点概述</h3><h4 id="ASP优点"><a href="#ASP优点" class="headerlink" title="ASP优点"></a>ASP优点</h4><ul>
 <li>支持多种语言</li>
@@ -388,9 +223,9 @@
 <p>（或使用 <code>Request.QueryString[&quot;name&quot;]</code>）</p>
 </li>
 </ol>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">Deliver_Click</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    Response.Redirect(<span class="string">&quot;~/WebForm4.aspx?Param=&quot;</span>+Server.UrlEncode(Data.Text));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c#"><table><tr><td class="code"><pre><code class="hljs c#"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Deliver_Click</span>(<span class="hljs-params"><span class="hljs-built_in">object</span> sender, EventArgs e</span>)</span><br>&#123;<br>    Response.Redirect(<span class="hljs-string">&quot;~/WebForm4.aspx?Param=&quot;</span>+Server.UrlEncode(Data.Text));<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">Page_Load</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (Request.Params[<span class="string">&quot;Param&quot;</span>]!=<span class="literal">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        Data.Text = Request.Params[<span class="string">&quot;Param&quot;</span>].ToString();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123; Data.Text = <span class="string">&quot;未接收参数&quot;</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c#"><table><tr><td class="code"><pre><code class="hljs c#"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Page_Load</span>(<span class="hljs-params"><span class="hljs-built_in">object</span> sender, EventArgs e</span>)</span><br>&#123;<br>    <span class="hljs-keyword">if</span> (Request.Params[<span class="hljs-string">&quot;Param&quot;</span>]!=<span class="hljs-literal">null</span>)<br>    &#123;<br>        Data.Text = Request.Params[<span class="hljs-string">&quot;Param&quot;</span>].ToString();<br>    &#125;<br>    <span class="hljs-keyword">else</span><br>    &#123; Data.Text = <span class="hljs-string">&quot;未接收参数&quot;</span>; &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h6 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a><a href="D:\Codefield\Language\Code_C#\WebApp\WebApplication9\WebApplication9.sln">示例代码</a></h6><h5 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h5><h6 id="常用属性"><a href="#常用属性" class="headerlink" title="常用属性"></a>常用属性</h6><ul>
 <li>Execute：执行另一个aspx页，执行完该页后再返回本页继续执行</li>
@@ -441,10 +276,10 @@
 <h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><p>responceText:返回服务器响应时间的字符串</p>
 <p>onreadystatechange：事件处理器，有状态改变时调用一个函数</p>
 <h4 id="工作流及编程模式"><a href="#工作流及编程模式" class="headerlink" title="工作流及编程模式"></a>工作流及编程模式</h4><p>1.通过事件触发Ajax事件</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;email&quot;</span> <span class="attr">name</span>=<span class="string">&quot;email&quot;</span> <span class="attr">onblur</span>=<span class="string">&quot;validateEmail();&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;email&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;email&quot;</span> <span class="hljs-attr">onblur</span>=<span class="hljs-string">&quot;validateEmail();&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p>2.创建XMLHttpRequest对象实例，调用，设置并触发</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Var</span> xmlHttp</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">validateEmail</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> email=<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;email&quot;</span>)</span><br><span class="line">    <span class="keyword">var</span> url=<span class="string">&quot;validate?email=&quot;</span>+<span class="built_in">escape</span>(email.<span class="property">value</span>)</span><br><span class="line">    <span class="keyword">if</span>(<span class="variable language_">window</span>.<span class="property">ActiveXObject</span>)&#123;</span><br><span class="line">        xmlHttp=<span class="keyword">new</span> <span class="title class_">ActiveXObject</span>(<span class="string">&quot;Microsoft.XMLHTTP&quot;</span>)</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="variable language_">window</span>.<span class="property">XMLHttpRequest</span>)&#123;</span><br><span class="line">        xmlHttp=<span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>()</span><br><span class="line">    &#125;</span><br><span class="line">    xmlHttp.<span class="title function_">open</span>(<span class="string">&quot;GET&quot;</span>,url);</span><br><span class="line">    xmlHttp.<span class="property">onreadystatechange</span>=callback;</span><br><span class="line">    xmlHttp.<span class="title function_">send</span>(<span class="literal">null</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Var</span> xmlHttp<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">validateEmail</span>(<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-keyword">var</span> email=<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;email&quot;</span>)<br>    <span class="hljs-keyword">var</span> url=<span class="hljs-string">&quot;validate?email=&quot;</span>+<span class="hljs-built_in">escape</span>(email.<span class="hljs-property">value</span>)<br>    <span class="hljs-keyword">if</span>(<span class="hljs-variable language_">window</span>.<span class="hljs-property">ActiveXObject</span>)&#123;<br>        xmlHttp=<span class="hljs-keyword">new</span> <span class="hljs-title class_">ActiveXObject</span>(<span class="hljs-string">&quot;Microsoft.XMLHTTP&quot;</span>)<br>    &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-variable language_">window</span>.<span class="hljs-property">XMLHttpRequest</span>)&#123;<br>        xmlHttp=<span class="hljs-keyword">new</span> <span class="hljs-title class_">XMLHttpRequest</span>()<br>    &#125;<br>    xmlHttp.<span class="hljs-title function_">open</span>(<span class="hljs-string">&quot;GET&quot;</span>,url);<br>    xmlHttp.<span class="hljs-property">onreadystatechange</span>=callback;<br>    xmlHttp.<span class="hljs-title function_">send</span>(<span class="hljs-literal">null</span>);<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
 <ul>
 <li><p>用GET传送数据</p>
@@ -467,9 +302,9 @@
 <li>设置回调函数处理服务器返回数据</li>
 </ol>
 <h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><h5 id="使用get-post方法传递"><a href="#使用get-post方法传递" class="headerlink" title="使用get&#x2F;post方法传递"></a>使用get&#x2F;post方法传递</h5><p>仅展现二者区别：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;--get--&gt;</span><br><span class="line">xmlhttp.<span class="title function_">open</span>(<span class="string">&quot;GET&quot;</span>,<span class="string">&quot;1.aspx?name=&quot;</span>+str,<span class="literal">true</span>)</span><br><span class="line">xmlhttm.<span class="title function_">send</span>()</span><br><span class="line"></span><br><span class="line">&lt;--post--&gt;</span><br><span class="line">xmlhttp.<span class="title function_">open</span>(<span class="string">&quot;POST&quot;</span>,<span class="string">&quot;1.aspx&quot;</span>,<span class="literal">true</span>)</span><br><span class="line">xmlhttps.<span class="title function_">setRequestHeader</span>(<span class="string">&quot;Content-type&quot;</span>,<span class="string">&quot;application/x-www-form-urlencoded&quot;</span>)</span><br><span class="line">xmlhttm.<span class="title function_">send</span>(<span class="string">&quot;name&quot;</span>+str)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">&lt;--get--&gt;<br>xmlhttp.<span class="hljs-title function_">open</span>(<span class="hljs-string">&quot;GET&quot;</span>,<span class="hljs-string">&quot;1.aspx?name=&quot;</span>+str,<span class="hljs-literal">true</span>)<br>xmlhttm.<span class="hljs-title function_">send</span>()<br><br>&lt;--post--&gt;<br>xmlhttp.<span class="hljs-title function_">open</span>(<span class="hljs-string">&quot;POST&quot;</span>,<span class="hljs-string">&quot;1.aspx&quot;</span>,<span class="hljs-literal">true</span>)<br>xmlhttps.<span class="hljs-title function_">setRequestHeader</span>(<span class="hljs-string">&quot;Content-type&quot;</span>,<span class="hljs-string">&quot;application/x-www-form-urlencoded&quot;</span>)<br>xmlhttm.<span class="hljs-title function_">send</span>(<span class="hljs-string">&quot;name&quot;</span>+str)<br></code></pre></td></tr></table></figure>
 
-<h5 id="初始化异步请求并回应"><a href="#初始化异步请求并回应" class="headerlink" title="初始化异步请求并回应"></a>初始化异步请求并回应</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xmlhttp</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">createXMLHttpRequest</span>(<span class="params"></span>)&#123;...&#125;<span class="comment">//生成XMLHttpRequest对象</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">startRequest</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="title function_">createXMLHttpRequest</span>();</span><br><span class="line">    xmlhttp.<span class="property">onreadystatechange</span>=callback</span><br><span class="line">    <span class="comment">//通过get打开textFile中文本，并设置异步进行</span></span><br><span class="line">    xmlhttp.<span class="title function_">open</span>(<span class="string">&quot;GET&quot;</span>,<span class="string">&quot;TextFile.txt&quot;</span>,<span class="literal">true</span>)</span><br><span class="line">    xmlhttp.<span class="title function_">send</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">callback</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(...)&#123;</span><br><span class="line">       <span class="title function_">alert</span>(<span class="string">&quot;ajax反应：&quot;</span>+xmlhttp.<span class="property">responseText</span>)</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="初始化异步请求并回应"><a href="#初始化异步请求并回应" class="headerlink" title="初始化异步请求并回应"></a>初始化异步请求并回应</h5><figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> xmlhttp<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">createXMLHttpRequest</span>(<span class="hljs-params"></span>)&#123;...&#125;<span class="hljs-comment">//生成XMLHttpRequest对象</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">startRequest</span>(<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-title function_">createXMLHttpRequest</span>();<br>    xmlhttp.<span class="hljs-property">onreadystatechange</span>=callback<br>    <span class="hljs-comment">//通过get打开textFile中文本，并设置异步进行</span><br>    xmlhttp.<span class="hljs-title function_">open</span>(<span class="hljs-string">&quot;GET&quot;</span>,<span class="hljs-string">&quot;TextFile.txt&quot;</span>,<span class="hljs-literal">true</span>)<br>    xmlhttp.<span class="hljs-title function_">send</span>()<br>&#125;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">callback</span>(<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-keyword">if</span>(...)&#123;<br>       <span class="hljs-title function_">alert</span>(<span class="hljs-string">&quot;ajax反应：&quot;</span>+xmlhttp.<span class="hljs-property">responseText</span>)<br>       &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h5 id="连接数据库的登录验证"><a href="#连接数据库的登录验证" class="headerlink" title="连接数据库的登录验证"></a>连接数据库的登录验证</h5><ul>
 <li>处理输入数据同上</li>
@@ -522,7 +357,7 @@
         
             <span>2023-11-23</span>
             
-                <span>该篇文章被 John Doe</span>
+                <span>该篇文章被 LeVent</span>
             
             
                 <span>打上标签:
@@ -653,7 +488,7 @@
             left: '42px', // default: 'unset'
             time: '0.3s', // default: '0.3s'
             mixColor: '#fff', // default: '#fff'
-            backgroundColor: ' #eaeae8  ',  // default: '#fff'
+            backgroundColor: ' #e4e4e4 ',  // default: '#fff'
             buttonColorDark: '#100f2c',  // default: '#100f2c'
             buttonColorLight: '#fff', // default: '#fff'
             saveInCookies: true, // default: true,

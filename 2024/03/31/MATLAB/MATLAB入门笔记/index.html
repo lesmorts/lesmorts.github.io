@@ -4,7 +4,7 @@
     <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-    <meta name="description" content="" />
+    <meta name="description" content="MATLAB 入门笔记" />
     <meta name="hexo-theme-A4" content="v1.8.9" />
     <link rel="alternate icon" type="image/webp" href="/img/avatar.webp">
     <title>Levent</title>
@@ -61,171 +61,6 @@
 
 <meta name="generator" content="Hexo 7.1.1"></head>
     
-    <style>
-        :root {
-            --waline-theme-color: #323e74; 
-            --waline-color: #323e74; 
-            --waline-border-color: #323e74; 
-            --waline-white: #323e74; 
-            --waline-bgcolor-light: #f2fafc;  
-        }
-        body {
-            color: #323e74;
-            background: #eaeae8;
-        }
-        .post-md code {
-            background: #e7f7f3;
-            color: #7f688d; 
-        }
-        .post-md pre, .post-md .highlight {
-            background: #e7f7f3;
-            color: #7f688d; 
-        }
-        pre .string, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, pre .xml .cdata {
-            color: #323e74;
-        }
-        pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, pre .constant {
-            color: #323e74;
-        }
-        .year-font-color {
-            color: #323e74 !important;
-        }
-        .wl-card span.wl-nick {
-            color: #323e74; 
-        }
-        .wl-card .wl-badge {
-            border: 1px solid #323e74;
-            color: #323e74; 
-        }
-        .wl-btn {
-            border: 1px solid #323e74; 
-            color:  #323e74;  
-        }
-        .wl-btn.primary {
-            color: #f2fafc; 
-        }
-        .wl-header label {
-            color: #323e74;
-        }
-        a {
-            color: #7f688d;
-        }
-
-        .post-md a {
-            color: #7f688d;
-        }
-
-        .nav li a {
-            color: #7f688d;
-        }
-
-        .archive-main a:link {
-            color: #7f688d;
-        }
-        .archive-main a:visited {
-            color: #767c7c; 
-        }
-
-        .archive li span {
-            color: #323e74;
-        }
-
-        .post-main-title {
-            color: #323e74;
-        }
-
-        .post-md h1,
-        .post-md h2,
-        .post-md h3,
-        .post-md h4,
-        .post-md h5,
-        .post-md h6 {
-            color: #323e74;
-        }
-
-        [data-waline] p {
-            color: #323e74;
-        }
-        [data-waline] a {
-            color: #323e74;
-        } 
-        .wl-sort li.active {
-            color: #323e74;
-        }
-
-        .wl-card .wl-meta>span {
-            background: #f2fafc;
-        }
-
-        .paper {
-            background: #eaeae8;
-        }
-
-        .index-main {
-            background: #f2fafc;
-        }
-
-        .paper-main {
-            background: #f2fafc;
-        }
-
-        .wl-panel {
-            background: #f2fafc;
-        }
-
-        .archive li:nth-child(odd) {
-            background: #f2fafc;
-            ;
-        }
-
-        .archive li:nth-child(even) {
-            background: #f2fafc;
-        }
-
-        .post-md table tr:nth-child(odd) td {
-            background: #f2fafc;
-        }
-
-        .post-md table tr:nth-child(even) td {
-            background: #f2fafc;
-        }
-
-    
-        .progress-wrap::after {
-            color: #323e74; /* 箭头的颜色 */
-        }
-        .progress-wrap svg.progress-circle path {
-	        stroke: #323e74; /* 边框的颜色 */
-        }
-        .progress-wrap::before {
-	        background-image: linear-gradient(298deg, #7f688d, #7f688d); /* 鼠标滑过的箭头颜色 */
-         }
-
-        .return-to-last-progress-wrap::after {
-            color: #323e74; /* 箭头的颜色 */
-        }
-        .return-to-last-progress-wrap svg.progress-circle path {
-	        stroke: #323e74; /* 边框的颜色 */
-        }
-        .return-to-last-progress-wrap::before {
-	        background-image: linear-gradient(298deg, #7f688d, #7f688d); /* 鼠标滑过的箭头颜色 */
-         }
-
-         .left-toc-container::-webkit-scrollbar-thumb {
-            background-color: #323e74; /* 设置滚动条拖动块的颜色 */
-        }
-
-        .bs-docs-sidebar .nav>.active>a,
-        .bs-docs-sidebar .nav>li>a:hover,
-        .bs-docs-sidebar .nav>li>a:focus {
-            color: #7f688d;
-            border-left-color: #7f688d;
-        }
-        .bs-docs-sidebar .nav>li>a {
-            color:  #323e74;
-        }
-    </style>
-
     
     <body>
         
@@ -288,7 +123,7 @@
 
     
         <div class="post-main-title">
-            
+            MATLAB 入门笔记
         </div>
       
     
@@ -296,27 +131,27 @@
     <div class="post-md">
         
             
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MATLAB%E7%AC%94%E8%AE%B0"><span class="post-toc-text">MATLAB笔记</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%B0%E7%BB%84"><span class="post-toc-text">数组</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%B8%80%E8%88%AC%E6%9E%84%E9%80%A0"><span class="post-toc-text">一般构造</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AD%89%E9%97%B4%E8%B7%9D%E5%90%91%E9%87%8F"><span class="post-toc-text">等间距向量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%95%B0%E7%BB%84%E5%88%9B%E5%BB%BA%E5%87%BD%E6%95%B0"><span class="post-toc-text">数组创建函数</span></a></li></ol></li></ol></li></ol>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%B0%E7%BB%84"><span class="post-toc-text">数组</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%B8%80%E8%88%AC%E6%9E%84%E9%80%A0"><span class="post-toc-text">一般构造</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AD%89%E9%97%B4%E8%B7%9D%E5%90%91%E9%87%8F"><span class="post-toc-text">等间距向量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%95%B0%E7%BB%84%E5%88%9B%E5%BB%BA%E5%87%BD%E6%95%B0"><span class="post-toc-text">数组创建函数</span></a></li></ol></li></ol>
             
         
-        <link rel="stylesheet" type="text/css" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/lightgallery.min.css" /><div class=".article-gallery"><h1 id="MATLAB笔记"><a href="#MATLAB笔记" class="headerlink" title="MATLAB笔记"></a>MATLAB笔记</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>clear函数：清理工作区</p>
+        <link rel="stylesheet" type="text/css" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/lightgallery.min.css" /><div class=".article-gallery"><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>clear函数：清理工作区</p>
 <p>clc函数：清理命令行窗口</p>
 <p>pi表示圆周率，显化值为有限小数，内部计算时为高精度</p>
 <p>内置函数：</p>
 <p>format long：15位小数</p>
 <p>format short：4位小数</p>
 <p>script</p>
-<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="一般构造"><a href="#一般构造" class="headerlink" title="一般构造"></a>一般构造</h3><p><code>[3 5]</code>或<code>[3,5]</code>数组，行向量，1xn</p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="一般构造"><a href="#一般构造" class="headerlink" title="一般构造"></a>一般构造</h3><p><code>[3 5]</code>或 <code>[3,5]</code>数组，行向量，1xn</p>
 <p><code>[3;5]</code>列向量，nx1</p>
 <h3 id="等间距向量"><a href="#等间距向量" class="headerlink" title="等间距向量"></a>等间距向量</h3><p><code>3:2:13</code>：3~13，间距2</p>
 <p>关联函数：linspace(<em>first</em>,<em>last</em>,<em>number_of_elements</em>)</p>
-<p>若<code>x=[3 5]</code>,则<code>x&#39;=[3;5]</code></p>
-<p>注：使用<code>:</code>不需要<code>[]</code>转置时，使用括号如<code>(3:2:13)&#39;</code></p>
+<p>若 <code>x=[3 5]</code>,则 <code>x&#39;=[3;5]</code></p>
+<p>注：使用 <code>:</code>不需要 <code>[]</code>转置时，使用括号如 <code>(3:2:13)&#39;</code></p>
 <h3 id="数组创建函数"><a href="#数组创建函数" class="headerlink" title="数组创建函数"></a>数组创建函数</h3><ul>
 <li><p>rand()</p>
 <p>eg: rand(3)：输出3x3的随机矩阵；rand(3,2)：输出3x2的随机矩阵</p>
 </li>
-<li><p>zeros() 同上</p>
+<li><p>zeros() 参数同上，输出所有值都为0的矩阵</p>
 </li>
 <li><p>size()：获取矩阵大小</p>
 </li>
@@ -332,10 +167,30 @@
     <div class="post-meta">
         <i>
         
-            <span>2024-03-30</span>
+            <span>2024-03-31</span>
+            
+                <span>该篇文章被 LeVent</span>
             
             
+                <span>打上标签:
+                    
+                    
+                        <a href='/tags/MATLAB/'>
+                            MATLAB
+                        </a>
+                    
+                </span>
              
+             
+                <span>归为分类:
+                    
+                    
+                        <a href='/categories/MATLAB/'>
+                            MATLAB
+                        </a>
+                    
+                </span>
+            
         
         </i>
     </div>
@@ -345,9 +200,6 @@
         <span>上一篇：<a href=""></a></span>
         <span class="post-footer-pre-next-last-span-right">上一篇：<a href=""></a></span>
     </div> -->
-
-    
-        
 
      
 </div>
@@ -448,7 +300,7 @@
             left: '42px', // default: 'unset'
             time: '0.3s', // default: '0.3s'
             mixColor: '#fff', // default: '#fff'
-            backgroundColor: ' #eaeae8  ',  // default: '#fff'
+            backgroundColor: ' #e4e4e4 ',  // default: '#fff'
             buttonColorDark: '#100f2c',  // default: '#100f2c'
             buttonColorLight: '#fff', // default: '#fff'
             saveInCookies: true, // default: true,

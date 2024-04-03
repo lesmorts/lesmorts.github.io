@@ -4,7 +4,7 @@
     <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-    <meta name="description" content="" />
+    <meta name="description" content="绘制Overlay" />
     <meta name="hexo-theme-A4" content="v1.8.9" />
     <link rel="alternate icon" type="image/webp" href="/img/avatar.webp">
     <title>Levent</title>
@@ -266,13 +266,7 @@
             
         
             
-                <li><i>
-                    
-                        <u>
-                            <a  href="/tags/">标签</a>
-                        </u>
-                    
-                </i></li>
+                <li><a href="/tags/">标签</a></li>
             
         
             
@@ -290,40 +284,93 @@
                     
 
                     
-                            
-
-
-<div class="archive-list">
-  <ul class="archive">
-
-    
-    <span>📌<i>Vue</i></span>
- 
-    
-
-    
-    
-
-    
-
-    
-  
-    
-        <li>
-        <span class="archive-date">2024-03-31</span>
-        <div class="archive-main">
-            <a class="archive-title" href="/2024/03/31/WebGIS%20Theory/%E5%9F%BA%E4%BA%8E%E9%AB%98%E5%BE%B7API%E7%9A%84%E7%AE%80%E5%8D%95%E8%B7%AF%E5%BE%84%E8%A7%84%E5%88%92/">基于高德API+Vue3+Vite+TS+Element-Plus的简单路径规划前端程序</a>
-        </div>
-        </li>
-    
-  
-  </ul>
-</div>
- 
-                    
                     
                     
                     <!--说明是文章post页面-->
+                    
+                        <div class="post-main">
+
+    
+        <div class="post-main-title">
+            绘制Overlay
+        </div>
+      
+    
+
+    <div class="post-md">
+        
+            
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%A5%E6%89%B9%E9%87%8F%E6%B7%BB%E5%8A%A0%E5%92%8C%E5%88%A0%E9%99%A4Overlay%E4%B8%BA%E4%BE%8B"><span class="post-toc-text">以批量添加和删除Overlay为例</span></a></li></ol>
+            
+        
+        <link rel="stylesheet" type="text/css" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/lightgallery.min.css" /><div class=".article-gallery"><h2 id="以批量添加和删除Overlay为例"><a href="#以批量添加和删除Overlay为例" class="headerlink" title="以批量添加和删除Overlay为例"></a>以批量添加和删除Overlay为例</h2><p>1.构建addOverlay函数</p>
+<p>百度地图SDK为开发者提供一次性向地图上添加大批量Overlay的接口。<br>示例代码</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">addOverlay</span><span class="hljs-params">()</span>&#123;<br><span class="hljs-comment">//创建OverlayOptions的集合</span><br>List&lt;OverlayOptions&gt; options = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;OverlayOptions&gt;();<br><span class="hljs-comment">//构造坐标数据</span><br>        <span class="hljs-type">LatLng</span> <span class="hljs-variable">point1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">LatLng</span>(<span class="hljs-number">31.541778</span>,<span class="hljs-number">104.69308</span>);<br>        <span class="hljs-type">LatLng</span> <span class="hljs-variable">point2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">LatLng</span>(<span class="hljs-number">31.545255</span>,<span class="hljs-number">104.694374</span>);<br>        <span class="hljs-type">LatLng</span> <span class="hljs-variable">point3</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">LatLng</span>(<span class="hljs-number">31.544086</span>,<span class="hljs-number">104.696422</span>);<br><span class="hljs-comment">//设置图片源</span><br>        <span class="hljs-type">BitmapDescriptor</span> <span class="hljs-variable">bdGround1</span> <span class="hljs-operator">=</span> BitmapDescriptorFactory.fromResource(R.drawable.overlay_1);<br>        <span class="hljs-type">BitmapDescriptor</span> <span class="hljs-variable">bdGround2</span> <span class="hljs-operator">=</span> BitmapDescriptorFactory.fromResource(R.drawable.overlay_2);<br>        <span class="hljs-type">BitmapDescriptor</span> <span class="hljs-variable">bdGround3</span> <span class="hljs-operator">=</span> BitmapDescriptorFactory.fromResource(R.drawable.overlay_3);<br><span class="hljs-comment">//创建OverlayOptions属性</span><br>        <span class="hljs-type">OverlayOptions</span> <span class="hljs-variable">option1</span> <span class="hljs-operator">=</span>  <span class="hljs-keyword">new</span> <span class="hljs-title class_">MarkerOptions</span>()<br>                .position(point1)<br>                .icon(bdGround1);<br>        <span class="hljs-type">OverlayOptions</span> <span class="hljs-variable">option2</span> <span class="hljs-operator">=</span>  <span class="hljs-keyword">new</span> <span class="hljs-title class_">MarkerOptions</span>()<br>                .position(point2)<br>                .icon(bdGround2);<br>        <span class="hljs-type">OverlayOptions</span> <span class="hljs-variable">option3</span> <span class="hljs-operator">=</span>  <span class="hljs-keyword">new</span> <span class="hljs-title class_">MarkerOptions</span>()<br>                .position(point3)<br>                .icon(bdGround3);<br><span class="hljs-comment">//将OverlayOptions添加到list</span><br>        options.add(option1);<br>        options.add(option2);<br>        options.add(option3);<br><span class="hljs-comment">//在地图上批量添加</span><br>        mBaiduMap.addOverlays(options);<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<p>2.在spiner选择器构造函数中添加选项</p>
+<p>实现效果如图：</p>
+<p><a target="_blank" rel="noopener" href="https://lesmorts.github.io/picx-images-hosting/Screenshot_20240328_153851.45hfn19mpv.webp" class="gallery-item" style="box-shadow: none;"> <img src="https://lesmorts.github.io/picx-images-hosting/Screenshot_20240328_153851.45hfn19mpv.webp"></a>{height&#x3D;”550px” width&#x3D;”250px”}</p>
+<p>3.批量清除：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//清除地图上的所有覆盖物</span><br>mBaiduMap.clear();<br></code></pre></td></tr></table></figure>
+</div><script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
+    </div>
+
+    <div class="post-meta">
+        <i>
+        
+            <span>2024-03-30</span>
+            
+                <span>该篇文章被 LeVent</span>
+            
+            
+                <span>打上标签:
+                    
+                    
+                        <a href='/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAndroidSDK/'>
+                            百度地图AndroidSDK
+                        </a>
+                    
+                        <a href='/tags/Android-Studio/'>
+                            Android Studio
+                        </a>
+                    
+                        <a href='/tags/java/'>
+                            java
+                        </a>
+                    
+                </span>
+             
+             
+                <span>归为分类:
+                    
+                    
+                        <a href='/categories/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BESDK/'>
+                            百度地图SDK
+                        </a>
+                    
+                </span>
+            
+        
+        </i>
+    </div>
+    <br>
+    
+    <!-- <div class="post-footer-pre-next">
+        <span>上一篇：<a href=""></a></span>
+        <span class="post-footer-pre-next-last-span-right">上一篇：<a href=""></a></span>
+    </div> -->
+
+     
+</div>
+
+
+
+                                      
                     
                     
                     <div class="footer">

@@ -4,7 +4,7 @@
     <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-    <meta name="description" content="" />
+    <meta name="description" content="Vue3再学习" />
     <meta name="hexo-theme-A4" content="v1.8.9" />
     <link rel="alternate icon" type="image/webp" href="/img/avatar.webp">
     <title>Levent</title>
@@ -266,13 +266,7 @@
             
         
             
-                <li><i>
-                    
-                        <u>
-                            <a  href="/tags/">标签</a>
-                        </u>
-                    
-                </i></li>
+                <li><a href="/tags/">标签</a></li>
             
         
             
@@ -290,40 +284,106 @@
                     
 
                     
-                            
-
-
-<div class="archive-list">
-  <ul class="archive">
-
-    
-    <span>📌<i>Vue</i></span>
- 
-    
-
-    
-    
-
-    
-
-    
-  
-    
-        <li>
-        <span class="archive-date">2024-03-31</span>
-        <div class="archive-main">
-            <a class="archive-title" href="/2024/03/31/WebGIS%20Theory/%E5%9F%BA%E4%BA%8E%E9%AB%98%E5%BE%B7API%E7%9A%84%E7%AE%80%E5%8D%95%E8%B7%AF%E5%BE%84%E8%A7%84%E5%88%92/">基于高德API+Vue3+Vite+TS+Element-Plus的简单路径规划前端程序</a>
-        </div>
-        </li>
-    
-  
-  </ul>
-</div>
- 
-                    
                     
                     
                     <!--说明是文章post页面-->
+                    
+                        <div class="post-main">
+
+    
+        <div class="post-main-title">
+            Vue3再学习
+        </div>
+      
+    
+
+    <div class="post-md">
+        
+            
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Vue3%E5%86%8D%E5%AD%A6%E4%B9%A0"><span class="post-toc-text">Vue3再学习</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86"><span class="post-toc-text">前置知识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ES6%E7%9A%84%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F-Proxy"><span class="post-toc-text">ES6的代理模式 | Proxy</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="post-toc-text">语法</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#handler-get"><span class="post-toc-text">handler.get</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E5%8F%AF%E6%92%A4%E9%94%80Proxy"><span class="post-toc-text">可撤销Proxy</span></a></li></ol></li></ol></li></ol></li></ol>
+            
+        
+        <link rel="stylesheet" type="text/css" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/lightgallery.min.css" /><div class=".article-gallery"><h2 id="Vue3再学习"><a href="#Vue3再学习" class="headerlink" title="Vue3再学习"></a><a target="_blank" rel="noopener" href="https://vue3js.cn/es6/#%E6%AD%A3%E6%96%87">Vue3再学习</a></h2><h3 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h3><h4 id="ES6的代理模式-Proxy"><a href="#ES6的代理模式-Proxy" class="headerlink" title="ES6的代理模式 | Proxy"></a>ES6的代理模式 | Proxy</h4><h5 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h5><ul>
+<li><p>target：要使用Proxy包装的目标对象</p>
+</li>
+<li><p>handler：以函数作为属性的对象，用于定制拦截行为</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> proxy =<span class="hljs-keyword">new</span> <span class="hljs-title class_">Proxy</span>(target,handle)<br></code></pre></td></tr></table></figure>
+
+<p>eg:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> origin = &#123;&#125;<br><span class="hljs-keyword">const</span> obj = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Proxy</span>(origin, &#123;<br>  <span class="hljs-attr">get</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">target, propKey, receiver</span>) &#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;10&#x27;</span><br>  &#125;<br>&#125;);<br><br>obj.<span class="hljs-property">a</span> <span class="hljs-comment">// 10</span><br>obj.<span class="hljs-property">b</span> <span class="hljs-comment">// 10</span><br>origin.<span class="hljs-property">a</span> <span class="hljs-comment">// undefined</span><br>origin.<span class="hljs-property">b</span> <span class="hljs-comment">// undefined</span><br></code></pre></td></tr></table></figure>
+
+<p>给空对象的get架设了一层代理，所有get操作都会返回定制的数字10，代理只会对Proxy对象生效，对origin就没作用。</p>
+</li>
+</ul>
+<h5 id="handler-get"><a href="#handler-get" class="headerlink" title="handler.get"></a>handler.get</h5><p>&#x3D;&gt; <code>get(target, propKey, ?receiver)</code></p>
+<p>eg:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> person = &#123;<br>  <span class="hljs-attr">like</span>: <span class="hljs-string">&quot;vuejs&quot;</span><br>&#125;<br><br><span class="hljs-keyword">const</span> obj = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Proxy</span>(person, &#123;<br>  <span class="hljs-attr">get</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params">target, propKey</span>) &#123;<br>    <span class="hljs-keyword">if</span> (propKey <span class="hljs-keyword">in</span> target) &#123;<br>      <span class="hljs-keyword">return</span> target[propKey];<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ReferenceError</span>(<span class="hljs-string">&quot;Prop name \&quot;&quot;</span> + propKey + <span class="hljs-string">&quot;\&quot; does not exist.&quot;</span>);<br>    &#125;<br>  &#125;<br>&#125;)<br><br>obj.<span class="hljs-property">like</span> <span class="hljs-comment">// vuejs</span><br>obj.<span class="hljs-property">test</span> <span class="hljs-comment">// Uncaught ReferenceError: Prop name &quot;test&quot; does not exist.</span><br></code></pre></td></tr></table></figure>
+
+<pre><code>上面的代码表示在读取代理目标的值时，如果有值则返回，没有值就抛出自定义错误
+</code></pre>
+<p>   注：</p>
+<ul>
+<li>访问的目标属性是不可写以及不可配置的，则返回的值必须与该目标属性的值相同</li>
+<li>如果要访问的目标属性没有配置访问方法，即get方法是undefined的，则返回值必须为undefined</li>
+</ul>
+<h5 id="可撤销Proxy"><a href="#可撤销Proxy" class="headerlink" title="可撤销Proxy"></a>可撤销Proxy</h5></div><script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
+    </div>
+
+    <div class="post-meta">
+        <i>
+        
+            <span>2024-03-30</span>
+            
+                <span>该篇文章被 LeVent</span>
+            
+            
+                <span>打上标签:
+                    
+                    
+                        <a href='/tags/Vue3/'>
+                            Vue3
+                        </a>
+                    
+                        <a href='/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/'>
+                            前端工程化
+                        </a>
+                    
+                </span>
+             
+             
+                <span>归为分类:
+                    
+                    
+                        <a href='/categories/Vue3/'>
+                            Vue3
+                        </a>
+                    
+                </span>
+            
+        
+        </i>
+    </div>
+    <br>
+    
+    <!-- <div class="post-footer-pre-next">
+        <span>上一篇：<a href=""></a></span>
+        <span class="post-footer-pre-next-last-span-right">上一篇：<a href=""></a></span>
+    </div> -->
+
+    
+        
+
+     
+</div>
+
+
+
+                                      
                     
                     
                     <div class="footer">

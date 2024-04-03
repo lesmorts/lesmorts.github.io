@@ -4,7 +4,7 @@
     <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-    <meta name="description" content="" />
+    <meta name="description" content="添加点动画" />
     <meta name="hexo-theme-A4" content="v1.8.9" />
     <link rel="alternate icon" type="image/webp" href="/img/avatar.webp">
     <title>Levent</title>
@@ -266,13 +266,7 @@
             
         
             
-                <li><i>
-                    
-                        <u>
-                            <a  href="/tags/">标签</a>
-                        </u>
-                    
-                </i></li>
+                <li><a href="/tags/">标签</a></li>
             
         
             
@@ -290,40 +284,146 @@
                     
 
                     
-                            
-
-
-<div class="archive-list">
-  <ul class="archive">
-
-    
-    <span>📌<i>Vue</i></span>
- 
-    
-
-    
-    
-
-    
-
-    
-  
-    
-        <li>
-        <span class="archive-date">2024-03-31</span>
-        <div class="archive-main">
-            <a class="archive-title" href="/2024/03/31/WebGIS%20Theory/%E5%9F%BA%E4%BA%8E%E9%AB%98%E5%BE%B7API%E7%9A%84%E7%AE%80%E5%8D%95%E8%B7%AF%E5%BE%84%E8%A7%84%E5%88%92/">基于高德API+Vue3+Vite+TS+Element-Plus的简单路径规划前端程序</a>
-        </div>
-        </li>
-    
-  
-  </ul>
-</div>
- 
-                    
                     
                     
                     <!--说明是文章post页面-->
+                    
+                        <div class="post-main">
+
+    
+        <div class="post-main-title">
+            添加点动画
+        </div>
+      
+    
+
+    <div class="post-md">
+        
+            
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Marker%E5%B8%A7%E5%8A%A8%E7%94%BB"><span class="post-toc-text">Marker帧动画</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8A%A0%E8%BD%BDMarker%E6%97%B6%E5%A2%9E%E5%8A%A0%E5%8A%A8%E7%94%BB"><span class="post-toc-text">加载Marker时增加动画</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Marker%E5%8A%A8%E7%94%BB"><span class="post-toc-text">Marker动画</span></a></li></ol>
+            
+        
+        <link rel="stylesheet" type="text/css" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/lightgallery.min.css" /><div class=".article-gallery"><h2 id="Marker帧动画"><a href="#Marker帧动画" class="headerlink" title="Marker帧动画"></a>Marker帧动画</h2><p>函数如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">addAniPnt_1</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-type">BitmapDescriptor</span> <span class="hljs-variable">bdA</span> <span class="hljs-operator">=</span> BitmapDescriptorFactory.fromResource(R.drawable.location_red);<br>        <span class="hljs-type">BitmapDescriptor</span> <span class="hljs-variable">bdB</span> <span class="hljs-operator">=</span> BitmapDescriptorFactory.fromResource(R.drawable.location_green);<br>        <span class="hljs-type">BitmapDescriptor</span> <span class="hljs-variable">bdC</span> <span class="hljs-operator">=</span> BitmapDescriptorFactory.fromResource(R.drawable.location_blue);<br>        ArrayList&lt;BitmapDescriptor&gt; giflist = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;BitmapDescriptor&gt;();<br>        giflist.add(bdA);<br>        giflist.add(bdB);<br>        giflist.add(bdC);<br>        <span class="hljs-keyword">for</span> (Overlay overlay : markers) &#123;<br>            <span class="hljs-keyword">if</span> (overlay <span class="hljs-keyword">instanceof</span> Marker) &#123;<br>                <span class="hljs-type">Marker</span> <span class="hljs-variable">marker</span> <span class="hljs-operator">=</span> (Marker) overlay;<br>                marker.setIcons(giflist);<br>                marker.setPeriod(<span class="hljs-number">30</span>);<br>            &#125;<br>        &#125;<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="加载Marker时增加动画"><a href="#加载Marker时增加动画" class="headerlink" title="加载Marker时增加动画"></a>加载Marker时增加动画</h2><p>SDK提供了加载Marker时的动画效果，有如下四种效果供开发者选择：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MarkerAnimateType.none</td>
+<td>无效果</td>
+</tr>
+<tr>
+<td>MarkerAnimateType.drop</td>
+<td>从天上掉下</td>
+</tr>
+<tr>
+<td>MarkerAnimateType.grow</td>
+<td>从地下生长</td>
+</tr>
+<tr>
+<td>MarkerAnimateType.jump</td>
+<td>跳跃</td>
+</tr>
+</tbody></table>
+<p>示例代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">addAniPnt_2</span><span class="hljs-params">()</span>&#123;<br><span class="hljs-comment">//对每个添加的Marker Overlay通过遍历设置动画</span><br>       <span class="hljs-keyword">for</span> (Overlay overlay : markers) &#123;<br>           <span class="hljs-keyword">if</span> (overlay <span class="hljs-keyword">instanceof</span> Marker) &#123;<br>               <span class="hljs-type">Marker</span> <span class="hljs-variable">marker</span> <span class="hljs-operator">=</span> (Marker) overlay;<br>             marker.setAnimateType(MarkerOptions.MarkerAnimateType.drop.ordinal());<br>           &#125;<br>       &#125;<br>   &#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Marker动画"><a href="#Marker动画" class="headerlink" title="Marker动画"></a>Marker动画</h2><p>Marker还支持设置旋转、缩放、平移、透明、和组合动画效果。通过Marker类setAnimation方法设置。</p>
+<table>
+<thead>
+<tr>
+<th>Transformation</th>
+<th>平移</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RotateAnimation</td>
+<td>旋转</td>
+</tr>
+<tr>
+<td>ScaleAnimation</td>
+<td>缩放</td>
+</tr>
+<tr>
+<td>SingleScaleAnimation</td>
+<td>X 或 Y 轴方向单独缩放</td>
+</tr>
+<tr>
+<td>AlphaAnimation</td>
+<td>透明</td>
+</tr>
+<tr>
+<td>AnimationSet</td>
+<td>动画集合</td>
+</tr>
+</tbody></table>
+<p>示例代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">addAniPnt_3</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-keyword">for</span> (Overlay overlay : markers) &#123;<br>            <span class="hljs-keyword">if</span> (overlay <span class="hljs-keyword">instanceof</span> Marker) &#123;<br>                <span class="hljs-type">Marker</span> <span class="hljs-variable">marker</span> <span class="hljs-operator">=</span> (Marker) overlay;<br>                <span class="hljs-comment">//通过LatLng列表构造RotateAnimation对象</span><br>                <span class="hljs-type">RotateAnimation</span> <span class="hljs-variable">mTransforma</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RotateAnimation</span>(<span class="hljs-number">0f</span>,<span class="hljs-number">360f</span>);<br>                mTransforma.setDuration(<span class="hljs-number">500</span>);<br>                mTransforma.setRepeatMode(Animation.RepeatMode.RESTART);<br>                mTransforma.setRepeatCount(<span class="hljs-number">1</span>);<br>                marker.setAnimation(mTransforma);<br>                marker.startAnimation();<br>            &#125;<br>        &#125;<br>    &#125;<br></code></pre></td></tr></table></figure>
+</div><script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
+    </div>
+
+    <div class="post-meta">
+        <i>
+        
+            <span>2024-03-30</span>
+            
+                <span>该篇文章被 LeVent</span>
+            
+            
+                <span>打上标签:
+                    
+                    
+                        <a href='/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAndroidSDK/'>
+                            百度地图AndroidSDK
+                        </a>
+                    
+                        <a href='/tags/Android-Studio/'>
+                            Android Studio
+                        </a>
+                    
+                        <a href='/tags/java/'>
+                            java
+                        </a>
+                    
+                </span>
+             
+             
+                <span>归为分类:
+                    
+                    
+                        <a href='/categories/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BESDK/'>
+                            百度地图SDK
+                        </a>
+                    
+                </span>
+            
+        
+        </i>
+    </div>
+    <br>
+    
+    <!-- <div class="post-footer-pre-next">
+        <span>上一篇：<a href=""></a></span>
+        <span class="post-footer-pre-next-last-span-right">上一篇：<a href=""></a></span>
+    </div> -->
+
+     
+</div>
+
+
+
+                                      
                     
                     
                     <div class="footer">

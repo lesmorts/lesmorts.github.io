@@ -4,7 +4,7 @@
     <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-    <meta name="description" content="" />
+    <meta name="description" content="MATLAB 入门笔记" />
     <meta name="hexo-theme-A4" content="v1.8.9" />
     <link rel="alternate icon" type="image/webp" href="/img/avatar.webp">
     <title>Levent</title>
@@ -266,13 +266,7 @@
             
         
             
-                <li><i>
-                    
-                        <u>
-                            <a  href="/tags/">标签</a>
-                        </u>
-                    
-                </i></li>
+                <li><a href="/tags/">标签</a></li>
             
         
             
@@ -290,40 +284,98 @@
                     
 
                     
-                            
-
-
-<div class="archive-list">
-  <ul class="archive">
-
-    
-    <span>📌<i>Vue</i></span>
- 
-    
-
-    
-    
-
-    
-
-    
-  
-    
-        <li>
-        <span class="archive-date">2024-03-31</span>
-        <div class="archive-main">
-            <a class="archive-title" href="/2024/03/31/WebGIS%20Theory/%E5%9F%BA%E4%BA%8E%E9%AB%98%E5%BE%B7API%E7%9A%84%E7%AE%80%E5%8D%95%E8%B7%AF%E5%BE%84%E8%A7%84%E5%88%92/">基于高德API+Vue3+Vite+TS+Element-Plus的简单路径规划前端程序</a>
-        </div>
-        </li>
-    
-  
-  </ul>
-</div>
- 
-                    
                     
                     
                     <!--说明是文章post页面-->
+                    
+                        <div class="post-main">
+
+    
+        <div class="post-main-title">
+            MATLAB 入门笔记
+        </div>
+      
+    
+
+    <div class="post-md">
+        
+            
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%B0%E7%BB%84"><span class="post-toc-text">数组</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%B8%80%E8%88%AC%E6%9E%84%E9%80%A0"><span class="post-toc-text">一般构造</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AD%89%E9%97%B4%E8%B7%9D%E5%90%91%E9%87%8F"><span class="post-toc-text">等间距向量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%95%B0%E7%BB%84%E5%88%9B%E5%BB%BA%E5%87%BD%E6%95%B0"><span class="post-toc-text">数组创建函数</span></a></li></ol></li></ol>
+            
+        
+        <link rel="stylesheet" type="text/css" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/lightgallery.min.css" /><div class=".article-gallery"><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>clear函数：清理工作区</p>
+<p>clc函数：清理命令行窗口</p>
+<p>pi表示圆周率，显化值为有限小数，内部计算时为高精度</p>
+<p>内置函数：</p>
+<p>format long：15位小数</p>
+<p>format short：4位小数</p>
+<p>script</p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="一般构造"><a href="#一般构造" class="headerlink" title="一般构造"></a>一般构造</h3><p><code>[3 5]</code>或 <code>[3,5]</code>数组，行向量，1 x n</p>
+<p><code>[3;5]</code>列向量，n x 1</p>
+<h3 id="等间距向量"><a href="#等间距向量" class="headerlink" title="等间距向量"></a>等间距向量</h3><p><code>3:2:13</code>：3~13，间距2</p>
+<p>关联函数：linspace(<em>first</em>,<em>last</em>,<em>number_of_elements</em>)</p>
+<p>若 <code>x=[3 5]</code>,则 <code>x&#39;=[3;5]</code></p>
+<p>注：使用 <code>:</code>不需要 <code>[]</code>转置时，使用括号如 <code>(3:2:13)&#39;</code></p>
+<h3 id="数组创建函数"><a href="#数组创建函数" class="headerlink" title="数组创建函数"></a>数组创建函数</h3><ul>
+<li><p>rand()</p>
+<p>eg: rand(3)：输出3x3的随机矩阵；rand(3,2)：输出3x2的随机矩阵</p>
+</li>
+<li><p>zeros() 参数同上，输出所有值都为0的矩阵</p>
+</li>
+<li><p>size()：获取矩阵大小</p>
+</li>
+</ul>
+</div><script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
+    </div>
+
+    <div class="post-meta">
+        <i>
+        
+            <span>2024-03-30</span>
+            
+                <span>该篇文章被 LeVent</span>
+            
+            
+                <span>打上标签:
+                    
+                    
+                        <a href='/tags/MATLAB/'>
+                            MATLAB
+                        </a>
+                    
+                </span>
+             
+             
+                <span>归为分类:
+                    
+                    
+                        <a href='/categories/MATLAB/'>
+                            MATLAB
+                        </a>
+                    
+                </span>
+            
+        
+        </i>
+    </div>
+    <br>
+    
+    <!-- <div class="post-footer-pre-next">
+        <span>上一篇：<a href=""></a></span>
+        <span class="post-footer-pre-next-last-span-right">上一篇：<a href=""></a></span>
+    </div> -->
+
+     
+</div>
+
+
+
+                                      
                     
                     
                     <div class="footer">

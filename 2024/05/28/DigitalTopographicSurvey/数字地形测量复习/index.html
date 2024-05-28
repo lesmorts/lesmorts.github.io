@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    
+    <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+    <meta name="description" content="数字地形测量复习" />
+    <meta name="hexo-theme-A4" content="v1.8.9" />
+    <link rel="alternate icon" type="image/webp" href="/img/avatar.webp">
+    <title>Levent</title>
+
+    
+        
+<link rel="stylesheet" href="/css/highlight/style1.css">
+
+        
+<link rel="stylesheet" href="/css/reset.css">
+
+        
+<link rel="stylesheet" href="/css/markdown.css">
+
+        
+<link rel="stylesheet" href="/css/fonts.css">
+ 
+         <!--注意：首页既不是post也不是page-->
+        
+        
+        
+<link rel="stylesheet" href="/css/ui.css">
+ 
+        
+<link rel="stylesheet" href="/css/style.css">
+
+
+        
+            <!--返回顶部css-->
+            
+<link rel="stylesheet" href="/css/returnToTop.css">
+
+            
+<link rel="stylesheet" href="/css/unicons.css">
+
+        
+        
+            <!--目录-->
+            
+<link rel="stylesheet" href="/css/toc.css">
+
+        
+    
+
+    
+        
+<link rel="stylesheet" href="/css/returnToLastPage.css">
+
+    
+    
+   
+<link rel="stylesheet" href="/css/lightgallery.min.css">
+
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+    
+    <style>
+        :root {
+            --waline-theme-color: #323e74; 
+            --waline-color: #323e74; 
+            --waline-border-color: #323e74; 
+            --waline-white: #323e74; 
+            --waline-bgcolor-light: #f2fafc;  
+        }
+        body {
+            color: #323e74;
+            background: #eaeae8;
+        }
+        .post-md code {
+            background: #e7f7f3;
+            color: #7f688d; 
+        }
+        .post-md pre, .post-md .highlight {
+            background: #e7f7f3;
+            color: #7f688d; 
+        }
+        pre .string, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, pre .xml .cdata {
+            color: #323e74;
+        }
+        pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, pre .constant {
+            color: #323e74;
+        }
+        .year-font-color {
+            color: #323e74 !important;
+        }
+        .wl-card span.wl-nick {
+            color: #323e74; 
+        }
+        .wl-card .wl-badge {
+            border: 1px solid #323e74;
+            color: #323e74; 
+        }
+        .wl-btn {
+            border: 1px solid #323e74; 
+            color:  #323e74;  
+        }
+        .wl-btn.primary {
+            color: #f2fafc; 
+        }
+        .wl-header label {
+            color: #323e74;
+        }
+        a {
+            color: #7f688d;
+        }
+
+        .post-md a {
+            color: #7f688d;
+        }
+
+        .nav li a {
+            color: #7f688d;
+        }
+
+        .archive-main a:link {
+            color: #7f688d;
+        }
+        .archive-main a:visited {
+            color: #767c7c; 
+        }
+
+        .archive li span {
+            color: #323e74;
+        }
+
+        .post-main-title {
+            color: #323e74;
+        }
+
+        .post-md h1,
+        .post-md h2,
+        .post-md h3,
+        .post-md h4,
+        .post-md h5,
+        .post-md h6 {
+            color: #323e74;
+        }
+
+        [data-waline] p {
+            color: #323e74;
+        }
+        [data-waline] a {
+            color: #323e74;
+        } 
+        .wl-sort li.active {
+            color: #323e74;
+        }
+
+        .wl-card .wl-meta>span {
+            background: #f2fafc;
+        }
+
+        .paper {
+            background: #eaeae8;
+        }
+
+        .index-main {
+            background: #f2fafc;
+        }
+
+        .paper-main {
+            background: #f2fafc;
+        }
+
+        .wl-panel {
+            background: #f2fafc;
+        }
+
+        .archive li:nth-child(odd) {
+            background: #f2fafc;
+            ;
+        }
+
+        .archive li:nth-child(even) {
+            background: #f2fafc;
+        }
+
+        .post-md table tr:nth-child(odd) td {
+            background: #f2fafc;
+        }
+
+        .post-md table tr:nth-child(even) td {
+            background: #f2fafc;
+        }
+
+    
+        .progress-wrap::after {
+            color: #323e74; /* 箭头的颜色 */
+        }
+        .progress-wrap svg.progress-circle path {
+	        stroke: #323e74; /* 边框的颜色 */
+        }
+        .progress-wrap::before {
+	        background-image: linear-gradient(298deg, #7f688d, #7f688d); /* 鼠标滑过的箭头颜色 */
+         }
+
+        .return-to-last-progress-wrap::after {
+            color: #323e74; /* 箭头的颜色 */
+        }
+        .return-to-last-progress-wrap svg.progress-circle path {
+	        stroke: #323e74; /* 边框的颜色 */
+        }
+        .return-to-last-progress-wrap::before {
+	        background-image: linear-gradient(298deg, #7f688d, #7f688d); /* 鼠标滑过的箭头颜色 */
+         }
+
+         .left-toc-container::-webkit-scrollbar-thumb {
+            background-color: #323e74; /* 设置滚动条拖动块的颜色 */
+        }
+
+        .bs-docs-sidebar .nav>.active>a,
+        .bs-docs-sidebar .nav>li>a:hover,
+        .bs-docs-sidebar .nav>li>a:focus {
+            color: #7f688d;
+            border-left-color: #7f688d;
+        }
+        .bs-docs-sidebar .nav>li>a {
+            color:  #323e74;
+        }
+    </style>
+
+    
+    <body>
+        
+            <div class="left-toc-container">
+                <nav id="toc" class="bs-docs-sidebar"></nav>
+            </div>
+        
+        <div class="paper">
+            
+            
+            
+            
+                <div class="shadow-drop-2-bottom paper-main">
+                    
+
+
+<div class="header">
+    <div class="header-container">
+        <img style="
+        width: 56px;
+        height: auto;" alt="^-^" cache-control="max-age=86400" class="header-img" src="/img/avatar.webp" width="10%"></img>
+        <div class="header-content">
+            <a class="logo" href="/">Levent</a> 
+            <span class="description">GIS</span> 
+        </div>
+        
+    </div>
+    
+   
+    <ul class="nav">
+        
+            
+                <li><a href="/">首页</a></li>
+            
+        
+            
+                <li><a href="/list/">文章</a></li>
+            
+        
+            
+                <li><a href="/tags/">标签</a></li>
+            
+        
+            
+                <li><a href="/categories/">分类</a></li>
+            
+        
+            
+                <li><a href="/oneTime/">一时</a></li>
+            
+        
+    </ul>
+</div> 
+        
+                    
+                    
+
+                    
+                    
+                    
+                    <!--说明是文章post页面-->
+                    
+                        <div class="post-main">
+
+    
+        <div class="post-main-title">
+            数字地形测量复习
+        </div>
+      
+    
+
+    <div class="post-md">
+        
+            
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%95%B0%E5%AD%97%E5%9C%B0%E5%BD%A2%E6%B5%8B%E9%87%8F%E5%A4%8D%E4%B9%A0"><span class="post-toc-text">数字地形测量复习</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="post-toc-text">概述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="post-toc-text">基本原理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9C%B0%E5%BD%A2%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E7%B3%BB%E7%BB%9F"><span class="post-toc-text">地形数据采集系统</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%85%B6%E4%BB%96%E8%AE%BE%E5%A4%87"><span class="post-toc-text">其他设备</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%95%B0%E5%AD%97%E6%B5%8B%E5%9B%BE%E4%BC%98%E5%8A%BF"><span class="post-toc-text">数字测图优势</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%85%A8%E9%87%8E%E5%A4%96%E6%95%B0%E5%AD%97%E6%B5%8B%E5%9B%BE%E7%9A%84%E7%8E%B0%E7%8A%B6%E4%B8%8E%E5%B1%95%E6%9C%9B"><span class="post-toc-text">全野外数字测图的现状与展望</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%B0%E5%AD%97%E5%8C%96%E6%B5%8B%E7%BB%98%E5%A4%96%E4%B8%9A%E5%B7%A5%E4%BD%9C"><span class="post-toc-text">数字化测绘外业工作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%95%B0%E5%AD%97%E5%8C%96%E9%87%8E%E5%A4%96%E6%B5%8B%E9%87%8F%E8%AE%BE%E5%A4%87"><span class="post-toc-text">数字化野外测量设备</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%95%B0%E5%AD%97%E5%8C%96%E6%B5%8B%E5%9B%BE%E6%8A%80%E6%9C%AF%E8%AE%BE%E8%AE%A1"><span class="post-toc-text">数字化测图技术设计</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%95%B0%E5%AD%97%E5%8C%96%E6%B5%8B%E5%9B%BE%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86"><span class="post-toc-text">数字化测图数据采集</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B5%8B%E7%BB%98%E6%88%90%E6%9E%9C%E6%A3%80%E6%9F%A5%E4%B8%8E%E9%AA%8C%E6%94%B6"><span class="post-toc-text">测绘成果检查与验收</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%8F%90%E4%BA%A4%E6%A3%80%E6%9F%A5%E9%AA%8C%E6%94%B6%E7%9A%84%E6%B5%8B%E7%BB%98%E6%88%90%E6%9E%9C"><span class="post-toc-text">提交检查验收的测绘成果</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%A3%80%E6%9F%A5%E9%AA%8C%E6%94%B6%E7%9A%84%E4%B8%80%E8%88%AC%E8%A7%84%E5%AE%9A"><span class="post-toc-text">检查验收的一般规定</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%A3%80%E6%9F%A5%E9%AA%8C%E6%94%B6%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C%E6%96%B9%E6%B3%95"><span class="post-toc-text">检查验收的内容和方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%B0%E5%AD%97%E5%9C%B0%E5%BD%A2%E5%9B%BE%E7%BB%98%E5%88%B6%E6%96%B9%E6%B3%95"><span class="post-toc-text">数字地形图绘制方法</span></a></li></ol></li></ol>
+            
+        
+        <link rel="stylesheet" type="text/css" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/lightgallery.min.css" /><div class=".article-gallery"><h1 id="数字地形测量复习"><a href="#数字地形测量复习" class="headerlink" title="数字地形测量复习"></a>数字地形测量复习</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><strong>数字化测图&#x2F;数字地形测量</strong>：全站型电子速测仪和GPS系统及计算机辅助制图系统，两者结合逐步形成了一套从野外数据采集到内业制图，实现了全过程数字化的大比例尺地形测图方法</p>
+<ul>
+<li>实质：全解析计算机辅助测图方法</li>
+</ul>
+<p><strong>地形测量</strong>：测量地球表面局部区域内各种地形、地物在确定的参照系统中的位置和几何形状，以一定的比例尺缩小，并按特定的符号绘制成平面图形的测量工作</p>
+<p><strong>白纸测图（模拟法测图）</strong>：使用量角器、比例尺等绘图工具，直接在绘图纸上定点，并按规定的绘图符号手工绘制地形图</p>
+<h3 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h3><p>采集地面上的地形、地物要素的三维坐标以及描述其性质与相互关系的信息，然后录入计算机，借助计算机绘图系统处理，显示、输出与传统地形图表现形式相同的地形图</p>
+<h3 id="地形数据采集系统"><a href="#地形数据采集系统" class="headerlink" title="地形数据采集系统"></a>地形数据采集系统</h3><p>外业数据：全站仪和GPS-RTK</p>
+<p>内页数据：图形介质已有的图形</p>
+<h3 id="其他设备"><a href="#其他设备" class="headerlink" title="其他设备"></a>其他设备</h3><p>小规模：无人机航测系统和三维激光数字扫描仪</p>
+<p>大规模：有人机航测系统或卫星遥感</p>
+<h3 id="数字测图优势"><a href="#数字测图优势" class="headerlink" title="数字测图优势"></a>数字测图优势</h3><ul>
+<li>测图劳动强度低、效率高</li>
+<li>成果能满足数字化、信息化时代的需求<ul>
+<li>管理：信息量大且有编辑修改、储存、处理、传输方便和供多用户共享</li>
+<li>应用：方便快捷地提取点位坐标、两点距离、方位、地块面积、土石方量等信息，供工程计算使用</li>
+<li>GIS建库必备基础资源，满足信息化时代对数字地理信息的要求</li>
+</ul>
+</li>
+<li>点位精度高，精度与比例尺无关<ul>
+<li>白纸测图定位点平面位置受定点**<code>测量误差</code><strong>,</strong><code>测点展绘误差</code>**影响。随测点到测站距离加大，误差增长迅速</li>
+</ul>
+</li>
+<li>成果便于保存与更新<ul>
+<li>测图成果以数据文件形式存入计算机存储介质，确保地形图的可靠性和现时形</li>
+</ul>
+</li>
+<li>数据利用率高<ul>
+<li>通过如层管理和无极放缩解决图形元素超出负载量的情况</li>
+<li>数据共享性强</li>
+<li>例：CASS中定义了26个图层，按照地貌、地物属性特征划分</li>
+</ul>
+</li>
+</ul>
+<h3 id="全野外数字测图的现状与展望"><a href="#全野外数字测图的现状与展望" class="headerlink" title="全野外数字测图的现状与展望"></a>全野外数字测图的现状与展望</h3><ol>
+<li>数字化测图技术的日趋成熟和野外数字化测绘设备价格的大幅度下降，国内各测绘单位采用野外直接数字化测图的作业方法。</li>
+<li>相较白纸测图，极大提高了成图质量和作业效率。但仍然有着固有的作业时间长、费用高的劣势。不能进行大规模、大面积采用</li>
+<li>发展趋势：采用数字化摄影测量方法，周期性地完成大区域的较小比例尺地形图测绘任务，更多地用于小区域、大比例尺的地形测绘，或是局部修测等任务</li>
+<li><strong>大比例尺数字化测绘趋势</strong>：<ul>
+<li>全站仪、GPS（RTK）组成**<code>小区域</code><strong>的</strong> <code>大比例尺</code>**的数字化测绘系统</li>
+<li>小型飞机、无人机低空摄影测量或机载三维激光扫描作为**<code>较大区域</code>**大比例尺数字化测图技术的重要发展方向</li>
+</ul>
+</li>
+</ol>
+<h2 id="数字化测绘外业工作"><a href="#数字化测绘外业工作" class="headerlink" title="数字化测绘外业工作"></a>数字化测绘外业工作</h2><h3 id="数字化野外测量设备"><a href="#数字化野外测量设备" class="headerlink" title="数字化野外测量设备"></a>数字化野外测量设备</h3><ul>
+<li><p>全站仪</p>
+<ul>
+<li>同时进行角度和距离测量</li>
+<li>可直接一次性测定水平角、竖直角、斜距，选择计算并显示出测边的方位角、测点高程及平面坐标等</li>
+<li>可以实现与计算机的双向通讯</li>
+</ul>
+</li>
+<li><p>GPS接收机</p>
+<ul>
+<li><p>绝对误差达到数米乃至数十米，不能满足大多数测量工作所需的定位精度</p>
+</li>
+<li><p>通过**<code>同步观测同一组卫星</code><strong>的观测方法 (</strong><code>数据事后差分处理</code>**），可以使定位误差的绝大部分强烈相关，从而通过求坐标差而自然消除，获得极高的相对定位精度</p>
+</li>
+<li><p>应用：</p>
+<ul>
+<li><strong>控制测量</strong></li>
+<li><strong>地形测量</strong></li>
+</ul>
+<blockquote>
+<p>初始化：利用已知点上观测数据及原坐标数据，求得GPS二维基线向量转换到当地坐标系统的二维基线向量的转换参数，及基准点当地坐标</p>
+<p>碎部点采集：初始化完成后开始测量工作，流动站到待定点上，通过与基准站的差分，求得基准站到流动站的高精度坐标差</p>
+<p>网络RTK   （CORS系统）</p>
+<p>主要技术方法： VRS（虚拟参考站）、FTK、主辅站技术</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="数字化测图技术设计"><a href="#数字化测图技术设计" class="headerlink" title="数字化测图技术设计"></a>数字化测图技术设计</h3><ul>
+<li><p>意义：根据相关测量规范要求及用图单位的具体用途，结合测区自然地理条件和本单位仪器设备、技术力量和资金情况等因素，制定出技术上可行、经济上合理的作业方案、作业方法和实施计划，并将其编制成技术设计书</p>
+</li>
+<li><p>包含文件：</p>
+<p>(1)测绘任务的相关文件或合同书；<br>(2) 相关的测量技术规范；<br>(3) 测量生产定额、成本核算定额和设备标准等；<br>(4) 测区已有资料</p>
+</li>
+<li><p>基本原则：</p>
+<p>(1)技术设计方案应先考虑整体而后局部，且要兼顾发展，要着眼于测绘成果的长远及综合应用；<br>(2) 从实际出发，在满足技术标准要求的前提下，选择经济效益较高的作业方案；<br>(3) 为保证已有的测绘成果的延续利用，应尽可能使新测成果与原有测绘成果兼容</p>
+</li>
+<li><p><strong>主要内容</strong>（<strong>图表形式表述</strong>）</p>
+<blockquote>
+<ol>
+<li><p>一般性说明：① 任务概述；② 测区自然地理条件；③ 已有资料利用情况</p>
+</li>
+<li><p>设计方案：① 采用的技术规范；② 控制测量技术方案设计；③ 地形测量技术设计</p>
+</li>
+<li><p>① 工作量统计：详列各工序工作量</p>
+<p>②计划安排：根据工作量统计，计划投入的人力物力，参照生产定额，分别列出各期进度计划和各工序衔接计划</p>
+<p>③经费预算：根据设计方案和进度计划，参照生产定额和成本定额，编制分期经费预算和总经费预算，并作必要的说明</p>
+</li>
+<li><p>上交资料清单：根据规范及资料使用的具体要求，明确列出要提交的全部资料清单</p>
+</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h3 id="数字化测图数据采集"><a href="#数字化测图数据采集" class="headerlink" title="数字化测图数据采集"></a>数字化测图数据采集</h3><ul>
+<li><p>作业流程：</p>
+<p>① 野外数据采集；<br>② 内业编辑成图；<br>③ 图面检查；<br>④ 绘图输出，到实地调绘检查；<br>⑤ 根据调绘结果修改错误、进行图形整饰及分幅；<br>⑥ 绘制输出数字图成果，并刻录数字图光盘。</p>
+</li>
+<li><p>特点：</p>
+<ul>
+<li><p>总流程：采集特征点的位置信息和关系信息、属性信息，事后通过计算机软件完成编辑成图。对作业员基本技能要求较低，但对于其专业理论水平、计算机操作水平则提出了更高的要求</p>
+</li>
+<li><p>数字测图的测距、测角精度很高，理论上碎部点已达到图根点的精度水平，所以控制点的数量、密度相对于白纸测图的要求可减少许多</p>
+</li>
+<li><p>碎部测量时不受图幅边界的限制，外业不采用分幅作业，而是内业用绘图软件的分幅功能自动进行分幅处理</p>
+<blockquote>
+<p><strong>碎部测量虽然理论上也应在控制测量后进行，但在测区面积不大的条件下，也可先碎部后控制，或两者同时进行。</strong></p>
+</blockquote>
+</li>
+<li><p>由计算机控制绘制地形图特点是计算准确，但机械刻板。若要准确表示地形、地貌特征，必须测定足够多的特征点，因此数字测图直接测量地形特征点的数目比白纸测图要多</p>
+</li>
+<li><p>根据具体情况，充分发挥软件的各项功能，减少野外采点数量，可以显著提高作业效率</p>
+</li>
+<li><p>高程插值精确，但是处理不当可能与实际情况不符采点时应比白纸测图采集更多的地形点，如坡、坎下，山脊上等处的高程点，保证等高线真实反映实际地形</p>
+</li>
+</ul>
+</li>
+<li><p>注意事项</p>
+<ul>
+<li><p>两测站所测碎部点之间，应有一定的重合点，以便于内业检查和事后纠正</p>
+</li>
+<li><p>为了提高作业效率，减少外业工作时间，个别局部区域的碎部测量可采用“自由设站”的作业方法。就是任意设站，以假定坐标系统进行测量，然后通过两个以上的公共点（既有正确坐标，又有假定坐标），将任意设站测得的数据转换到正确的坐标系统中去</p>
+</li>
+<li><p>当需要勾绘等高线的区域内，有陡坎或陡坡时，除坎（坡）顶要采集高程点外，坎（坡）底也要采集高程点，或者量取坎（坡）高，在内业处理时输入。</p>
+<blockquote>
+<p><strong>否则，坎（坡）顶的点会和远离坎（坡）相对较为平缓处的点构成三角形边，使得等高线反映不出陡坡、陡坎处较为密集，其余地方较为稀疏的特征</strong></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>外业检查</p>
+<p>（1）有无漏测内容。<br>（2）有无因地形地物特征点漏测或测点连接错误导致的图形与实际不符。<br>（3）有无属性值错误，例如建筑物层数注记不对或漏记、单位名称漏记或与实际不符、植被标记不全或注记错误等。</p>
+</li>
+</ul>
+<h2 id="测绘成果检查与验收"><a href="#测绘成果检查与验收" class="headerlink" title="测绘成果检查与验收"></a>测绘成果检查与验收</h2><h3 id="提交检查验收的测绘成果"><a href="#提交检查验收的测绘成果" class="headerlink" title="提交检查验收的测绘成果"></a>提交检查验收的测绘成果</h3><ul>
+<li>成果说明文件；</li>
+<li>地形、地物点采集原始数据文件；</li>
+<li>控制点成果文件；</li>
+<li>数字图光盘；</li>
+<li>数字图打印成果。</li>
+</ul>
+<h3 id="检查验收的一般规定"><a href="#检查验收的一般规定" class="headerlink" title="检查验收的一般规定"></a>检查验收的一般规定</h3><ul>
+<li><p>对测绘产品实行二级检查和一级验收<br>测绘单位对测绘产品实行过程检查和最终检查。<br>委托单位或上级主管部门验收</p>
+</li>
+<li><p>主要依据：</p>
+<p>(1) 测绘任务书、合同书或委托验收的文件；</p>
+<p>(2) 有关技术规范；</p>
+<p>(3) 经批准的技术设计书。</p>
+</li>
+<li><p>数字测绘产品检验后的处理</p>
+<ol>
+<li>在检验中发现有不符合测量规范中相关技术标准、技术设计书规定的产品时，应及时提出意见交被检单位修改。若问题较多或性质较严重时，可将部分产品或全部产品退回被检单位，令其重新处理和自行检查后再提交验收，直至合格为止。</li>
+<li>经过验收判为合格产品，被检单位要对验收中发现的问题进行全面处理；验收后判为不合格的产品，则全部退回被检单位，令其重新处理和检验，然后重新申请验收。</li>
+</ol>
+</li>
+</ul>
+<h3 id="检查验收的内容和方法"><a href="#检查验收的内容和方法" class="headerlink" title="检查验收的内容和方法"></a>检查验收的内容和方法</h3><hr>
+<p>(1) 控制资料检验</p>
+<p>(2) 计算机资料检验</p>
+<p>(3) 外业实地检验</p>
+<p>(4) 数字测图产品的质量评定</p>
+<p>(5) 编写验收报告</p>
+<hr>
+<p>检查验收报告应包括以下内容</p>
+<hr>
+<p>(1) 任务概况（包括人员组成和采用的技术装备）；<br>(2) 检查验收工作采用的依据；<br>(3) 发现的问题及处理意见；<br>(4) 质量分析；<br>(5) 验收结论；<br>(6) 其他意见及建议。</p>
+<hr>
+<h2 id="数字地形图绘制方法"><a href="#数字地形图绘制方法" class="headerlink" title="数字地形图绘制方法"></a>数字地形图绘制方法</h2><p><strong>等高线主要特征</strong></p>
+<p>1）同一等高线上的点，其高程必相等；<br>2） 等高线均为闭合曲线，如不在本图幅内闭合，则必在图外闭合，故等高线必须延伸到图幅边缘。<br>3） 除在悬崖或绝壁处外，等高线在图上不能相交或重合；<br>4） 等高线和山脊线、山谷线正交；<br>5） 等高线的平距小，表示坡度陡；平距大则坡度缓，平距相等则坡度相等，因此平距与坡度成反比。<br>6） 等高线不能在图内中断，但遇道路、房屋、河流等地物符号可以局部中断。</p>
+<hr>
+</div><script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
+    </div>
+
+    <div class="post-meta">
+        <i>
+        
+            <span>2024-05-28</span>
+            
+                <span>该篇文章被 LeVent</span>
+            
+            
+                <span>打上标签:
+                    
+                    
+                        <a href='/tags/%E6%95%B0%E5%AD%97%E5%9C%B0%E5%BD%A2%E6%B5%8B%E9%87%8F/'>
+                            数字地形测量
+                        </a>
+                    
+                </span>
+             
+             
+                <span>归为分类:
+                    
+                    
+                        <a href='/categories/DigitalTopographicSurvey/'>
+                            DigitalTopographicSurvey
+                        </a>
+                    
+                </span>
+            
+        
+        </i>
+    </div>
+    <br>
+    
+    <!-- <div class="post-footer-pre-next">
+        <span>上一篇：<a href=""></a></span>
+        <span class="post-footer-pre-next-last-span-right">上一篇：<a href=""></a></span>
+    </div> -->
+
+     
+</div>
+
+
+
+                                      
+                    
+                    
+                    <div class="footer">
+    
+        <span> 
+            © 2003-2024 Levent 
+
+            
+                
+
+            
+        </span>
+    
+</div>
+<!--这是指一条线往下的内容-->
+<div class="footer-last">
+    
+            <span>俯仰之间 尽数化水</span>
+            
+    
+</div>
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <!--目录-->
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tocify/1.9.0/javascripts/jquery.tocify.min.js" type="text/javascript" ></script>
+        
+<script src="/js/toc.js"></script>
+
+    
+
+    
+<script src="/js/randomHeaderContent.js"></script>
+
+    <!--回到顶部按钮-->
+    
+        
+<script src="/js/returnToTop.js"></script>
+
+    
+
+    
+        
+<script src="/js/returnToLastPage.js"></script>
+
+    
+
+
+
+
+
+<script src="/js/lightgallery.min.js"></script>
+
+
+
+                </div>
+            
+            
+                <!-- 回到顶部的按钮-->  
+                <div class="progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+            
+                <!-- 返回的按钮-->  
+                <div class="return-to-last-progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+    </body>
+
+
+    <!--暗黑模式-->
+    <script src="/js/darkmode-js.min.js"></script>
+    <script>
+        function addDarkmodeWidget() {
+        const options = {
+            bottom: '53px', // default: '32px'
+            right: 'unset', // default: '32px'
+            left: '42px', // default: 'unset'
+            time: '0.3s', // default: '0.3s'
+            mixColor: '#fff', // default: '#fff'
+            backgroundColor: ' #eaeae8  ',  // default: '#fff'
+            buttonColorDark: '#100f2c',  // default: '#100f2c'
+            buttonColorLight: '#fff', // default: '#fff'
+            saveInCookies: true, // default: true,
+            label: '🌓', // default: ''
+            autoMatchOsTheme: true // default: true
+        }
+    
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+        
+        }
+        window.addEventListener('load', addDarkmodeWidget);
+    </script>
+  
+</html>
